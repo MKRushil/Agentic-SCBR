@@ -72,23 +72,36 @@ class CaseManager:
         results = []
         top_k = criteria.get('top_k', 5)
         symptoms = criteria.get('symptoms', [])
-
-        # 簡單的關鍵詞匹配
+        
+        # ✅ 添加：如果沒有案例，返回空列表
+        if not self.cases:
+            logger.info("案例庫為空，返回空結果")
+            return []
+        
         for case in self.cases:
+            # ✅ 添加：類型檢查
+            if not isinstance(case, dict):
+                logger.warning(f"跳過非字典類型的案例: {type(case)}")
+                continue
+            
             score = 0
             case_symptoms = case.get('symptoms', [])
-
+            
+            # ✅ 添加：確保症狀是列表
+            if not isinstance(case_symptoms, list):
+                logger.warning(f"案例症狀格式錯誤: {type(case_symptoms)}")
+                continue
+            
             # 計算症狀匹配度
             for sym in symptoms:
                 if sym in case_symptoms:
                     score += 1
-
+            
             if score > 0:
                 case_copy = case.copy()
                 case_copy['similarity_score'] = score / max(len(symptoms), 1)
                 results.append(case_copy)
-
-        # 按相似度排序
+        
+        # 排序
         results.sort(key=lambda x: x.get('similarity_score', 0), reverse=True)
-
         return results[:top_k]

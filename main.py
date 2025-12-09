@@ -185,10 +185,10 @@ async def diagnose(query: DiagnosisQuery):
 
         # 轉換為字典格式
         query_dict = {
-            "patient_info": query.patient_info.dict() if query.patient_info else {},
+            "patient_info": query.patient_info.model_dump() if query.patient_info else {},
             "chief_complaint": query.chief_complaint,
             "symptoms": query.symptoms,
-            "tongue": query.tongue.dict(),
+            "tongue": query.tongue.model_dump(),
             "pulse": query.pulse
         }
 
