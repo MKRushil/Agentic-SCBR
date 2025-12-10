@@ -1,0 +1,10 @@
+[
+  {
+    "rule_id": "RULE_EXO_001",
+    "category": "Exogenous",
+    "syndrome_name": "風寒證",
+    "main_symptoms": ["惡寒", "發熱", "無汗", "頭痛", "身痛"],
+    "condition_logic": "若 (惡寒重 OR 發熱輕) AND (脈浮緊 OR 舌苔薄白)，則成立。",
+    "associated_treatment": "辛溫解表"
+  }
+]

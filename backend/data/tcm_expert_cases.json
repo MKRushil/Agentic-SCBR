@@ -1,0 +1,13 @@
+[
+  {
+    "case_id": "CASE_SEEDED_001",
+    "type": "SEEDED",
+    "chief_complaint": "最近三天發燒，喉嚨痛，怕冷。",
+    "symptom_tags": ["發熱", "惡寒", "咽痛", "脈浮"],
+    "diagnosis_disease": "感冒",
+    "diagnosis_syndrome": "風寒束表",
+    "treatment_principle": "辛溫解表，宣肺散寒",
+    "pathology_analysis": "風寒外襲，衛陽被遏，故見發熱惡寒。",
+    "confidence_score": 1.0
+  }
+]
