@@ -15,9 +15,6 @@ class WeaviateClient:
             self.client = weaviate.connect_to_local(
                 host=settings.WEAVIATE_URL.replace("http://", "").split(":")[0],
                 port=int(settings.WEAVIATE_URL.split(":")[-1]),
-                headers={
-                    "X-Nvidia-Api-Key": settings.NVIDIA_API_KEY # 若未來需要模組整合
-                }
             )
             logger.info(f"Connected to Weaviate at {settings.WEAVIATE_URL}")
         except Exception as e:
@@ -64,3 +61,26 @@ class WeaviateClient:
         except Exception as e:
             logger.error(f"[Weaviate] Insert case failed: {str(e)}")
             raise e
+
+    def search_diagnostic_rules(self, vector: List[float], limit: int = 5) -> List[Dict[str, Any]]:
+        """Path B: 檢索診斷規則"""
+        try:
+            collection = self.client.collections.get("TCM_Diagnostic_Rules")
+            response = collection.query.near_vector(
+                near_vector=vector,
+                limit=limit,
+                return_metadata=["distance"]
+            )
+            
+            results = []
+            for obj in response.objects:
+                results.append({
+                    **obj.properties,
+                    "similarity": 1 - obj.metadata.distance,
+                    "id": str(obj.uuid)
+                })
+            return results
+            
+        except Exception as e:
+            logger.error(f"[Weaviate] Search rules failed: {str(e)}")
+            return []

@@ -1,5 +1,6 @@
 import logging
 import asyncio
+import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,13 +15,23 @@ from app.database.sync_manager import SyncManager
 from app.database.schema import WeaviateSchema
 from app.database.weaviate_client import WeaviateClient
 
+settings = get_settings()
+
 # 配置 Logging
+# 確保 Log 目錄存在
+log_dir = os.path.dirname(settings.LOG_FILE_PATH)
+if log_dir and not os.path.exists(log_dir):
+    os.makedirs(log_dir)
+
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(), # 輸出到 Console
+        logging.FileHandler(settings.LOG_FILE_PATH, encoding='utf-8') # 輸出到檔案
+    ]
 )
 logger = logging.getLogger(__name__)
-settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -44,9 +55,12 @@ async def lifespan(app: FastAPI):
         # 資料庫連不上是致命錯誤，但也許允許降級執行？這裡選擇繼續嘗試 Sync
 
     # 2. Run Data Sync (Async)
-    # 依據規格書 8.0，這是在啟動時執行的
-    sync_manager = SyncManager()
-    await sync_manager.run_sync()
+    if settings.RUN_SYNC_ON_STARTUP:
+        logger.info("[Startup] RUN_SYNC_ON_STARTUP is True. Starting data synchronization...")
+        sync_manager = SyncManager()
+        await sync_manager.run_sync()
+    else:
+        logger.info("[Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.")
     
     yield
     

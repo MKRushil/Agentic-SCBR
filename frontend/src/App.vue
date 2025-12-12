@@ -1,6 +1,16 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import { usePatientStore } from '@/stores/patientStore'
 import { useChatStore } from '@/stores/chatStore'
+import { 
+  LayoutDashboard, 
+  Stethoscope, 
+  User, 
+  LogOut,
+  MessageSquare,
+  Activity,
+  FileText
+} from 'lucide-vue-next'
 
 // Components
 import PatientSearch from '@/components/reception/PatientSearch.vue'
@@ -15,77 +25,169 @@ import GlobalDisclaimer from '@/components/layout/GlobalDisclaimer.vue'
 
 const patientStore = usePatientStore()
 const chatStore = useChatStore()
+
+// Layout State
+type LayoutMode = 'dashboard' | 'workbench'
+const layoutMode = ref<LayoutMode>('workbench')
+
+// Active Tab (for Workbench Right Panel / Dashboard Panel)
+const activeTab = ref<'chat' | 'diagnosis' | 'reasoning' | 'report'>('diagnosis')
+
+const setMode = (mode: LayoutMode) => {
+  layoutMode.value = mode
+  // 切換模式時重置 Tab
+  if (mode === 'workbench') activeTab.value = 'diagnosis'
+  else activeTab.value = 'chat'
+}
+
+const setTab = (tab: any) => {
+  activeTab.value = tab
+}
 </script>
 
 <template>
-  <div class="h-screen flex flex-col font-sans text-slate-800 bg-gray-100">
-    <!-- Header -->
-    <header class="bg-emerald-700 text-white p-4 shadow-md flex justify-between items-center z-10">
-      <div class="flex items-center space-x-3">
-        <h1 class="text-xl font-bold tracking-wide">Agentic SCBR-CDSS</h1>
-        <span class="text-xs bg-emerald-800 px-2 py-1 rounded border border-emerald-600">v8.0</span>
+  <!-- 頂層容器：透過 class 控制 CSS 變數與 Grid -->
+  <div :class="layoutMode === 'dashboard' ? 'layout-dashboard' : 'layout-workbench'">
+    
+    <!-- 全域頂部 -->
+    <header class="global-header">
+      <div class="brand-area">
+        <Stethoscope class="w-6 h-6" />
+        SCBR 智慧醫療系統 <span class="text-xs bg-slate-100 text-slate-500 px-2 rounded ml-2">v8.0</span>
       </div>
-      <div v-if="patientStore.isIdentified" class="flex items-center space-x-4 text-sm">
-        <span>病患: <strong class="text-yellow-300">{{ patientStore.patientName }}</strong></span>
-        <span>ID: {{ patientStore.currentPatientId }}</span>
-        <button @click="patientStore.clearPatient" class="text-emerald-200 hover:text-white underline">登出</button>
+      
+      <!-- 中間：病患資訊 -->
+      <div class="flex-1 flex justify-center">
+        <div v-if="patientStore.isIdentified" class="flex items-center bg-slate-50 px-4 py-1.5 rounded-full space-x-3 text-sm border border-slate-200">
+          <User class="w-4 h-4 text-slate-500" />
+          <span class="text-slate-600">病患: <strong class="text-slate-900">{{ patientStore.patientName }}</strong></span>
+          <span class="text-slate-400 text-xs border-l pl-3 border-slate-300">ID: {{ patientStore.currentPatientId }}</span>
+          <button @click="patientStore.clearPatient" class="ml-2 text-red-500 hover:bg-red-50 px-2 py-0.5 rounded transition flex items-center">
+            <LogOut class="w-3 h-3 mr-1" /> 登出
+          </button>
+        </div>
+        <PatientSearch v-else />
+      </div>
+
+      <!-- 佈局切換器 -->
+      <div class="layout-switcher">
+        <button class="layout-btn" :class="{ active: layoutMode === 'dashboard' }" @click="setMode('dashboard')">
+          <LayoutDashboard class="w-4 h-4" /> 儀表板
+        </button>
+        <button class="layout-btn" :class="{ active: layoutMode === 'workbench' }" @click="setMode('workbench')">
+          <Stethoscope class="w-4 h-4" /> 工作台
+        </button>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-1 flex overflow-hidden">
-      
-      <!-- 1. Reception Mode (未登入) -->
-      <div v-if="!patientStore.isIdentified" class="flex-1 flex items-center justify-center bg-gray-50">
-        <div class="w-full max-w-md p-8 bg-white rounded-xl shadow-lg border border-slate-200 text-center">
-          <h2 class="text-2xl font-bold text-slate-700 mb-6">病患報到系統</h2>
-          <PatientSearch />
-          <p class="mt-4 text-xs text-slate-400">請輸入身分證字號或病歷號以啟動診斷工作流。</p>
-        </div>
-      </div>
-
-      <!-- 2. Clinical Mode (已登入) -->
-      <div v-else class="flex w-full h-full">
+    <div class="app-container">
         
-        <!-- Left Column: Chat Interaction -->
-        <div class="w-1/2 flex flex-col border-r border-slate-200 bg-white relative">
-          <SafetyBanner />
-          <ChatContainer />
-          <InputArea />
+      <!-- 左側導航 (僅 Dashboard 模式顯示，透過 CSS margin-left 控制) -->
+      <aside class="sidebar">
+        <div class="sidebar-menu">
+          <div class="menu-item" :class="{ active: activeTab === 'chat' }" @click="setTab('chat')">
+            <MessageSquare class="w-4 h-4" /> 診斷對話
+          </div>
+          <div class="menu-item" :class="{ active: activeTab === 'diagnosis' }" @click="setTab('diagnosis')">
+            <Activity class="w-4 h-4" /> 診斷建議
+          </div>
+          <div class="menu-item" :class="{ active: activeTab === 'reasoning' }" @click="setTab('reasoning')">
+            <Activity class="w-4 h-4" /> 推導過程
+          </div>
+          <div class="menu-item" :class="{ active: activeTab === 'report' }" @click="setTab('report')">
+            <FileText class="w-4 h-4" /> 診斷報告
+          </div>
         </div>
+      </aside>
 
-        <!-- Right Column: Dashboard & Evidence -->
-        <div class="w-1/2 flex flex-col overflow-y-auto bg-slate-50 p-6 space-y-6">
+      <!-- 主內容區 -->
+      <main class="main-canvas">
           
-          <!-- Diagnosis Cards -->
-          <section>
-            <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">診斷建議 (Suggestions)</h3>
-            <div v-if="chatStore.currentDiagnosis.length === 0" class="text-slate-400 text-sm italic text-center py-8 bg-slate-100 rounded border border-dashed border-slate-300">
-              尚無診斷結果，請在左側輸入病患資訊。
-            </div>
-            
-            <DiagnosisCard 
-              v-for="diag in chatStore.currentDiagnosis"
-              :key="diag.disease_name"
-              :diagnosis="diag"
-              :mode="chatStore.responseType"
-            />
+        <!-- 1. Chat Panel -->
+        <!-- 在 Workbench 模式下永遠顯示；在 Dashboard 模式下，只有 tab='chat' 時顯示 -->
+        <section id="panel-chat" class="panel" 
+          v-show="layoutMode === 'workbench' || (layoutMode === 'dashboard' && activeTab === 'chat')"
+        >
+          <div class="panel-header">
+            <span><MessageSquare class="w-4 h-4 inline mr-2" /> 病史採集與對話</span>
+            <span class="text-xs text-slate-400">AI Online</span>
+          </div>
+          
+          <div class="panel-content flex flex-col p-0"> 
+            <SafetyBanner />
+            <ChatContainer class="flex-1" />
+          </div>
+          
+          <div class="border-t border-slate-200">
+            <InputArea />
+          </div>
+        </section>
 
-            <!-- Learning Loop -->
-            <FeedbackActions />
+        <!-- Workbench 右側容器 (僅在 Workbench 模式顯示) -->
+        <div class="workbench-right-col" v-if="layoutMode === 'workbench'">
+            
+          <!-- Tabs -->
+          <div class="workbench-tabs">
+            <div class="wb-tab" :class="{ active: activeTab === 'diagnosis' }" @click="setTab('diagnosis')">診斷建議</div>
+            <div class="wb-tab" :class="{ active: activeTab === 'reasoning' }" @click="setTab('reasoning')">推導過程</div>
+            <div class="wb-tab" :class="{ active: activeTab === 'report' }" @click="setTab('report')">診斷報告</div>
+          </div>
+
+          <!-- 2. Diagnosis Panel -->
+          <section id="panel-diagnosis" class="panel" v-show="activeTab === 'diagnosis'" style="display: flex;">
+             <div class="panel-content space-y-6">
+                <RadarChart />
+                
+                <div v-if="chatStore.currentDiagnosis.length > 0" class="space-y-3">
+                  <DiagnosisCard 
+                    v-for="diag in chatStore.currentDiagnosis"
+                    :key="diag.disease_name"
+                    :diagnosis="diag"
+                    :mode="chatStore.responseType"
+                  />
+                  <FeedbackActions />
+                </div>
+                <div v-else class="text-center py-12 text-slate-400 text-sm border-2 border-dashed border-slate-200 rounded-lg">
+                  請輸入主訴以獲取建議。
+                </div>
+             </div>
           </section>
 
-          <!-- Visualization -->
-          <RadarChart />
+          <!-- 3. Reasoning Panel -->
+          <section id="panel-reasoning" class="panel" v-show="activeTab === 'reasoning'" style="display: flex;">
+            <div class="panel-content">
+              <EvidencePanel />
+            </div>
+          </section>
 
-          <!-- Evidence Trace -->
-          <EvidencePanel />
+          <!-- 4. Report Panel -->
+          <section id="panel-report" class="panel" v-show="activeTab === 'report'" style="display: flex;">
+            <div class="panel-content bg-slate-200 flex justify-center p-8">
+               <div class="bg-white shadow-lg p-12 w-[210mm] min-h-[297mm] text-slate-800 text-sm leading-relaxed prose prose-slate">
+                  <div v-if="chatStore.formattedReport" v-html="chatStore.formattedReport.replace(/\n/g, '<br>')"></div>
+                  <div v-else class="text-center text-slate-400 py-20 italic">
+                    尚未生成報告。
+                  </div>
+               </div>
+            </div>
+          </section>
+
         </div>
 
-      </div>
-    </main>
+        <!-- Dashboard 模式下的其他 Panels (僅在 Dashboard 模式顯示) -->
+        <template v-if="layoutMode === 'dashboard'">
+            <!-- 這些 Panel 在 Dashboard 模式下是獨立的全螢幕 View -->
+            <section id="panel-diagnosis-dash" class="panel" v-show="activeTab === 'diagnosis'">
+                <div class="panel-header"><span>診斷建議</span></div>
+                <div class="panel-content"><RadarChart /><!-- ... --></div>
+            </section>
+            <!-- 簡化起見，先專注讓 Workbench 正常 -->
+        </template>
 
-    <!-- Footer Disclaimer -->
+      </main>
+    </div>
+
+    <!-- Footer -->
     <GlobalDisclaimer />
   </div>
 </template>

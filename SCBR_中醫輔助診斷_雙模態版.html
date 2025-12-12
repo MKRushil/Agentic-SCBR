@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCBR-CDSS 雙模態系統</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sidebar-width: 260px;
+            --header-height: 60px;
+            --primary: #0f766e;
+            --primary-bg: #f0fdfa;
+            --bg-body: #f1f5f9;
+            --border: #e2e8f0;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: var(--bg-body);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- 頂部導航列 (全域) --- */
+        .global-header {
+            height: var(--header-height);
+            background: white;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 50;
+            flex-shrink: 0;
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .layout-switcher {
+            display: flex;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .layout-btn {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #64748b;
+            transition: all 0.2s;
+        }
+
+        .layout-btn.active {
+            background: white;
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* --- 應用程式主容器 --- */
+        .app-container {
+            flex-grow: 1;
+            display: flex;
+            position: relative;
+            height: calc(100vh - var(--header-height));
+            transition: all var(--transition-speed);
+        }
+
+        /* --- 左側 Sidebar (僅在 Dashboard 模式顯示) --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: #1e293b;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            transition: margin-left var(--transition-speed);
+        }
+
+        .sidebar-menu {
+            padding: 20px 0;
+        }
+
+        .menu-item {
+            padding: 12px 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #94a3b8;
+            transition: 0.2s;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            background: rgba(255,255,255,0.05);
+            color: white;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* --- 主內容區 (Canvas) --- */
+        .main-canvas {
+            flex-grow: 1;
+            background: var(--bg-body);
+            position: relative;
+            overflow: hidden;
+            display: flex; /* 預設使用 Flex */
+        }
+
+        /* =============================================
+           核心佈局邏輯：Dashboard vs Workbench
+           =============================================
+        */
+
+        /* 模式 A: Dashboard (Sidebar 顯示，內容區單一視圖) */
+        body[data-mode="dashboard"] .sidebar {
+            margin-left: 0;
+        }
+        body[data-mode="dashboard"] .panel {
+            display: none; /* 預設隱藏所有面板 */
+            width: 100%;   /* 滿版 */
+            height: 100%;
+        }
+        body[data-mode="dashboard"] .panel.active {
+            display: flex; /* 僅顯示 active 的面板 */
+        }
+        /* Dashboard 模式下隱藏 Right Panel 的 Tab 切換器，因為使用 Sidebar */
+        body[data-mode="dashboard"] .workbench-tabs {
+            display: none !important;
+        }
+
+
+        /* 模式 B: Workbench (Sidebar 隱藏，內容區分割) */
+        body[data-mode="workbench"] .sidebar {
+            margin-left: calc(var(--sidebar-width) * -1); /* 隱藏 Sidebar */
+        }
+        
+        body[data-mode="workbench"] .main-canvas {
+            display: grid;
+            grid-template-columns: 400px 1fr; /* 左對話，右輔助 */
+        }
+
+        /* 強制顯示 Chat，不管它有沒有 active class */
+        body[data-mode="workbench"] #panel-chat {
+            display: flex !important; 
+            border-right: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        /* 右側區域 Wrapper */
+        body[data-mode="workbench"] .workbench-right-col {
+            display: flex !important;
+            flex-direction: column;
+            height: 100%;
+            background: white;
+            overflow: hidden;
+        }
+
+        /* 隱藏 Dashboard 的一些特定元素 */
+        body[data-mode="workbench"] .dashboard-only {
+            display: none;
+        }
+
+
+        /* --- 通用面板樣式 --- */
+        .panel {
+            flex-direction: column;
+            background: white;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            height: 50px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-weight: 600;
+            justify-content: space-between;
+            background: #fff;
+        }
+
+        .panel-content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        /* --- Chat UI --- */
+        .chat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .msg {
+            max-width: 85%;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .msg.bot { background: #f1f5f9; color: #334155; align-self: flex-start; border-bottom-left-radius: 2px;}
+        .msg.user { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px;}
+        
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid var(--border);
+            background: white;
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            outline: none;
+        }
+
+        /* --- Trace UI --- */
+        .trace-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* --- Report UI --- */
+        .paper-preview {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            padding: 30px;
+            min-height: 500px;
+            margin: 0 auto;
+            max-width: 800px;
+            border: 1px solid var(--border);
+        }
+
+        /* Workbench Right Tabs */
+        .workbench-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            background: #f8fafc;
+        }
+        .wb-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-bottom: 2px solid transparent;
+        }
+        .wb-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: white;
+        }
+
+    </style>
+</head>
+<body data-mode="dashboard"> <!-- 預設模式 -->
+
+    <!-- 全域頂部 -->
+    <header class="global-header">
+        <div class="brand-area">
+            <i class="fa-solid fa-staff-snake"></i>
+            SCBR 智慧醫療系統
+        </div>
+        
+        <!-- 佈局切換器 -->
+        <div class="layout-switcher">
+            <button class="layout-btn active" onclick="setMode('dashboard')" id="btn-dash">
+                <i class="fa-solid fa-table-columns"></i> 儀表板模式
+            </button>
+            <button class="layout-btn" onclick="setMode('workbench')" id="btn-work">
+                <i class="fa-solid fa-laptop-code"></i> 工作台模式
+            </button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        
+        <!-- 左側導航 (僅 Dashboard) -->
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <div class="menu-item active" onclick="switchDashTab('chat', this)">
+                    <i class="fa-regular fa-comments"></i> 診斷對話
+                </div>
+                <div class="menu-item" onclick="switchDashTab('reasoning', this)">
+                    <i class="fa-solid fa-network-wired"></i> 推導過程
+                </div>
+                <div class="menu-item" onclick="switchDashTab('report', this)">
+                    <i class="fa-regular fa-file-lines"></i> 診斷報告
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主內容區 -->
+        <main class="main-canvas">
+            
+            <!-- 1. Chat Panel (Dashboard: Tab 1 / Workbench: Left Col) -->
+            <section id="panel-chat" class="panel active">
+                <div class="panel-header">
+                    <span><i class="fa-regular fa-comments"></i> 病史採集與對話</span>
+                    <span class="status-badge" style="font-size: 0.8rem; color: #64748b;">AI Online</span>
+                </div>
+                <div class="panel-content">
+                    <div class="chat-list" id="chatHistory">
+                        <div class="msg bot">您好，請切換右上角的按鈕來體驗不同的工作流佈局。請輸入患者症狀。</div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="輸入症狀 (Enter)..." onkeypress="handleKey(event)">
+                    <button style="padding: 0 15px; background: var(--primary); color: white; border:none; border-radius: 6px;" onclick="sendMessage()">發送</button>
+                </div>
+            </section>
+
+            <!-- Workbench 模式下的右側容器 (在 Dashboard 模式下此 div 不起作用，內容被拆分) -->
+            <!-- 技巧：我們使用 JS 動態移動 DOM，或者使用 CSS Grid Area 來處理。
+                 為了最簡單的單一文件實作，我們這裡使用「Workbench Right Col」容器，
+                 在 Dashboard 模式下，這個容器消失，內容變成獨立的 Panel。
+                 但為了保持狀態一致，較好的做法是讓 DOM 結構固定，CSS 改變顯示方式。
+                 
+                 解決方案：
+                 我們將 Reasoning 和 Report 放在一個 wrapper 裡。
+                 Dashboard: Wrapper display:contents (或 hidden), 子元素全螢幕切換。
+                 Workbench: Wrapper display:flex column, 內部使用 Tab 切換。
+            -->
+            
+            <div id="aux-container" class="workbench-right-col" style="display: contents;">
+                
+                <!-- Workbench 內部的 Tabs (僅 Workbench 顯示) -->
+                <div class="workbench-tabs">
+                    <div class="wb-tab active" onclick="switchWbTab('reasoning')">推導過程</div>
+                    <div class="wb-tab" onclick="switchWbTab('report')">診斷報告</div>
+                </div>
+
+                <!-- 2. Reasoning Panel -->
+                <section id="panel-reasoning" class="panel">
+                    <div class="panel-header dashboard-only"> <!-- Dashboard 才顯示標題，Workbench 用 Tab -->
+                        <span>推導過程 (Trace)</span>
+                    </div>
+                    <div class="panel-content" id="traceContainer">
+                        <div style="color: #94a3b8; text-align: center; margin-top: 50px;">
+                            等待對話輸入...
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Report Panel -->
+                <section id="panel-report" class="panel">
+                    <div class="panel-header dashboard-only">
+                        <span>最終報告 (Report)</span>
+                        <button style="font-size:0.8rem;">匯出</button>
+                    </div>
+                    <div class="panel-content" style="background: #e2e8f0;">
+                        <div class="paper-preview" id="reportPaper">
+                            <h2 style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px;">中醫診斷報告書</h2>
+                            <div id="reportContent" style="margin-top: 20px; color: #64748b;">
+                                (報告內容將在此生成)
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // --- 狀態變數 ---
+        let currentMode = 'dashboard';
+
+        // --- 模式切換邏輯 ---
+        function setMode(mode) {
+            currentMode = mode;
+            document.body.setAttribute('data-mode', mode);
+            
+            // 更新按鈕樣式
+            document.getElementById('btn-dash').classList.toggle('active', mode === 'dashboard');
+            document.getElementById('btn-work').classList.toggle('active', mode === 'workbench');
+
+            // 調整視圖可見性邏輯
+            if (mode === 'workbench') {
+                // Workbench: 確保 Chat 可見，右側預設顯示 Reasoning
+                document.getElementById('aux-container').style.display = 'flex'; // 顯示右欄容器
+                switchWbTab('reasoning'); 
+            } else {
+                // Dashboard: 回歸到預設 Tab 邏輯，預設顯示 Chat
+                document.getElementById('aux-container').style.display = 'contents';
+                switchDashTab('chat');
+                // 重置 Sidebar active
+                document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
+                document.querySelector('.menu-item:first-child').classList.add('active');
+            }
+        }
+
+        // --- Dashboard 內部的 Tab 切換 ---
+        function switchDashTab(targetId, el) {
+            if (currentMode !== 'dashboard') return;
+
+            // 1. Sidebar Active
+            if (el) {
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                el.classList.add('active');
+            }
+
+            // 2. Show Panels
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('panel-' + targetId).classList.add('active');
+        }
+
+        // --- Workbench 右側欄的 Tab 切換 ---
+        function switchWbTab(targetId) {
+            // Tab 樣式
+            const tabs = document.querySelectorAll('.wb-tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            const index = targetId === 'reasoning' ? 0 : 1;
+            tabs[index].classList.add('active');
+
+            // Panel 顯示 (在 Workbench 模式下，Chat 永遠顯示在左邊，這裡只切換右邊的內容)
+            const rightPanels = ['panel-reasoning', 'panel-report'];
+            rightPanels.forEach(pid => {
+                const panel = document.getElementById(pid);
+                if (pid === 'panel-' + targetId) {
+                    panel.style.display = 'flex';
+                    panel.style.flexGrow = '1'; // 確保填滿
+                } else {
+                    panel.style.display = 'none';
+                }
+            });
+        }
+
+        // --- 模擬業務邏輯 ---
+        function handleKey(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            // 1. 用戶訊息
+            addMsg('user', text);
+            input.value = '';
+
+            // 2. 模擬 AI 處理
+            await delay(500);
+            
+            // 3. 更新 Trace
+            const trace = document.getElementById('traceContainer');
+            if (trace.innerText.includes('等待')) trace.innerHTML = '';
+            
+            const div = document.createElement('div');
+            div.className = 'trace-card';
+            div.innerHTML = `<strong>Triage Agent:</strong> 分析主訴 "${text}"... 判定為消化系統異常。`;
+            trace.appendChild(div);
+
+            // 4. 更新 Report
+            document.getElementById('reportContent').innerHTML = `
+                <p><strong>主訴：</strong>${text}</p>
+                <p><strong>初步診斷：</strong>脾胃不和</p>
+                <p><strong>建議：</strong>建議進一步檢查飲食習慣。可考慮使用平胃散。</p>
+            `;
+
+            // 5. Bot 回應
+            addMsg('bot', '收到。根據您的描述，初步推斷為脾胃問題。請查看推導過程與報告草稿。');
+        }
+
+        function addMsg(role, text) {
+            const hist = document.getElementById('chatHistory');
+            const d = document.createElement('div');
+            d.className = `msg ${role}`;
+            d.textContent = text;
+            hist.appendChild(d);
+            hist.scrollTop = hist.scrollHeight; // Auto scroll
+        }
+
+        function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+        // 初始化
+        setMode('dashboard');
+
+    </script>
+</body>
+</html>

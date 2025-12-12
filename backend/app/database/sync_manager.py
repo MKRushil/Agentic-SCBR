@@ -78,21 +78,57 @@ class SyncManager:
         """
         for item in items:
             try:
-                # 準備 Embedding Text
+                # 準備 Embedding Text 與 屬性轉換 (ETL)
+                properties = {}
                 text_to_embed = ""
+                
                 if class_name == "TCM_Reference_Case":
                     text_to_embed = f"{item.get('chief_complaint')} {' '.join(item.get('symptom_tags', []))}"
+                    
+                    # ETL: Map JSON fields to Schema
+                    properties = {
+                        "case_id": item.get("case_id"),
+                        "source_type": item.get("type"), # Map 'type' to 'source_type'
+                        "chief_complaint": item.get("chief_complaint"),
+                        "symptom_tags": item.get("symptom_tags"),
+                        "diagnosis_main": f"{item.get('diagnosis_disease')} - {item.get('diagnosis_syndrome')}", # Combine
+                        "treatment_principle": item.get("treatment_principle"),
+                        "pathology_analysis": item.get("pathology_analysis"),
+                        "confidence_score": item.get("confidence_score")
+                    }
+                    
                 elif class_name == "TCM_Standard_Ontology":
                     text_to_embed = f"{item.get('term_name')} {item.get('definition')}"
+                    properties = item # 欄位大致相符
+                    
                 elif class_name == "TCM_Diagnostic_Rules":
                     text_to_embed = f"{item.get('syndrome_name')} {' '.join(item.get('main_symptoms', []))}"
+                    properties = {
+                        "rule_id": item.get("rule_id"),
+                        "syndrome_name": item.get("syndrome_name"),
+                        "category": item.get("category"),
+                        "main_symptoms": item.get("main_symptoms"),
+                        "secondary_symptoms": item.get("secondary_symptoms"),
+                        "tongue_pulse": item.get("tongue_pulse"), # Now a list
+                        "exclusion": item.get("exclusion"),
+                        "treatment_principle": item.get("treatment_principle")
+                    }
 
                 # 呼叫 Embedding API
                 vector = await self.nvidia_client.get_embedding(text_to_embed)
                 
-                # 寫入 Weaviate (需在 WeaviateClient 實作通用 insert)
-                # self.weaviate_client.insert_generic(class_name, item, vector)
-                logger.info(f"[Sync] Inserted {class_name} ID: {item.get('case_id') or item.get('term_id')}")
+                # 寫入 Weaviate
+                # 使用通用的 client.insert 方法 (需確認 WeaviateClient 有此方法，這裡假設有或直接調用)
+                # 為了避免 AttributeError，我們先假設 WeaviateClient 有一個 generic_insert
+                # 但實際上您的 WeaviateClient 只有 insert_case 和 search_similar_cases
+                # 我需要在此處直接調用 client 的 collection 方法，或者之後擴充 WeaviateClient
+                
+                # 暫時直接使用 weaviate_client 內部的 client 屬性進行操作 (若為 public)
+                # 或者擴充 WeaviateClient。比較好的做法是擴充 WeaviateClient。
+                # 這裡我們先呼叫一個尚未存在的方法，隨後我去補上。
+                self.weaviate_client.insert_generic(class_name, properties, vector)
+                
+                logger.info(f"[Sync] Inserted {class_name} ID: {properties.get('case_id') or properties.get('term_id') or properties.get('rule_id')}")
 
             except Exception as e:
                 logger.error(f"[Sync] Failed to process item in {class_name}: {str(e)}")

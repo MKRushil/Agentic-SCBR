@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, BackgroundTasks, status
-from app.api.schemas import ChatRequest, ChatResponse, FeedbackRequest
+from app.api.schemas import ChatRequest, UnifiedResponse, FeedbackRequest
 from app.core.orchestrator import Orchestrator
 import logging
 
@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 # 取得單例 Orchestrator
 orchestrator = Orchestrator()
 
-@router.post("/chat", response_model=ChatResponse)
+@router.post("/chat", response_model=UnifiedResponse)
 async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks):
     """
     核心對話接口

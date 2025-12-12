@@ -1,0 +1,195 @@
+2025-12-11 19:50:13,505 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 19:50:13,516 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 19:50:13,526 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 19:50:13,698 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 19:50:13,755 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 19:50:13,757 - main - INFO - [Startup] Schema check passed.
+2025-12-11 19:50:13,758 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 19:50:56,593 - main - INFO - Shutting down system...
+2025-12-11 19:51:32,937 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 19:51:32,950 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 19:51:32,961 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 19:51:33,130 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 19:51:33,186 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 19:51:33,189 - main - INFO - [Startup] Schema check passed.
+2025-12-11 19:51:33,190 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 19:52:32,410 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765482694029_3k7m2xyua
+2025-12-11 19:52:32,411 - app.core.orchestrator - INFO - Lock acquired for session sess_1765482694029_3k7m2xyua
+2025-12-11 19:52:34,427 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-11 19:52:34,656 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.7507413625717163 (Query: 咳嗽...)
+2025-12-11 19:52:34,657 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.7507413625717163
+2025-12-11 19:52:35,825 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-11 19:52:51,077 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-11 19:52:51,079 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765482694029_3k7m2xyua. Path: PATH_B
+2025-12-11 19:52:51,080 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765482694029_3k7m2xyua
+2025-12-11 19:52:57,764 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-11 19:52:57,766 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴：咳嗽。已確認症狀：咳嗽。已排除症狀：無...
+2025-12-11 19:52:57,766 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765482694029_3k7m2xyua
+2025-12-11 19:53:11,161 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765482694029_3k7m2xyua
+2025-12-11 19:53:11,162 - app.core.orchestrator - INFO - Lock acquired for session sess_1765482694029_3k7m2xyua
+2025-12-11 19:53:11,584 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-11 19:53:11,816 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9478108882904053 (Query: 主訴：咳嗽。已確認症狀：咳嗽。已排除症狀：無 白痰、怕冷、無汗...)
+2025-12-11 19:53:11,816 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765482694029_3k7m2xyua. Path: PATH_A
+2025-12-11 19:53:11,818 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765482694029_3k7m2xyua
+2025-12-11 19:53:20,005 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-11 19:53:20,007 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴：咳嗽。已確認症狀：咳嗽、白痰、怕冷、無汗。已排除症狀：脘腹痞悶、口膩口淡、頭身困重、便溏...
+2025-12-11 19:53:20,007 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765482694029_3k7m2xyua
+2025-12-11 19:53:31,862 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765482694029_3k7m2xyua
+2025-12-11 19:53:31,863 - app.core.orchestrator - INFO - Lock acquired for session sess_1765482694029_3k7m2xyua
+2025-12-11 19:53:32,299 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-11 19:53:32,541 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9560612440109253 (Query: 主訴：咳嗽。已確認症狀：咳嗽、白痰、怕冷、無汗。已排除症狀：脘腹痞悶、口膩口淡、頭身困重、便溏 頭痛...)
+2025-12-11 19:53:32,542 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765482694029_3k7m2xyua. Path: PATH_A
+2025-12-11 19:53:32,543 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765482694029_3k7m2xyua
+2025-12-11 19:53:44,520 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-11 19:53:44,521 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴：咳嗽。已確認症狀：咳嗽、白痰、怕冷、無汗、頭痛。已排除症狀：脘腹痞悶、口膩口淡、頭身困重、便溏...
+2025-12-11 19:53:44,521 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765482694029_3k7m2xyua
+2025-12-11 20:00:47,177 - main - INFO - Shutting down system...
+2025-12-11 20:00:49,113 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 20:00:49,138 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 20:00:49,162 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 20:00:49,344 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 20:00:49,402 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 20:00:49,403 - main - INFO - [Startup] Schema check passed.
+2025-12-11 20:00:49,404 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 20:01:21,944 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765483277980_zk6u0rsl7
+2025-12-11 20:01:21,945 - app.core.orchestrator - INFO - Lock acquired for session sess_1765483277980_zk6u0rsl7
+2025-12-11 20:01:23,260 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-11 20:01:23,508 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.7507413625717163 (Query: 咳嗽...)
+2025-12-11 20:01:23,509 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.7507413625717163
+2025-12-11 20:01:24,631 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-11 20:01:36,754 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-11 20:01:36,756 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765483277980_zk6u0rsl7. Path: PATH_B
+2025-12-11 20:01:36,758 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765483277980_zk6u0rsl7
+2025-12-11 20:01:42,763 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-11 20:01:42,764 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴: 咳嗽...
+2025-12-11 20:01:42,765 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765483277980_zk6u0rsl7
+2025-12-11 20:02:41,948 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765483277980_zk6u0rsl7
+2025-12-11 20:02:41,948 - app.core.orchestrator - INFO - Lock acquired for session sess_1765483277980_zk6u0rsl7
+2025-12-11 20:02:43,127 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-11 20:02:43,382 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9230177402496338 (Query: 主訴: 咳嗽 白痰、怕冷、無汗...)
+2025-12-11 20:02:43,383 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765483277980_zk6u0rsl7. Path: PATH_A
+2025-12-11 20:02:43,385 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765483277980_zk6u0rsl7
+2025-12-11 20:02:58,377 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-11 20:02:58,378 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴: 咳嗽。伴隨症狀: 白痰、惡寒、無汗...
+2025-12-11 20:02:58,379 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765483277980_zk6u0rsl7
+2025-12-11 20:02:58,607 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765483277980_zk6u0rsl7
+2025-12-11 20:02:58,608 - app.core.orchestrator - INFO - Lock acquired for session sess_1765483277980_zk6u0rsl7
+2025-12-11 20:02:59,031 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-11 20:02:59,270 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9283993244171143 (Query: 主訴: 咳嗽。伴隨症狀: 白痰、惡寒、無汗 頭痛...)
+2025-12-11 20:02:59,271 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765483277980_zk6u0rsl7. Path: PATH_A
+2025-12-11 20:02:59,272 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765483277980_zk6u0rsl7
+2025-12-11 20:03:07,066 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-11 20:03:07,067 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴: 咳嗽。伴隨症狀: 白痰、惡寒、無汗、頭痛...
+2025-12-11 20:03:07,068 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765483277980_zk6u0rsl7
+2025-12-11 20:12:08,399 - main - INFO - Shutting down system...
+2025-12-11 20:12:10,718 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 20:12:10,733 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 20:12:10,749 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 20:12:10,916 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 20:12:10,974 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 20:12:10,976 - main - INFO - [Startup] Schema check passed.
+2025-12-11 20:12:10,977 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 20:12:31,364 - main - INFO - Shutting down system...
+2025-12-11 20:12:33,200 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 20:12:33,211 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 20:12:33,222 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 20:12:33,385 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 20:12:33,440 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 20:12:33,442 - main - INFO - [Startup] Schema check passed.
+2025-12-11 20:12:33,442 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 20:13:08,027 - main - INFO - Shutting down system...
+2025-12-11 20:13:09,834 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 20:13:09,883 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 20:13:09,899 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 20:13:10,065 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 20:13:10,123 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 20:13:10,125 - main - INFO - [Startup] Schema check passed.
+2025-12-11 20:13:10,125 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 20:18:01,584 - main - INFO - Shutting down system...
+2025-12-11 20:18:04,079 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 20:18:04,090 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 20:18:04,103 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 20:18:04,268 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 20:18:04,325 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 20:18:04,326 - main - INFO - [Startup] Schema check passed.
+2025-12-11 20:18:04,327 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 20:19:33,919 - main - INFO - Shutting down system...
+2025-12-11 20:19:35,706 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 20:19:35,717 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 20:19:35,727 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 20:19:35,895 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 20:19:35,953 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 20:19:35,955 - main - INFO - [Startup] Schema check passed.
+2025-12-11 20:19:35,957 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 20:29:29,864 - main - INFO - Shutting down system...
+2025-12-11 20:29:32,337 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 20:29:32,350 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 20:29:32,362 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 20:29:32,528 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 20:29:32,591 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 20:29:32,594 - main - INFO - [Startup] Schema check passed.
+2025-12-11 20:29:32,595 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-11 20:30:35,284 - main - INFO - Shutting down system...
+2025-12-11 20:30:37,795 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-11 20:30:37,807 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-11 20:30:37,820 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-11 20:30:37,989 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-11 20:30:38,048 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-11 20:30:38,049 - main - INFO - [Startup] Schema check passed.
+2025-12-11 20:30:38,049 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-12 07:18:56,218 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765488149522_xdnu1upb7
+2025-12-12 07:18:56,219 - app.core.orchestrator - INFO - Lock acquired for session sess_1765488149522_xdnu1upb7
+2025-12-12 07:19:10,079 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 07:19:10,081 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['pulse']
+2025-12-12 07:19:12,063 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-12 07:19:12,296 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9259867668151855 (Query: 我最近頭很痛，而且非常怕冷，沒有流汗，舌苔白白的...)
+2025-12-12 07:19:12,296 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9260)
+2025-12-12 07:19:24,847 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 07:19:24,848 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765488149522_xdnu1upb7. Path: PATH_A
+2025-12-12 07:19:24,850 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765488149522_xdnu1upb7
+2025-12-12 07:19:30,670 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 07:19:30,672 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴: 頭痛。伴隨症狀: 惡寒、無汗、舌苔白腻...
+2025-12-12 07:19:30,672 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765488149522_xdnu1upb7
+2025-12-12 07:25:12,188 - main - INFO - Shutting down system...
+2025-12-12 07:25:14,628 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-12 07:25:14,639 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-12 07:25:14,651 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-12 07:25:14,806 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-12 07:25:14,859 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-12 07:25:14,861 - main - INFO - [Startup] Schema check passed.
+2025-12-12 07:25:14,861 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-12 07:26:45,503 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765524403543_o0vhgdgsr
+2025-12-12 07:26:45,503 - app.core.orchestrator - INFO - Lock acquired for session sess_1765524403543_o0vhgdgsr
+2025-12-12 07:26:57,089 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 07:26:57,090 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['pulse']
+2025-12-12 07:26:58,178 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-12 07:26:58,433 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9259867668151855 (Query: 我最近頭很痛，而且非常怕冷，沒有流汗，舌苔白白的...)
+2025-12-12 07:26:58,457 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9260)
+2025-12-12 07:27:11,502 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 07:27:11,503 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765524403543_o0vhgdgsr. Path: PATH_A
+2025-12-12 07:27:11,506 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765524403543_o0vhgdgsr
+2025-12-12 07:27:16,911 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 07:27:16,912 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴: 頭痛。伴隨症狀: 恏寒、無汗、舌苔白腻...
+2025-12-12 07:27:16,912 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765524403543_o0vhgdgsr
+2025-12-12 12:31:31,518 - main - INFO - Shutting down system...
+2025-12-12 12:31:34,141 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-12 12:31:34,164 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-12 12:31:34,180 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-12 12:31:34,344 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-12 12:31:34,406 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-12 12:31:34,407 - main - INFO - [Startup] Schema check passed.
+2025-12-12 12:31:34,408 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-12 12:32:38,044 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765531349081_6ffvllbbj
+2025-12-12 12:32:38,045 - app.core.orchestrator - INFO - Lock acquired for session sess_1765531349081_6ffvllbbj
+2025-12-12 12:32:50,035 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 12:32:50,036 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['pulse']
+2025-12-12 12:32:51,106 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-12 12:32:51,332 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9259867668151855 (Query: 我最近頭很痛，而且非常怕冷，沒有流汗，舌苔白白的...)
+2025-12-12 12:32:51,332 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 5, 'biao': 7, 'li': 3, 'han': 8, 're': 0, 'xu': 0, 'shi': 5}
+2025-12-12 12:32:51,332 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9260)
+2025-12-12 12:33:04,021 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 12:33:04,023 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765531349081_6ffvllbbj. Path: PATH_A
+2025-12-12 12:33:04,024 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765531349081_6ffvllbbj
+2025-12-12 12:33:08,810 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-12 12:33:08,811 - app.agents.summarizer - INFO - [Summarizer] Summary updated: 主訴: 頭痛。伴隨症狀: 恐寒、無汗、舌苔白。...
+2025-12-12 12:33:08,811 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765531349081_6ffvllbbj

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch, computed } from 'vue'
+import { ref, onMounted, watch, computed, nextTick } from 'vue'
 import * as echarts from 'echarts'
 import { useChatStore } from '@/stores/chatStore'
 
@@ -12,8 +12,20 @@ const hasData = computed(() => {
   return data && Object.keys(data).length > 0 && data.series
 })
 
-const renderChart = () => {
-  if (!chartRef.value || !hasData.value) return
+const renderChart = async () => {
+  if (!hasData.value) return
+  
+  // 等待 DOM 更新
+  await nextTick()
+  
+  if (!chartRef.value) return
+
+  // 確保容器有寬高
+  if (chartRef.value.clientWidth === 0) {
+    console.warn('[RadarChart] Container width is 0, retrying in 100ms...')
+    setTimeout(renderChart, 100)
+    return
+  }
 
   if (!chartInstance) {
     chartInstance = echarts.init(chartRef.value)
@@ -38,8 +50,7 @@ const renderChart = () => {
 // 監聽數據變化
 watch(() => chatStore.visualizationData, () => {
   if (hasData.value) {
-    // 使用 nextTick 確保 DOM 已更新 (如果之前是用 v-if 隱藏)
-    setTimeout(renderChart, 100)
+    renderChart()
   }
 }, { deep: true })
 

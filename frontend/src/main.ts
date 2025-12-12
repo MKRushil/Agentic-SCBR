@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import './style.css' // 假設 Tailwind 已經設定在 style.css
+import './style.css' // Tailwind (if exists)
+import './assets/main.css' // Custom Theme
 import App from './App.vue'
 
 const pinia = createPinia()

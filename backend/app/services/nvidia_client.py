@@ -14,12 +14,15 @@ class NvidiaClient:
     此處僅負責單次 HTTP 請求。
     """
     def __init__(self):
-        self.api_key = settings.NVIDIA_API_KEY
+        self.llm_api_key = settings.NVIDIA_LLM_API_KEY
+        self.embedding_api_key = settings.NVIDIA_EMBEDDING_API_KEY
         self.base_url = settings.LLM_API_URL
         self.model = settings.LLM_MODEL_NAME
         self.embed_model = settings.EMBEDDING_MODEL_NAME
-        self.headers = {
-            "Authorization": f"Bearer {self.api_key}",
+        
+    def _get_headers(self, api_key: str) -> Dict[str, str]:
+        return {
+            "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
             "Accept": "application/json"
         }
@@ -34,9 +37,11 @@ class NvidiaClient:
             "encoding_format": "float"
         }
         
+        headers = self._get_headers(self.embedding_api_key)
+        
         async with httpx.AsyncClient(timeout=30.0) as client:
             try:
-                response = await client.post(url, json=payload, headers=self.headers)
+                response = await client.post(url, json=payload, headers=headers)
                 response.raise_for_status()
                 data = response.json()
                 return data['data'][0]['embedding']
@@ -48,7 +53,7 @@ class NvidiaClient:
     async def generate_completion(self, 
                                 messages: List[Dict[str, str]], 
                                 temperature: float = 0.2,
-                                max_tokens: int = 1024) -> str:
+                                max_tokens: int = 4096) -> str:
         """調用 nvidia/llama-3.3-nemotron-super-49b-v1.5"""
         url = f"{self.base_url}/chat/completions"
         payload = {
@@ -60,9 +65,11 @@ class NvidiaClient:
             "stream": False
         }
 
+        headers = self._get_headers(self.llm_api_key)
+
         async with httpx.AsyncClient(timeout=60.0) as client:
             try:
-                response = await client.post(url, json=payload, headers=self.headers)
+                response = await client.post(url, json=payload, headers=headers)
                 response.raise_for_status()
                 data = response.json()
                 content = data['choices'][0]['message']['content']

@@ -15,9 +15,11 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    host: '0.0.0.0', // Ensure it listens on all interfaces
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        // 在 Docker 網路中，後端服務名稱為 'backend'
+        target: process.env.VITE_API_TARGET || 'http://backend:8000',
         changeOrigin: true,
         rewrite: (pathStr) => pathStr.replace(/^\/api/, '/api/v1')
       }

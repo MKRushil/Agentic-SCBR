@@ -57,25 +57,32 @@ export const useChatStore = defineStore('chat', () => {
       const payload: ChatRequest = {
         session_id: sessionId.value,
         patient_id: patientStore.currentPatientId,
-        user_input: text
+        message: text
       }
       
       const response: ChatResponse = await scbrService.sendChat(payload)
 
       // 3. Update State from Response
       responseType.value = response.response_type
-      currentDiagnosis.value = response.diagnosis_list
-      evidenceTrace.value = response.evidence_trace
-      safetyWarning.value = response.safety_warning
-      visualizationData.value = response.visualization_data
-      formattedReport.value = response.formatted_report
-      followUpQuestion.value = response.follow_up_question
+      currentDiagnosis.value = response.diagnosis_list || []
+      evidenceTrace.value = response.evidence_trace || ''
+      safetyWarning.value = response.safety_warning || null
+      
+      // Handle Nullable Fields safely
+      visualizationData.value = response.visualization_data || {}
+      formattedReport.value = response.formatted_report || null
+      
+      if (response.follow_up_question) {
+        followUpQuestion.value = response.follow_up_question
+      } else {
+        followUpQuestion.value = { required: false, question_text: null, options: [] }
+      }
 
       // 4. Assistant Message
       // 若有反問，優先顯示反問；否則顯示診斷摘要
       let replyContent = ""
-      if (response.follow_up_question.required && response.follow_up_question.question_text) {
-        replyContent = response.follow_up_question.question_text
+      if (followUpQuestion.value.required && followUpQuestion.value.question_text) {
+        replyContent = followUpQuestion.value.question_text
       } else if (response.diagnosis_list.length > 0) {
         const topDiag = response.diagnosis_list[0]
         replyContent = `根據分析，主要考慮為【${topDiag.disease_name}】。已生成詳細診斷報告與治則建議。`

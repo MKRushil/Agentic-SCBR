@@ -17,11 +17,14 @@ class SummarizerAgent(BaseAgent):
         logger.info(f"[Summarizer] Starting background summarization for Session: {state.session_id}")
         
         try:
-            # 組合 Prompt (這裡假設 state 有 accumulative_context 或類似欄位，或是從 DB 撈取)
-            # 簡化示範：直接拿 user_input 當作本回合對話
+            # 組合 Prompt
+            # user_input_raw 已經包含了本回合的完整對話歷史 (由 Orchestrator 拼接)
+            # 但理想情況下，我們應該只傳入「新增的對話」+「舊摘要」
+            # 不過為了簡化，我們讓 LLM 重新摘要這段對話也無妨，或是假設 state.user_input_raw 是完整的 history
+            
             prompt = build_summarizer_prompt(
-                history_content=f"User: {state.user_input_raw}\nSystem: {state.final_response.formatted_report if state.final_response else ''}",
-                current_summary=state.diagnosis_summary or ""
+                history_content=state.user_input_raw,
+                current_summary=state.diagnosis_summary or "尚無摘要"
             )
 
             messages = [
@@ -29,22 +32,20 @@ class SummarizerAgent(BaseAgent):
                 {"role": "user", "content": prompt}
             ]
 
-            # 呼叫 LLM (注意: 這是背景執行，不阻塞主流程)
+            # 呼叫 LLM
             response_text = await self.client.generate_completion(messages, temperature=0.1)
             
             # 解析結果
             result = self.parse_xml_json(response_text)
             
-            # 更新狀態 (這些變更應該寫入資料庫，這裡更新 State 物件)
-            state.diagnosis_summary = result.get("updated_diagnosis_summary", "")
+            # 更新狀態
+            new_summary = result.get("updated_diagnosis_summary", "")
+            state.diagnosis_summary = new_summary
             
-            logger.info(f"[Summarizer] Summary updated. Key findings: {result.get('key_findings', [])}")
-            
-            # TODO: 呼叫 PatientManager 或 WeaviateClient 將更新後的摘要寫回 DB (TCM_Session_Memory)
+            logger.info(f"[Summarizer] Summary updated: {new_summary[:50]}...")
             
             return state
 
         except Exception as e:
             logger.error(f"[Summarizer] Failed to summarize: {str(e)}")
-            # 背景任務失敗不影響主回應，僅記錄錯誤
             return state

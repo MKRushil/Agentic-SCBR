@@ -26,26 +26,25 @@ onMounted(() => {
 </script>
 
 <template>
-  <div 
-    ref="containerRef"
-    class="flex-1 overflow-y-auto p-4 bg-slate-50 space-y-4"
-  >
+  <div ref="containerRef" class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50/50">
+    <div v-if="chatStore.messages.length === 0" class="text-center text-slate-400 mt-10 text-sm">
+      <p>請輸入病患主訴開始診斷...</p>
+    </div>
+    
     <ChatBubble 
-      v-for="msg in chatStore.messages"
-      :key="msg.id"
-      :role="msg.role"
+      v-for="msg in chatStore.messages" 
+      :key="msg.id" 
+      :role="msg.role" 
       :content="msg.content"
       :timestamp="msg.timestamp"
     />
     
-    <!-- 載入中動畫 -->
-    <div v-if="chatStore.isProcessing" class="flex items-center space-x-2 p-2 justify-center">
-      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-bounce"></div>
-      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-bounce delay-75"></div>
-      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-bounce delay-150"></div>
+    <div v-if="chatStore.isProcessing" class="flex justify-start">
+      <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 flex items-center space-x-2">
+        <div class="w-2 h-2 bg-primary-400 rounded-full animate-bounce"></div>
+        <div class="w-2 h-2 bg-primary-400 rounded-full animate-bounce delay-75"></div>
+        <div class="w-2 h-2 bg-primary-400 rounded-full animate-bounce delay-150"></div>
+      </div>
     </div>
-
-    <!-- 反問選項區塊 (總是顯示在最新) -->
-    <InquiryForm />
   </div>
 </template>

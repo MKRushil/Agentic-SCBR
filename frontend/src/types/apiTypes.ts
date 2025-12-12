@@ -20,10 +20,10 @@ export interface FollowUpQuestion {
 export interface ChatResponse {
   response_type: 'DEFINITIVE' | 'FALLBACK' | 'INQUIRY_ONLY';
   diagnosis_list: DiagnosisCandidate[];
-  follow_up_question: FollowUpQuestion;
+  follow_up_question: FollowUpQuestion | null; // Nullable
   evidence_trace: string; // LLM09: 必須檢查
   safety_warning: string | null; // 規格書 5.2 安全規則產出
-  visualization_data: Record<string, any>; // ECharts Option
+  visualization_data: Record<string, any> | null; // Nullable
   formatted_report: string | null; // HTML/Markdown
 }
 
@@ -31,11 +31,12 @@ export interface ChatResponse {
 export interface ChatRequest {
   session_id: string;
   patient_id: string; // Raw ID
-  user_input: string; // Max 1000 chars
+  message: string; // Max 1000 chars
 }
 
 export interface FeedbackRequest {
   session_id: string;
+  patient_id: string; // Required by backend
   action: 'ACCEPT' | 'MODIFY' | 'REJECT';
   modified_content?: string;
 }
