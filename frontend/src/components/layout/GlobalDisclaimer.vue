@@ -1,11 +1,15 @@
 <template>
-  <footer class="bg-slate-100 border-t border-slate-200 py-3 px-4 text-center">
-    <p class="text-xs text-slate-500">
-      <span class="font-bold text-red-500">【免責聲明】</span>
-      本系統 (Agentic SCBR-CDSS v8.0) 僅提供輔助診斷建議與學術參考，
-      <span class="font-bold">絕非醫療處方</span>。
-      所有診斷與治療決策必須由合格中醫師親自確認。
-      系統生成的治則僅供參考，嚴禁直接用於臨床投藥。
+  <div class="fixed bottom-0 left-0 right-0 bg-red-100 text-red-700 p-2 text-xs text-center border-t border-red-200 shadow-lg z-50">
+    <p>
+      **免責聲明:** 本系統為學術研究用輔助診斷系統，AI 輸出可能包含錯誤或幻覺。所有醫療決策請務必由合格中醫師確認。本系統不承擔任何醫療責任。
     </p>
-  </footer>
+  </div>
 </template>
+
+<script setup lang="ts">
+// No script logic needed for a simple disclaimer
+</script>
+
+<style scoped>
+/* You can add custom styles here if needed */
+</style>

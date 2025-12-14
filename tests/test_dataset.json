@@ -1,23 +1,86 @@
 [
   {
-    "id": "GOLD_001",
-    "input_text": "患者主訴咳嗽三天，痰白稀，伴隨惡寒發熱，無汗，身體疼痛，舌苔薄白，脈浮緊。",
+    "id": "SLICE_001",
     "expected_diagnosis": "風寒感冒",
-    "expected_syndrome": "風寒束肺證",
-    "expected_symptoms": ["咳嗽", "痰白稀", "惡寒", "發熱", "無汗", "身痛", "舌苔薄白", "脈浮緊"]
+    "expected_attributes": {"nature": "cold", "deficiency": "excess"},
+    "is_emergency": false,
+    "turns": [
+      {
+        "turn_id": 1,
+        "input": "醫生，我頭很痛，而且覺得很冷。",
+        "expected_diagnosis": "風寒感冒",
+        "expected_attributes": {"nature": "cold", "deficiency": "excess"}
+      },
+      {
+        "turn_id": 2,
+        "input": "沒有流汗，全身上下骨頭都痠痛。",
+        "expected_diagnosis": "風寒束肺證",
+        "expected_attributes": {"nature": "cold", "deficiency": "excess"}
+      },
+      {
+        "turn_id": 3,
+        "input": "有點咳嗽，痰是白色的，稀稀的。",
+        "expected_diagnosis": "風寒束肺證",
+        "expected_attributes": {"nature": "cold", "deficiency": "excess"}
+      }
+    ]
   },
   {
-    "id": "GOLD_002",
-    "input_text": "主訴胃痛隱隱，喜溫喜按，空腹痛甚，得食痛減，泛吐清水，神疲乏力，手足不溫，大便溏薄，舌淡苔白，脈虛弱。",
-    "expected_diagnosis": "胃痛",
-    "expected_syndrome": "脾胃虛寒證",
-    "expected_symptoms": ["胃痛隱隱", "喜溫喜按", "泛吐清水", "神疲乏力", "手足不溫", "大便溏薄", "舌淡苔白", "脈虛弱"]
+    "id": "SLICE_002_EMERGENCY",
+    "expected_diagnosis": "心陽暴脫 (心梗)",
+    "expected_attributes": {"nature": "cold", "deficiency": "deficiency"},
+    "is_emergency": true,
+    "turns": [
+      {
+        "turn_id": 1,
+        "input": "我覺得胸口悶悶的，好像有石頭壓著。",
+        "expected_diagnosis": "心胸痹痛",
+        "expected_attributes": {"nature": "cold", "deficiency": "excess"},
+        "is_emergency": false
+      },
+      {
+        "turn_id": 2,
+        "input": "現在開始冒冷汗了，手腳都冰涼。",
+        "expected_diagnosis": "心胸痹痛 (心梗高風險)",
+        "expected_attributes": {"nature": "cold", "deficiency": "deficiency"},
+        "is_emergency": true
+      },
+      {
+        "turn_id": 3,
+        "input": "痛到背後去了，感覺快死掉了。",
+        "expected_diagnosis": "心陽暴脫 (心梗)",
+        "expected_attributes": {"nature": "cold", "deficiency": "deficiency"},
+        "is_emergency": true
+      }
+    ]
   },
   {
-    "id": "GOLD_003",
-    "input_text": "心煩不寐，入睡困難，心悸多夢，頭暈耳鳴，腰膝痠軟，五心煩熱，潮熱盜汗，健忘，口乾咽燥，舌紅少苔，脈細數。",
-    "expected_diagnosis": "不寐",
-    "expected_syndrome": "陰虛火旺證",
-    "expected_symptoms": ["心煩不寐", "心悸", "多夢", "頭暈", "耳鳴", "腰膝痠軟", "五心煩熱", "潮熱盜汗", "舌紅少苔", "脈細數"]
+    "id": "SLICE_003_CONFLICT",
+    "expected_diagnosis": "脾胃虛寒",
+    "expected_attributes": {"nature": "cold", "deficiency": "deficiency"},
+    "is_emergency": false,
+    "turns": [
+      {
+        "turn_id": 1,
+        "input": "我平時體質很熱，但最近吃了一點冰就拉肚子，肚子還會痛。",
+        "expected_diagnosis": "脾胃虛寒 (表)",
+        "expected_attributes": {"nature": "hot", "deficiency": "deficiency"},
+        "is_emergency": false
+      },
+      {
+        "turn_id": 2,
+        "input": "拉肚子是大便像水一樣，稀稀的。但我的脈搏跳得很快，舌苔很黃。",
+        "expected_diagnosis": "濕熱瀉",
+        "expected_attributes": {"nature": "hot", "deficiency": "excess"},
+        "is_emergency": false
+      },
+      {
+        "turn_id": 3,
+        "input": "其實我是男生，但醫生說我有月經不調的問題，而且我覺得脈搏很慢。",
+        "expected_diagnosis": "邏輯矛盾",
+        "expected_attributes": {"nature": "hot", "deficiency": "excess"},
+        "is_emergency": false
+      }
+    ]
   }
 ]

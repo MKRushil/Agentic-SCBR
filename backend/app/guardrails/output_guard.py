@@ -1,6 +1,7 @@
 import logging
 from typing import Dict, Any, Union
 from app.api.schemas import UnifiedResponse, ResponseType
+from opencc import OpenCC
 
 logger = logging.getLogger(__name__)
 
@@ -9,7 +10,11 @@ class OutputGuard:
     規格書 5.2 輸出端防護
     1. LLM05 (輸出處理): JSON Schema 驗證
     2. LLM09 (錯誤資訊): 證據追溯檢查 (Evidence Trace Check)
+    3. 語言規範: 強制轉繁體中文 (OpenCC)
     """
+    
+    # 初始化 OpenCC (簡體到繁體)
+    cc = OpenCC('s2t')
 
     @staticmethod
     def validate_structure(data: Dict[str, Any]) -> Dict[str, Any]:
@@ -52,20 +57,40 @@ class OutputGuard:
         用於 Orchestrator 最終檢查。
         """
         try:
-            # 1. Evidence Trace Check (LLM09)
+            # 1. 語言轉碼 (Simplified -> Traditional)
+            if response.evidence_trace:
+                response.evidence_trace = cls.cc.convert(response.evidence_trace)
+            
+            if response.formatted_report:
+                response.formatted_report = cls.cc.convert(response.formatted_report)
+                
+            if response.safety_warning:
+                response.safety_warning = cls.cc.convert(response.safety_warning)
+                
+            if response.follow_up_question and response.follow_up_question.question_text:
+                response.follow_up_question.question_text = cls.cc.convert(response.follow_up_question.question_text)
+                response.follow_up_question.options = [cls.cc.convert(opt) for opt in response.follow_up_question.options]
+                
+            if response.diagnosis_list:
+                for diag in response.diagnosis_list:
+                    diag.disease_name = cls.cc.convert(diag.disease_name)
+                    if diag.condition:
+                        diag.condition = cls.cc.convert(diag.condition)
+
+            # 2. Evidence Trace Check (LLM09)
             if not response.evidence_trace or len(response.evidence_trace) < 10:
                 logger.warning("[OutputGuard] Evidence trace too short in UnifiedResponse. Downgrading confidence.")
                 response.evidence_trace += " [警告: 推導過程過短，請謹慎判讀]"
                 response.response_type = ResponseType.FALLBACK
 
-            # 2. Logical Consistency Check
+            # 3. Logical Consistency Check
             # 若說是 DEFINITIVE，卻沒有診斷結果 -> 強制轉 FALLBACK
             if response.response_type == ResponseType.DEFINITIVE and not response.diagnosis_list:
                 logger.warning("[OutputGuard] Inconsistent response: DEFINITIVE but no diagnosis. Fixing.")
                 response.response_type = ResponseType.FALLBACK
                 response.evidence_trace += " [系統修正: 無診斷結果，轉為 FALLBACK]"
 
-            # 3. Safety Warning Injection (Optional)
+            # 4. Safety Warning Injection (Optional)
             # 可在此處統一加入免責聲明
             
             return response

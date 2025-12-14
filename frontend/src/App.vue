@@ -9,7 +9,8 @@ import {
   LogOut,
   MessageSquare,
   Activity,
-  FileText
+  FileText,
+  RotateCcw // Import Icon
 } from 'lucide-vue-next'
 
 // Components
@@ -42,6 +43,12 @@ const setMode = (mode: LayoutMode) => {
 
 const setTab = (tab: any) => {
   activeTab.value = tab
+}
+
+const handleGlobalReset = () => {
+  if (confirm('確定要結束本輪診斷並開始新對話嗎？所有記錄將被清除。')) {
+    chatStore.resetSession()
+  }
 }
 </script>
 
@@ -111,7 +118,14 @@ const setTab = (tab: any) => {
         >
           <div class="panel-header">
             <span><MessageSquare class="w-4 h-4 inline mr-2" /> 病史採集與對話</span>
-            <span class="text-xs text-slate-400">AI Online</span>
+            <button 
+              class="ml-auto text-xs text-slate-500 hover:text-primary-600 px-2 py-1 rounded transition-colors flex items-center space-x-1"
+              @click="handleGlobalReset"
+              title="結束本輪診斷 (New Session)"
+            >
+              <RotateCcw class="w-3 h-3" />
+              <span>結束本輪診斷</span>
+            </button>
           </div>
           
           <div class="panel-content flex flex-col p-0"> 

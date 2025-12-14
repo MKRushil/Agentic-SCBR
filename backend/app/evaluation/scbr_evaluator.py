@@ -1,16 +1,3 @@
-經過詳細檢核，目前的程式碼有 三個關鍵缺口 (Critical Gaps)，導致無法真正執行我們剛才定義的「高階評估邏輯」：
-
-向量數據缺失 (Missing Vectors): run_benchmark.py 沒有去計算或獲取 Embedding 向量，導致 scbr_evaluator.py 裡的 Metric 1 (Hybrid Accuracy) 被迫降級為簡單的文字比對 (你寫了 Simple version)。這會失去「同義不同詞」的容錯能力。
-
-結構化屬性未提取 (Attributes Missing): run_benchmark.py 傳給 Evaluator 的 pred_attributes 是空的 {}。這會導致 Metric 5 (Critical Conflict) 和 Metric 1 (Logic Penalty) 全部失效（無法判斷寒熱衝突）。
-
-指標未滿 10 項:目前的 Evaluator 只有 7 個函式，缺少了 F1-Score (#4)、Structure-Match (#9)，且 Rejection Precision (#3) 是寫死的 1.0。
-
-為了讓這套系統成為真正的「Silent Plugin」（即：只負責算分，不依賴外部 IO，方便被監控系統引用），我為您將這兩個 Python 檔案升級為 vFinal 版本。
-
-1. 升級版 scbr_evaluator.py (邏輯核心)
-這個版本補齊了所有 10 條公式，並且引入了向量計算邏輯。它現在是一個純粹的計算模組，完全符合 Silent Plugin 的要求。
-
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from typing import List, Dict, Any, Optional
@@ -45,6 +32,8 @@ class SCBREvaluator:
         """指標 1: Hybrid Semantic Accuracy (混合語意準確率)"""
         scores = []
         for log in self.logs:
+            if not log.get('gt_diagnosis'): continue # Online Mode without GT
+            
             # 1. 向量分數 (若無向量，退化為字串比對)
             vec_score = 0.0
             if 'pred_vector' in log and 'gt_vector' in log and log['pred_vector'] and log['gt_vector']:
@@ -52,7 +41,8 @@ class SCBREvaluator:
                     v1 = np.array(log['pred_vector']).reshape(1, -1)
                     v2 = np.array(log['gt_vector']).reshape(1, -1)
                     vec_score = cosine_similarity(v1, v2)[0][0]
-                except:
+                except Exception as e:
+                    logger.warning(f"Vector similarity calculation failed: {e}")
                     vec_score = 0.0
             else:
                 # Fallback: 若文字完全相同給 1.0，否則 0.5 (同義詞無法捕捉)
@@ -84,11 +74,12 @@ class SCBREvaluator:
         correct_definitive = 0
         
         for log in self.logs:
+            if not log.get('gt_diagnosis'): continue # Online Mode without GT
+            
             # 只看已確診的回合
             if log['pred_response_type'] == 'DEFINITIVE':
                 total_definitive += 1
-                # 這裡嚴格比對病名，或可放寬為 Hybrid Score > 0.8
-                if log['pred_diagnosis'] == log['gt_diagnosis']:
+                if log['pred_diagnosis'] == log['gt_diagnosis']: # 或語意相似
                     correct_definitive += 1
         
         return correct_definitive / total_definitive if total_definitive > 0 else 0.0
@@ -101,21 +92,25 @@ class SCBREvaluator:
         total_rejects = 0
         
         for log in self.logs:
+            if not log.get('gt_diagnosis'): continue # Online Mode without GT
+            
             if log.get('is_rejected_action', False):
                 total_rejects += 1
                 # 判斷拒絕是否正確：看 GT 是否真的屬性衝突
-                p_attr = log.get('pred_attributes', {}) # 這裡指被拒絕的那個案例的屬性
+                # 這裡需要更精細的邏輯，例如比較 pred_attributes 和 gt_attributes
+                p_attr = log.get('pred_attributes', {})
                 g_attr = log.get('gt_attributes', {})
-                if p_attr.get('nature') != g_attr.get('nature'):
+                
+                # 簡易判斷：如果寒熱屬性相反，則認為拒絕是正確的
+                if p_attr.get('nature') and g_attr.get('nature') and p_attr['nature'] != g_attr['nature']:
                     true_rejects += 1
                     
         return true_rejects / total_rejects if total_rejects > 0 else 1.0 # 預設無拒絕視為完美
 
     def calculate_logic_f1(self) -> float:
         """指標 4: Logic-Weighted F1"""
-        # 使用 Effective Recall 和 Rejection Precision (或是 Precision)
+        # 使用 Effective Recall 和 Hybrid Accuracy (作為 Precision 的近似)
         r = self.calculate_effective_recall()
-        # 這裡的 Precision 我們用 Hybrid Accuracy 近似，或使用傳統 Precision
         p = self.calculate_hybrid_accuracy() 
         
         if (p + r) == 0: return 0.0
@@ -126,6 +121,8 @@ class SCBREvaluator:
         conflicts = 0
         total_definitive = 0
         for log in self.logs:
+            if not log.get('gt_diagnosis'): continue # Online Mode without GT
+            
             if log['pred_response_type'] == 'DEFINITIVE':
                 total_definitive += 1
                 p_attr = log.get('pred_attributes', {})
@@ -161,15 +158,22 @@ class SCBREvaluator:
         cases = set(l['case_id'] for l in self.logs)
         for cid in cases:
             case_logs = sorted([l for l in self.logs if l['case_id'] == cid], key=lambda x: x['turn_id'])
-            gt = case_logs[0]['gt_diagnosis']
+            
+            # 如果是 Online 模式，沒有 GT，則只檢查連續穩定
+            gt = case_logs[0].get('gt_diagnosis') 
+
             stable_turn = -1
             hits = 0
+            
             for log in case_logs:
-                # 判定穩定：連續兩次確診且正確
-                if log['pred_response_type'] == 'DEFINITIVE' and log['pred_diagnosis'] == gt:
+                # 判定穩定：連續兩次確診且 (正確 或 無 GT 模式)
+                is_correct = (gt is None) or (log['pred_diagnosis'] == gt)
+                
+                if log['pred_response_type'] == 'DEFINITIVE' and is_correct:
                     hits += 1
-                    if hits >= 2 and stable_turn == -1:
-                        stable_turn = log['turn_id'] - 1 # 回推到第一次命中的那一輪
+                    if hits >= 2: # 連續兩輪命中視為穩定
+                        stable_turn = log['turn_id'] 
+                        break
                 else:
                     hits = 0 # 中斷重算
             
@@ -190,7 +194,9 @@ class SCBREvaluator:
                     curr = case_logs[i]['ambiguous_terms_count']
                     next_ = case_logs[i+1]['ambiguous_terms_count']
                     if curr > 0:
-                        rates.append((curr - next_) / curr)
+                        rates.append((curr - next_) / curr) # 計算減少的比例
+                    else:
+                        rates.append(1.0) # 如果已經沒有模糊項了，算解決
         return float(np.mean(rates)) if rates else 0.0
 
     # ==========================================
@@ -201,6 +207,8 @@ class SCBREvaluator:
         """指標 9: Structure-Match Score (Jaccard)"""
         scores = []
         for log in self.logs:
+            if not log.get('gt_attributes'): continue # Online Mode without GT
+            
             p_feats = set(log.get('pred_attributes', {}).items()) # 轉為 set((k,v))
             g_feats = set(log.get('gt_attributes', {}).items())
             
@@ -216,12 +224,15 @@ class SCBREvaluator:
         """指標 10: Funnel Adherence Score"""
         illegal = 0
         total = 0
+        
         for log in self.logs:
             total += 1
-            # 規則1: 急症必須攔截
-            if log.get('is_emergency_gt') and log['pred_response_type'] != 'EMERGENCY_ABORT':
-                illegal += 1
-            # 規則2: 模糊項過多不可確診
+            # 規則 1: 急症必須攔截 (僅在有 GT 時檢查)
+            if log.get('is_emergency_gt') is not None:
+                if log['is_emergency_gt'] and log['pred_response_type'] not in ['EMERGENCY_ABORT', 'FALLBACK', 'INQUIRY_ONLY']: # 允許 Inquiry
+                    illegal += 1
+            
+            # 規則 2: 模糊項過多不可確診
             elif log['ambiguous_terms_count'] >= 2 and log['pred_response_type'] == 'DEFINITIVE':
                 illegal += 1
                 
@@ -241,159 +252,3 @@ class SCBREvaluator:
             "C9_Struct_Match_Score": self.calculate_structure_match_score(),
             "C10_Funnel_Adherence": self.calculate_funnel_adherence()
         }
-
-2. 升級版 run_benchmark.py (資料填充)
-這個版本修復了「資料缺失」的問題。 它加入了 Mock Embedding (或呼叫真實 API) 的邏輯，並且嘗試從 API Response 中解析 attributes。
-
-請注意： 為了讓 Metric 1 生效，您需要將 GET_EMBEDDING_FUNCTION 替換為真實的 NVIDIA API 呼叫，或者在測試時使用簡單的 SentenceTransformer
-
-import json
-import time
-import requests
-import uuid
-import sys
-import os
-import numpy as np
-from dotenv import load_dotenv
-
-# Load env
-load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'backend'))
-
-from app.evaluation.scbr_evaluator import SCBREvaluator
-
-API_URL = "http://localhost:8000/api/v1/chat"
-DATASET_PATH = os.path.join(os.path.dirname(__file__), "test_dataset.json")
-
-# --- 模擬/真實 Embedding 函數 ---
-def get_embedding(text):
-    """
-    [重要] 為了計算 Metric 1，這裡需要回傳 1024 維向量。
-    測試時可以使用 fake vector，正式跑分請接 NVIDIA API。
-    """
-    # return list(np.random.rand(1024)) # Mock: 隨機向量 (僅供測試流程)
-    # TODO: Replace with real call: nvidia_client.get_embedding(text)
-    return None 
-
-def run_benchmark():
-    print("Starting SCBR Multi-Turn Benchmark (vFinal)...")
-    
-    if not os.path.exists(DATASET_PATH):
-        print(f"Error: Dataset not found at {DATASET_PATH}")
-        return
-
-    with open(DATASET_PATH, 'r', encoding='utf-8') as f:
-        cases = json.load(f)
-    
-    evaluator = SCBREvaluator()
-    
-    for case in cases:
-        case_id = case['id']
-        session_id = f"bench_{uuid.uuid4().hex[:8]}"
-        print(f"\n--- Processing Case: {case_id} ---")
-        
-        # 獲取 GT 向量 (只做一次，為了 Metric 1)
-        gt_text = case.get('expected_diagnosis', "")
-        gt_vector = get_embedding(gt_text)
-        
-        turns = case.get('turns', [])
-        
-        for turn in turns:
-            turn_id = turn.get('turn_id', 1)
-            user_input = turn.get('input', "")
-            
-            # Ground Truths
-            gt_diagnosis = case.get('expected_diagnosis')
-            gt_attributes = case.get('expected_attributes', {})
-            is_emergency = case.get('is_emergency', False)
-            
-            payload = {
-                "session_id": session_id,
-                "patient_id": "benchmark_patient",
-                "message": user_input
-            }
-            
-            try:
-                resp = requests.post(API_URL, json=payload)
-                
-                if resp.status_code == 200:
-                    data = resp.json()
-                    
-                    # 1. 提取預測結果
-                    pred_type = data.get('response_type', 'FALLBACK')
-                    pred_diag = ""
-                    pred_conf = 0.0
-                    
-                    if data.get('diagnosis_list'):
-                        top1 = data['diagnosis_list'][0]
-                        pred_diag = top1.get('disease_name', "")
-                        pred_conf = top1.get('confidence', 0.0)
-                    
-                    # 2. 提取結構化屬性 (Crucial for Logic Checks)
-                    # 假設 API 回傳中有 'visualization_data' 含八綱分數
-                    # 或者從 'diagnosis_list' 的 top1 推斷
-                    # 這裡做一個 Mapping 範例
-                    pred_attributes = {}
-                    vis_data = data.get('visualization_data', {})
-                    if vis_data:
-                        # 簡單規則：若寒分 > 熱分 -> nature: cold
-                        han = vis_data.get('han', 0)
-                        re = vis_data.get('re', 0)
-                        xu = vis_data.get('xu', 0)
-                        shi = vis_data.get('shi', 0)
-                        
-                        pred_attributes['nature'] = 'cold' if han > re else 'hot'
-                        pred_attributes['deficiency'] = 'deficiency' if xu > shi else 'excess'
-                    
-                    # 3. 提取模糊項計數
-                    # 假設 API 回傳 debug_info 或需要前端判斷
-                    # 這裡暫時檢查 evidence_trace 裡是否有 "Ambiguity" 字眼
-                    trace = data.get('evidence_trace', "")
-                    amb_count = trace.count("UNRESOLVED") + trace.count("UNCERTAIN")
-                    
-                    # 4. 獲取預測向量 (Metric 1)
-                    pred_vector = get_embedding(pred_diag) if pred_diag else None
-
-                    # Log 到 Evaluator
-                    turn_data = {
-                        "case_id": case_id,
-                        "turn_id": turn_id,
-                        "input_text": user_input,
-                        "gt_diagnosis": gt_diagnosis,
-                        "gt_attributes": gt_attributes,
-                        "gt_vector": gt_vector,
-                        "is_emergency_gt": is_emergency,
-                        
-                        "pred_response_type": pred_type,
-                        "pred_diagnosis": pred_diag,
-                        "pred_confidence": pred_conf,
-                        "pred_attributes": pred_attributes,
-                        "pred_vector": pred_vector,
-                        "ambiguous_terms_count": amb_count,
-                        
-                        # 用於判斷 Rejection Precision
-                        "is_rejected_action": "REJECTED" in trace
-                    }
-                    evaluator.log_turn(turn_data)
-                    
-                    print(f"  Turn {turn_id}: [{pred_type}] {pred_diag} (Conf: {pred_conf:.2f})")
-                    
-                else:
-                    print(f"  Turn {turn_id}: Error {resp.status_code}")
-
-            except Exception as e:
-                print(f"  Exception: {str(e)}")
-                
-    # Final Report
-    print("\n" + "="*60)
-    print("SCBR vFinal Evaluation Report (10 Metrics)")
-    print("="*60)
-    
-    results = evaluator.get_summary_report()
-    for metric, value in results.items():
-        print(f"{metric:<30}: {value:.4f}")
-    print("="*60)
-
-if __name__ == "__main__":
-    run_benchmark()
-

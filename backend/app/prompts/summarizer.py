@@ -20,6 +20,11 @@ SUMMARIZER_SYSTEM_PROMPT = """
 - **[RESOLVED]**: 病人表示已經好了的症狀 (如: "前天發燒，今天已經退了" -> 發燒標記為 RESOLVED)。
 - **[REJECTED]**: 經詢問後確認沒有的症狀 (如: 醫生問"有口渴嗎?" 病人回"沒有" -> 口渴標記為 REJECTED)。
 - **[UNCERTAIN]**: 病人描述模糊，待確認。
+- **[CONFLICT]**: 當前輸入與歷史狀態發生明確矛盾 (e.g., "R1:發燒" 後 "R2:沒發燒")。
+
+#### 矛盾解決原則 (Conflict Resolution) - 優化 12
+- **最新覆蓋原則 (Latest Override)**: 若當前輸入明確否定歷史狀態 (e.g., "R1:發燒" -> "R2:沒發燒")，則採信最新狀態，將 `發燒` 標記為 `RESOLVED` 或 `REJECTED`。
+- **詢問澄清**: 若矛盾點複雜或有歧義，將相關症狀標記為 `UNCERTAIN`，並在 `updated_diagnosis_summary` 中說明需進一步澄清。
 
 ### 目標：
 1. **提取 (Extract)**: 更新目前的「已知病況狀態」，特別注意時間標記、素體與新感的分離，以及每個症狀的動態狀態。

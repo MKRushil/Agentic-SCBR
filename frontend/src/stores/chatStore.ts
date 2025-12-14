@@ -110,6 +110,9 @@ export const useChatStore = defineStore('chat', () => {
     visualizationData.value = {}
     followUpQuestion.value = { required: false, options: [] }
     formattedReport.value = null
+    
+    // Add Welcome Message
+    addMessage('assistant', `您好，我是 Agentic SCBR-CDSS。請輸入病患的主訴與詳細症狀，我將協助您進行診斷分析。\n\n**免責聲明:** 本系統為學術研究用輔助診斷系統，AI 輸出可能包含錯誤或幻覺。所有醫療決策請務必由合格中醫師確認。本系統不承擔任何醫療責任。`)
   }
 
   return {

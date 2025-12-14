@@ -20,7 +20,7 @@ watch(() => chatStore.messages.length, scrollToBottom)
 onMounted(() => {
   // 初始歡迎訊息
   if (chatStore.messages.length === 0) {
-    chatStore.addMessage('assistant', '您好，我是 Agentic SCBR-CDSS。請輸入病患的主訴與詳細症狀，我將協助您進行診斷分析。')
+    chatStore.addMessage('assistant', `您好，我是 Agentic SCBR-CDSS。請輸入病患的主訴與詳細症狀，我將協助您進行診斷分析。\n\n**免責聲明:** 本系統為學術研究用輔助診斷系統，AI 輸出可能包含錯誤或幻覺。所有醫療決策請務必由合格中醫師確認。本系統不承擔任何醫療責任。`)
   }
 })
 </script>

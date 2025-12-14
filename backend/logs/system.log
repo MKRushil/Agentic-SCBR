@@ -1132,3 +1132,1391 @@ Raw Output: <think>
 2025-12-14 11:24:23,536 - main - INFO - [Startup] Schema check passed.
 2025-12-14 11:24:23,537 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
 2025-12-14 11:25:40,435 - main - INFO - Shutting down system...
+2025-12-14 11:25:42,959 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 11:25:42,972 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 11:25:42,990 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 11:25:43,158 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 11:25:43,218 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 11:25:43,219 - main - INFO - [Startup] Schema check passed.
+2025-12-14 11:25:43,220 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 14:12:21,204 - main - INFO - Shutting down system...
+2025-12-14 14:12:23,752 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 14:12:23,764 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 14:12:23,780 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 14:12:23,951 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 14:12:24,012 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 14:12:24,014 - main - INFO - [Startup] Schema check passed.
+2025-12-14 14:12:24,014 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 14:14:58,370 - main - INFO - Shutting down system...
+2025-12-14 14:15:00,806 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 14:15:00,817 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 14:15:00,834 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 14:15:01,174 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 14:15:01,243 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 14:15:01,245 - main - INFO - [Startup] Schema check passed.
+2025-12-14 14:15:01,245 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 14:21:20,262 - main - INFO - Shutting down system...
+2025-12-14 14:21:22,745 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 14:21:22,756 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 14:21:22,767 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 14:21:22,957 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 14:21:23,016 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 14:21:23,018 - main - INFO - [Startup] Schema check passed.
+2025-12-14 14:21:23,019 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 16:47:59,111 - main - INFO - Shutting down system...
+2025-12-14 16:48:02,262 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 16:48:02,272 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 16:48:02,285 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 16:48:02,458 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 16:48:02,517 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 16:48:02,519 - main - INFO - [Startup] Schema check passed.
+2025-12-14 16:48:02,520 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 16:57:34,163 - main - INFO - Shutting down system...
+2025-12-14 16:57:36,933 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 16:57:36,951 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 16:57:36,968 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 16:57:37,137 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 16:57:37,197 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 16:57:37,199 - main - INFO - [Startup] Schema check passed.
+2025-12-14 16:57:37,200 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 16:58:45,885 - main - INFO - Shutting down system...
+2025-12-14 16:58:48,383 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 16:58:48,404 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 16:58:48,424 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 16:58:48,609 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 16:58:48,670 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 16:58:48,673 - main - INFO - [Startup] Schema check passed.
+2025-12-14 16:58:48,674 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 16:59:36,327 - main - INFO - Shutting down system...
+2025-12-14 16:59:38,571 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 16:59:38,584 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 16:59:38,600 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 16:59:38,774 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 16:59:38,831 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 16:59:38,835 - main - INFO - [Startup] Schema check passed.
+2025-12-14 16:59:38,836 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 17:19:47,072 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765732784586_c85qwnn0u
+2025-12-14 17:19:47,074 - app.core.orchestrator - INFO - Lock acquired for session sess_1765732784586_c85qwnn0u
+2025-12-14 17:20:00,429 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 17:20:00,431 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 17:20:00,431 - app.core.orchestrator - WARNING - [Orchestrator] Emergency detected: 胸痛如壓伴隨冷汗，高度疑似心臟相關急症（如心肌梗死），需立即就醫
+2025-12-14 17:20:00,432 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765732784586_c85qwnn0u | Endpoint=/chat | Value=13359.28ms
+2025-12-14 17:20:25,942 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765732819170_skt7sq2bk
+2025-12-14 17:20:25,942 - app.core.orchestrator - INFO - Lock acquired for session sess_1765732819170_skt7sq2bk
+2025-12-14 17:20:35,556 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 17:20:35,558 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 17:20:36,711 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 17:20:36,969 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8391308784484863 (Query: 頭痛且身體冷...)
+2025-12-14 17:20:36,969 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 2, 'yang': 3, 'biao': 6, 'li': 4, 'han': 7, 're': 2, 'xu': 3, 'shi': 5}
+2025-12-14 17:20:36,970 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8391)
+2025-12-14 17:20:51,609 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 17:20:51,611 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 17:20:51,612 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8391308784484863
+2025-12-14 17:20:52,778 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 17:21:14,630 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 17:21:14,632 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765732819170_skt7sq2bk. Path: PATH_B
+2025-12-14 17:21:14,633 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765732819170_skt7sq2bk | Value=0.8500
+2025-12-14 17:21:14,633 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765732819170_skt7sq2bk | Value=0.9381
+2025-12-14 17:21:14,634 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765732819170_skt7sq2bk | Value=PATH_B
+2025-12-14 17:21:14,634 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765732819170_skt7sq2bk | Timestamp=1765732874.6346076
+2025-12-14 17:21:14,635 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765732819170_skt7sq2bk | Value=1.4717
+2025-12-14 17:21:14,635 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765732819170_skt7sq2bk | Endpoint=/chat | Value=48693.05ms
+2025-12-14 17:21:14,645 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765732819170_skt7sq2bk
+2025-12-14 17:21:21,329 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 17:21:21,332 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日頭痛且身體冷 (新感)...
+2025-12-14 17:21:21,332 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765732819170_skt7sq2bk
+2025-12-14 17:35:35,987 - main - INFO - Shutting down system...
+2025-12-14 17:35:39,397 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 17:35:39,411 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 17:35:39,427 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 17:35:39,585 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 17:35:39,644 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 17:35:39,646 - main - INFO - [Startup] Schema check passed.
+2025-12-14 17:35:39,647 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 17:55:05,681 - main - INFO - Shutting down system...
+2025-12-14 17:55:08,950 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 17:55:08,965 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 17:55:08,980 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 17:55:09,157 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 17:55:09,215 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 17:55:09,217 - main - INFO - [Startup] Schema check passed.
+2025-12-14 17:55:09,218 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 18:06:58,682 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765735599596_ob8i45v3t
+2025-12-14 18:06:58,686 - app.core.orchestrator - INFO - Lock acquired for session sess_1765735599596_ob8i45v3t
+2025-12-14 18:07:08,749 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:07:08,751 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:07:09,889 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:07:10,126 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8722239136695862 (Query: 醫生，我這兩天一直在咳嗽。...)
+2025-12-14 18:07:10,127 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 0, 'han': 3, 're': 0, 'xu': 2, 'shi': 1}
+2025-12-14 18:07:10,127 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8722)
+2025-12-14 18:07:25,991 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:07:25,994 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:07:25,994 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8722239136695862
+2025-12-14 18:07:27,124 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:07:46,958 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:07:46,960 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765735599596_ob8i45v3t. Path: PATH_B
+2025-12-14 18:07:46,960 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765735599596_ob8i45v3t | Value=0.7000
+2025-12-14 18:07:46,961 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765735599596_ob8i45v3t | Value=0.8201
+2025-12-14 18:07:46,961 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765735599596_ob8i45v3t | Value=PATH_B
+2025-12-14 18:07:46,961 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765735599596_ob8i45v3t | Timestamp=1765735666.9618187
+2025-12-14 18:07:46,962 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765735599596_ob8i45v3t | Value=1.5058
+2025-12-14 18:07:46,962 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765735599596_ob8i45v3t | Endpoint=/chat | Value=48278.91ms
+2025-12-14 18:07:46,963 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765735599596_ob8i45v3t
+2025-12-14 18:07:56,289 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:07:56,293 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]兩天前咳嗽 -> [現況]持續咳嗽 (無明確素體特徵表現)...
+2025-12-14 18:07:56,293 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765735599596_ob8i45v3t
+2025-12-14 18:08:09,091 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765735599596_ob8i45v3t
+2025-12-14 18:08:09,093 - app.core.orchestrator - INFO - Lock acquired for session sess_1765735599596_ob8i45v3t
+2025-12-14 18:08:21,361 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:08:21,363 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:08:22,471 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:08:22,708 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8720877170562744 (Query: [起病]兩天前咳嗽 -> [現況]持續咳嗽 (無明確素體特徵表現) 而且覺得很怕冷，穿了外套還是冷。...)
+2025-12-14 18:08:22,709 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 7, 'li': 0, 'han': 7, 're': 5, 'xu': 6, 'shi': 0}
+2025-12-14 18:08:22,709 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8721)
+2025-12-14 18:08:39,301 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:08:39,302 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:08:39,302 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8720877170562744
+2025-12-14 18:08:40,472 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:09:08,019 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:09:08,021 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765735599596_ob8i45v3t. Path: PATH_B
+2025-12-14 18:09:08,022 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765735599596_ob8i45v3t | Value=0.8500
+2025-12-14 18:09:08,023 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765735599596_ob8i45v3t | Value=0.6673
+2025-12-14 18:09:08,023 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765735599596_ob8i45v3t | Value=PATH_B
+2025-12-14 18:09:08,024 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765735599596_ob8i45v3t | Timestamp=1765735748.0242019
+2025-12-14 18:09:08,024 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765735599596_ob8i45v3t | Value=1.4338
+2025-12-14 18:09:08,025 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765735599596_ob8i45v3t | Endpoint=/chat | Value=58932.41ms
+2025-12-14 18:09:08,027 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765735599596_ob8i45v3t
+2025-12-14 18:09:32,875 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:09:32,877 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]兩天前咳嗽 -> [現況]持續咳嗽 + 新增怕冷（穿衣仍寒）...
+2025-12-14 18:09:32,877 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765735599596_ob8i45v3t
+2025-12-14 18:09:50,812 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765735599596_ob8i45v3t
+2025-12-14 18:09:50,813 - app.core.orchestrator - INFO - Lock acquired for session sess_1765735599596_ob8i45v3t
+2025-12-14 18:10:03,438 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:10:03,440 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:10:04,562 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:10:04,810 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8260554671287537 (Query: [起病]兩天前咳嗽 -> [現況]持續咳嗽 + 新增怕冷（穿衣仍寒） 喉嚨有點癢，咳出來的痰是白白稀...)
+2025-12-14 18:10:04,810 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 3, 'yang': 2, 'biao': 4, 'li': 7, 'han': 8, 're': 3, 'xu': 7, 'shi': 2}
+2025-12-14 18:10:04,811 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8261)
+2025-12-14 18:10:24,240 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:10:24,242 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765735599596_ob8i45v3t. Path: PATH_A
+2025-12-14 18:10:24,243 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765735599596_ob8i45v3t | Value=0.0000
+2025-12-14 18:10:24,243 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765735599596_ob8i45v3t | Value=0.8261
+2025-12-14 18:10:24,244 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765735599596_ob8i45v3t | Value=PATH_A
+2025-12-14 18:10:24,244 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765735599596_ob8i45v3t | Timestamp=1765735824.2446814
+2025-12-14 18:10:24,245 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765735599596_ob8i45v3t | Value=0.0000
+2025-12-14 18:10:24,245 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765735599596_ob8i45v3t | Endpoint=/chat | Value=33432.88ms
+2025-12-14 18:10:24,248 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765735599596_ob8i45v3t
+2025-12-14 18:10:39,526 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:10:39,529 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]兩天前咳嗽 -> [演變]新增怕冷現象 + 咳白痰 -> [現況]持續咳嗽+怕冷+喉嚨癢 (...
+2025-12-14 18:10:39,529 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765735599596_ob8i45v3t
+2025-12-14 18:11:26,920 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765735599596_ob8i45v3t
+2025-12-14 18:11:26,922 - app.core.orchestrator - INFO - Lock acquired for session sess_1765735599596_ob8i45v3t
+2025-12-14 18:11:40,615 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:11:40,618 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:11:41,043 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:11:41,273 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8339966535568237 (Query: [起病]兩天前咳嗽 -> [演變]新增怕冷現象 + 咳白痰 -> [現況]持續咳嗽+怕冷+喉嚨癢 (...)
+2025-12-14 18:11:41,273 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 3, 'yang': 2, 'biao': 5, 'li': 0, 'han': 7, 're': 0, 'xu': 6, 'shi': 0}
+2025-12-14 18:11:41,274 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8340)
+2025-12-14 18:11:55,745 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:11:55,748 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765735599596_ob8i45v3t. Path: PATH_A
+2025-12-14 18:11:55,748 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765735599596_ob8i45v3t | Value=0.0000
+2025-12-14 18:11:55,749 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765735599596_ob8i45v3t | Value=0.8340
+2025-12-14 18:11:55,749 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765735599596_ob8i45v3t | Value=PATH_A
+2025-12-14 18:11:55,749 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765735599596_ob8i45v3t | Timestamp=1765735915.7498176
+2025-12-14 18:11:55,750 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765735599596_ob8i45v3t | Value=0.0000
+2025-12-14 18:11:55,750 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765735599596_ob8i45v3t | Endpoint=/chat | Value=28828.71ms
+2025-12-14 18:11:55,753 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765735599596_ob8i45v3t
+2025-12-14 18:12:12,359 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:12:12,361 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]兩天前咳嗽 -> [演變]新增怕冷+咳白痰+喉嚨癢 -> [現況]持續咳嗽+怕冷+咳白痰+喉...
+2025-12-14 18:12:12,361 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765735599596_ob8i45v3t
+2025-12-14 18:13:19,367 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765735996684_nfotepte1
+2025-12-14 18:13:19,367 - app.core.orchestrator - INFO - Lock acquired for session sess_1765735996684_nfotepte1
+2025-12-14 18:13:29,180 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:13:29,182 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:13:30,283 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:13:30,511 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8581399917602539 (Query: 昨天淋雨後，今天開始流鼻水、打噴嚏。...)
+2025-12-14 18:13:30,511 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 6, 'li': 0, 'han': 5, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 18:13:30,512 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8581)
+2025-12-14 18:13:43,533 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:13:43,536 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:13:43,536 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8581399917602539
+2025-12-14 18:13:44,647 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:14:00,629 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:14:00,631 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765735996684_nfotepte1. Path: PATH_B
+2025-12-14 18:14:00,632 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765735996684_nfotepte1 | Value=0.9200
+2025-12-14 18:14:00,632 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765735996684_nfotepte1 | Value=0.7945
+2025-12-14 18:14:00,633 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765735996684_nfotepte1 | Value=PATH_B
+2025-12-14 18:14:00,633 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765735996684_nfotepte1 | Timestamp=1765736040.6333747
+2025-12-14 18:14:00,633 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765735996684_nfotepte1 | Value=1.4569
+2025-12-14 18:14:00,634 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765735996684_nfotepte1 | Endpoint=/chat | Value=41266.74ms
+2025-12-14 18:14:00,636 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765735996684_nfotepte1
+2025-12-14 18:14:10,784 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:14:10,786 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]昨日淋雨 -> [現況]今日流鼻水、打噴嚏（新感）...
+2025-12-14 18:14:10,787 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765735996684_nfotepte1
+2025-12-14 18:15:00,908 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765735996684_nfotepte1
+2025-12-14 18:15:00,909 - app.core.orchestrator - INFO - Lock acquired for session sess_1765735996684_nfotepte1
+2025-12-14 18:15:12,897 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:15:12,900 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:15:14,064 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:15:14,300 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.821534276008606 (Query: [起病]昨日淋雨 -> [現況]今日流鼻水、打噴嚏（新感） 但我平時身體就很差，動不動就累，講話沒力...)
+2025-12-14 18:15:14,301 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 6, 'li': 0, 'han': 5, 're': 0, 'xu': 7, 'shi': 0}
+2025-12-14 18:15:14,301 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8215)
+2025-12-14 18:15:30,863 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:15:30,865 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:15:30,866 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.821534276008606
+2025-12-14 18:15:31,939 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:15:55,676 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:15:55,678 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765735996684_nfotepte1. Path: PATH_B
+2025-12-14 18:15:55,679 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765735996684_nfotepte1 | Value=0.9400
+2025-12-14 18:15:55,679 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765735996684_nfotepte1 | Value=0.7672
+2025-12-14 18:15:55,680 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765735996684_nfotepte1 | Value=PATH_B
+2025-12-14 18:15:55,680 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765735996684_nfotepte1 | Timestamp=1765736155.6805632
+2025-12-14 18:15:55,680 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765735996684_nfotepte1 | Value=1.4179
+2025-12-14 18:15:55,681 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765735996684_nfotepte1 | Endpoint=/chat | Value=54772.44ms
+2025-12-14 18:15:55,683 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765735996684_nfotepte1
+2025-12-14 18:16:04,897 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:16:04,900 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]昨日淋雨 -> [現況]流鼻水、打噴嚏(新感)，無發熱/全身酸痛；[素體]平素身體差、易疲勞...
+2025-12-14 18:16:04,900 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765735996684_nfotepte1
+2025-12-14 18:16:21,812 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765735996684_nfotepte1
+2025-12-14 18:16:21,814 - app.core.orchestrator - INFO - Lock acquired for session sess_1765735996684_nfotepte1
+2025-12-14 18:16:39,723 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:16:39,725 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:16:40,162 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:16:40,394 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8437655568122864 (Query: [起病]昨日淋雨 -> [現況]流鼻水、打噴嚏(新感)，無發熱/全身酸痛；[素體]平素身體差、易疲勞...)
+2025-12-14 18:16:40,394 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 4, 'yang': 6, 'biao': 7, 'li': 5, 'han': 8, 're': 2, 'xu': 7, 'shi': 3}
+2025-12-14 18:16:40,395 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8438)
+2025-12-14 18:17:01,452 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:17:01,454 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765735996684_nfotepte1. Path: PATH_A
+2025-12-14 18:17:01,454 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765735996684_nfotepte1 | Value=0.0000
+2025-12-14 18:17:01,455 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765735996684_nfotepte1 | Value=0.8438
+2025-12-14 18:17:01,456 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765735996684_nfotepte1 | Value=PATH_A
+2025-12-14 18:17:01,456 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765735996684_nfotepte1 | Timestamp=1765736221.456463
+2025-12-14 18:17:01,456 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765735996684_nfotepte1 | Value=0.0000
+2025-12-14 18:17:01,457 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765735996684_nfotepte1 | Endpoint=/chat | Value=39642.74ms
+2025-12-14 18:17:01,458 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765735996684_nfotepte1
+2025-12-14 18:17:18,858 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:17:18,860 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]昨日淋雨 -> [現況]流鼻水、打噴嚏(新感)；[素體]平素身體差、易疲勞、講話無力、易食冷...
+2025-12-14 18:17:18,861 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765735996684_nfotepte1
+2025-12-14 18:17:33,616 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765735996684_nfotepte1
+2025-12-14 18:17:33,619 - app.core.orchestrator - INFO - Lock acquired for session sess_1765735996684_nfotepte1
+2025-12-14 18:17:46,257 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:17:46,259 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:17:46,686 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:17:46,914 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8219171762466431 (Query: [起病]昨日淋雨 -> [現況]流鼻水、打噴嚏(新感)；[素體]平素身體差、易疲勞、講話無力、易食冷...)
+2025-12-14 18:17:46,915 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 3, 'yang': 4, 'biao': 8, 'li': 2, 'han': 7, 're': 2, 'xu': 6, 'shi': 5}
+2025-12-14 18:17:46,915 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8219)
+2025-12-14 18:18:01,361 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:18:01,363 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765735996684_nfotepte1. Path: PATH_A
+2025-12-14 18:18:01,364 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765735996684_nfotepte1 | Value=0.0000
+2025-12-14 18:18:01,364 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765735996684_nfotepte1 | Value=0.8219
+2025-12-14 18:18:01,365 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765735996684_nfotepte1 | Value=PATH_A
+2025-12-14 18:18:01,365 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765735996684_nfotepte1 | Timestamp=1765736281.365476
+2025-12-14 18:18:01,365 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765735996684_nfotepte1 | Value=0.0000
+2025-12-14 18:18:01,366 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765735996684_nfotepte1 | Endpoint=/chat | Value=27747.26ms
+2025-12-14 18:18:01,367 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765735996684_nfotepte1
+2025-12-14 18:18:16,529 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:18:16,530 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]昨日淋雨 -> [演變]今日流鼻水、打噴嚏 -> [現況]加重疲勞、嗜睡；[素體]平素身體差...
+2025-12-14 18:18:16,531 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765735996684_nfotepte1
+2025-12-14 18:20:38,144 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736435770_b6d4dl5y5
+2025-12-14 18:20:38,145 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736435770_b6d4dl5y5
+2025-12-14 18:20:50,145 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:20:50,156 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:20:51,276 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:20:51,503 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8741530776023865 (Query: 我覺得肚子不舒服。...)
+2025-12-14 18:20:51,504 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 0, 'han': 0, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 18:20:51,505 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8742)
+2025-12-14 18:21:10,515 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:21:10,517 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:21:10,517 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8741530776023865
+2025-12-14 18:21:10,945 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:21:26,870 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:21:26,872 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736435770_b6d4dl5y5. Path: PATH_B
+2025-12-14 18:21:26,872 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736435770_b6d4dl5y5 | Value=0.3000
+2025-12-14 18:21:26,873 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736435770_b6d4dl5y5 | Value=0.8787
+2025-12-14 18:21:26,873 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736435770_b6d4dl5y5 | Value=PATH_B
+2025-12-14 18:21:26,874 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736435770_b6d4dl5y5 | Timestamp=1765736486.8746233
+2025-12-14 18:21:26,875 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736435770_b6d4dl5y5 | Value=1.4591
+2025-12-14 18:21:26,876 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736435770_b6d4dl5y5 | Endpoint=/chat | Value=48731.03ms
+2025-12-14 18:21:26,878 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736435770_b6d4dl5y5
+2025-12-14 18:21:34,492 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:21:34,493 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [現況] 本次發病以腹部不適為主，無明確時間標記，目前無素體特徵與新感特徵之區分...
+2025-12-14 18:21:34,494 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736435770_b6d4dl5y5
+2025-12-14 18:21:53,954 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736435770_b6d4dl5y5
+2025-12-14 18:21:53,955 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736435770_b6d4dl5y5
+2025-12-14 18:22:04,061 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:22:04,063 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:22:04,491 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:22:04,717 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9152169227600098 (Query: [現況] 本次發病以腹部不適為主，無明確時間標記，目前無素體特徵與新感特徵之區分 是脹氣那種痛，按下...)
+2025-12-14 18:22:04,718 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 5, 'li': 0, 'han': 6, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 18:22:04,718 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9152)
+2025-12-14 18:22:22,153 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:22:22,154 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:22:22,155 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9152169227600098
+2025-12-14 18:22:22,543 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:22:44,870 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:22:44,872 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736435770_b6d4dl5y5. Path: PATH_B
+2025-12-14 18:22:44,872 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736435770_b6d4dl5y5 | Value=0.7500
+2025-12-14 18:22:44,873 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736435770_b6d4dl5y5 | Value=0.7960
+2025-12-14 18:22:44,873 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736435770_b6d4dl5y5 | Value=PATH_B
+2025-12-14 18:22:44,873 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736435770_b6d4dl5y5 | Timestamp=1765736564.8738012
+2025-12-14 18:22:44,874 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736435770_b6d4dl5y5 | Value=1.4919
+2025-12-14 18:22:44,875 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736435770_b6d4dl5y5 | Endpoint=/chat | Value=50920.36ms
+2025-12-14 18:22:44,876 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736435770_b6d4dl5y5
+2025-12-14 18:22:58,984 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:22:58,986 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期發生腹部脹氣性不適，按壓可緩解，無明確素體特徵表現 -> [現況]持續全腹脹氣及壓痛，未...
+2025-12-14 18:22:58,987 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736435770_b6d4dl5y5
+2025-12-14 18:23:33,614 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736435770_b6d4dl5y5
+2025-12-14 18:23:33,615 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736435770_b6d4dl5y5
+2025-12-14 18:23:47,518 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:23:47,520 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:23:48,676 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:23:48,917 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8898197412490845 (Query: [起病]近期發生腹部脹氣性不適，按壓可緩解，無明確素體特徵表現 -> [現況]持續全腹脹氣及壓痛，未...)
+2025-12-14 18:23:48,917 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 2, 'yang': 3, 'biao': 0, 'li': 7, 'han': 6, 're': 1, 'xu': 5, 'shi': 4}
+2025-12-14 18:23:48,918 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8898)
+2025-12-14 18:24:07,606 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:24:07,611 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:24:07,611 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8898197412490845
+2025-12-14 18:24:08,758 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:24:30,725 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:24:30,727 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736435770_b6d4dl5y5. Path: PATH_B
+2025-12-14 18:24:30,728 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736435770_b6d4dl5y5 | Value=0.8500
+2025-12-14 18:24:30,728 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736435770_b6d4dl5y5 | Value=0.7953
+2025-12-14 18:24:30,729 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736435770_b6d4dl5y5 | Value=PATH_B
+2025-12-14 18:24:30,729 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736435770_b6d4dl5y5 | Timestamp=1765736670.7295592
+2025-12-14 18:24:30,730 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736435770_b6d4dl5y5 | Value=1.4378
+2025-12-14 18:24:30,730 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736435770_b6d4dl5y5 | Endpoint=/chat | Value=57115.53ms
+2025-12-14 18:24:30,732 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736435770_b6d4dl5y5
+2025-12-14 18:24:48,469 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:24:48,471 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期出現全腹脹氣性不適，按壓可緩解 -> [演變]食後症狀加重，伴隨大便不成形 -> [現況...
+2025-12-14 18:24:48,472 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736435770_b6d4dl5y5
+2025-12-14 18:25:52,009 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736750075_kh0v5a4ue
+2025-12-14 18:25:52,010 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736750075_kh0v5a4ue
+2025-12-14 18:26:00,280 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:26:00,282 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:26:00,687 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:26:00,922 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.7945442795753479 (Query: 我有發燒，體溫 38 度。...)
+2025-12-14 18:26:00,923 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 5, 'biao': 0, 'li': 0, 'han': 0, 're': 7, 'xu': 0, 'shi': 0}
+2025-12-14 18:26:00,923 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.7945442795753479
+2025-12-14 18:26:01,318 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:26:17,336 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:26:17,339 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736750075_kh0v5a4ue. Path: PATH_B
+2025-12-14 18:26:17,340 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736750075_kh0v5a4ue | Value=0.8500
+2025-12-14 18:26:17,341 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736750075_kh0v5a4ue | Value=0.7806
+2025-12-14 18:26:17,342 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736750075_kh0v5a4ue | Value=PATH_B
+2025-12-14 18:26:17,342 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736750075_kh0v5a4ue | Timestamp=1765736777.3424115
+2025-12-14 18:26:17,342 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736750075_kh0v5a4ue | Value=1.2183
+2025-12-14 18:26:17,343 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736750075_kh0v5a4ue | Endpoint=/chat | Value=25333.17ms
+2025-12-14 18:26:17,345 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736750075_kh0v5a4ue
+2025-12-14 18:26:26,299 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:26:26,300 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [現況]發燒（38℃）...
+2025-12-14 18:26:26,301 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736750075_kh0v5a4ue
+2025-12-14 18:26:29,411 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736750075_kh0v5a4ue
+2025-12-14 18:26:29,412 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736750075_kh0v5a4ue
+2025-12-14 18:26:49,697 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:26:49,699 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:26:50,126 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:26:50,352 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9259226322174072 (Query: [現況]發燒（38℃） 不對，我剛剛量錯了，體溫正常，沒有發燒。...)
+2025-12-14 18:26:50,353 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 0, 'han': 0, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 18:26:50,353 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9259)
+2025-12-14 18:27:07,721 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:27:07,723 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736750075_kh0v5a4ue. Path: PATH_A
+2025-12-14 18:27:07,723 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736750075_kh0v5a4ue | Value=0.0000
+2025-12-14 18:27:07,724 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736750075_kh0v5a4ue | Value=0.9259
+2025-12-14 18:27:07,725 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736750075_kh0v5a4ue | Value=PATH_A
+2025-12-14 18:27:07,726 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736750075_kh0v5a4ue | Timestamp=1765736827.7262206
+2025-12-14 18:27:07,726 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736750075_kh0v5a4ue | Value=0.0000
+2025-12-14 18:27:07,727 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736750075_kh0v5a4ue | Endpoint=/chat | Value=38315.40ms
+2025-12-14 18:27:07,728 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736750075_kh0v5a4ue
+2025-12-14 18:27:26,162 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:27:26,164 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日主訴發燒38℃ -> [現況]發燒已解析，體溫正常（無汗出）...
+2025-12-14 18:27:26,165 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736750075_kh0v5a4ue
+2025-12-14 18:27:48,850 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736750075_kh0v5a4ue
+2025-12-14 18:27:48,851 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736750075_kh0v5a4ue
+2025-12-14 18:28:03,448 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:28:03,449 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:28:03,866 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:28:04,102 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8663300275802612 (Query: [起病]今日主訴發燒38℃ -> [現況]發燒已解析，體溫正常（無汗出） 但是我非常怕風，吹到風頭就...)
+2025-12-14 18:28:04,103 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 8, 'li': 0, 'han': 6, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 18:28:04,105 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8663)
+2025-12-14 18:28:18,633 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:28:18,634 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736750075_kh0v5a4ue. Path: PATH_A
+2025-12-14 18:28:18,635 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736750075_kh0v5a4ue | Value=0.0000
+2025-12-14 18:28:18,635 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736750075_kh0v5a4ue | Value=0.8663
+2025-12-14 18:28:18,635 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736750075_kh0v5a4ue | Value=PATH_A
+2025-12-14 18:28:18,636 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736750075_kh0v5a4ue | Timestamp=1765736898.6364295
+2025-12-14 18:28:18,636 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736750075_kh0v5a4ue | Value=0.0000
+2025-12-14 18:28:18,637 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736750075_kh0v5a4ue | Endpoint=/chat | Value=29785.77ms
+2025-12-14 18:28:18,638 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736750075_kh0v5a4ue
+2025-12-14 18:28:34,041 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:28:34,044 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日主訴發燒38℃ -> [演變]發燒被否認，體溫正常 -> [現況]現有怕風、風頭痛（新感...
+2025-12-14 18:28:34,046 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736750075_kh0v5a4ue
+2025-12-14 18:29:23,534 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736962095_hn6icl7de
+2025-12-14 18:29:23,534 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736962095_hn6icl7de
+2025-12-14 18:29:35,436 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:29:35,439 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:29:36,544 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:29:36,771 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9145731329917908 (Query: 我喉嚨痛，覺得身體很熱。...)
+2025-12-14 18:29:36,772 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 5, 'biao': 6, 'li': 0, 'han': 0, 're': 7, 'xu': 0, 'shi': 0}
+2025-12-14 18:29:36,773 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9146)
+2025-12-14 18:29:49,148 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:29:49,158 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:29:49,159 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9145731329917908
+2025-12-14 18:29:50,254 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:30:09,077 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:30:09,079 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736962095_hn6icl7de. Path: PATH_B
+2025-12-14 18:30:09,079 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736962095_hn6icl7de | Value=0.8500
+2025-12-14 18:30:09,079 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736962095_hn6icl7de | Value=0.8908
+2025-12-14 18:30:09,080 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736962095_hn6icl7de | Value=PATH_B
+2025-12-14 18:30:09,080 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736962095_hn6icl7de | Timestamp=1765737009.0806625
+2025-12-14 18:30:09,081 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736962095_hn6icl7de | Value=1.3369
+2025-12-14 18:30:09,081 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736962095_hn6icl7de | Endpoint=/chat | Value=45546.70ms
+2025-12-14 18:30:09,082 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736962095_hn6icl7de
+2025-12-14 18:30:16,115 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:30:16,117 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [現況] 喉嚨痛、身體發熱 (新感)...
+2025-12-14 18:30:16,118 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736962095_hn6icl7de
+2025-12-14 18:31:25,931 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736962095_hn6icl7de
+2025-12-14 18:31:25,932 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736962095_hn6icl7de
+2025-12-14 18:31:48,238 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:31:48,240 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:31:48,655 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:31:48,882 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8663414716720581 (Query: [現況] 喉嚨痛、身體發熱 (新感) 但是我想要穿厚衣服，而且想喝熱水。...)
+2025-12-14 18:31:48,883 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 7, 'biao': 7, 'li': 0, 'han': 0, 're': 8, 'xu': 0, 'shi': 8}
+2025-12-14 18:31:48,883 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8663)
+2025-12-14 18:32:00,564 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:32:00,566 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:32:00,567 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8663414716720581
+2025-12-14 18:32:01,004 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:32:23,835 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:32:23,838 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736962095_hn6icl7de. Path: PATH_B
+2025-12-14 18:32:23,840 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736962095_hn6icl7de | Value=0.8800
+2025-12-14 18:32:23,840 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736962095_hn6icl7de | Value=0.8614
+2025-12-14 18:32:23,841 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736962095_hn6icl7de | Value=PATH_B
+2025-12-14 18:32:23,841 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736962095_hn6icl7de | Timestamp=1765737143.8416862
+2025-12-14 18:32:23,842 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736962095_hn6icl7de | Value=1.2936
+2025-12-14 18:32:23,843 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736962095_hn6icl7de | Endpoint=/chat | Value=57911.41ms
+2025-12-14 18:32:23,845 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736962095_hn6icl7de
+2025-12-14 18:32:35,185 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:32:35,188 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [現況] 喉嚨痛、身體發熱 (持續) + 新增畏寒表現 (新感), 喉部紅腫/白色脹落待確認...
+2025-12-14 18:32:35,189 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736962095_hn6icl7de
+2025-12-14 18:32:40,075 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765736962095_hn6icl7de
+2025-12-14 18:32:40,076 - app.core.orchestrator - INFO - Lock acquired for session sess_1765736962095_hn6icl7de
+2025-12-14 18:32:50,565 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:32:50,566 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:32:50,987 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:32:51,216 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8453050851821899 (Query: [現況] 喉嚨痛、身體發熱 (持續) + 新增畏寒表現 (新感), 喉部紅腫/白色脹落待確認 小便很...)
+2025-12-14 18:32:51,216 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 3, 'yang': 4, 'biao': 7, 'li': 5, 'han': 2, 're': 6, 'xu': 4, 'shi': 5}
+2025-12-14 18:32:51,216 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8453)
+2025-12-14 18:33:10,599 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:33:10,602 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:33:10,602 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8453050851821899
+2025-12-14 18:33:11,034 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:33:33,291 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:33:33,293 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765736962095_hn6icl7de. Path: PATH_B
+2025-12-14 18:33:33,294 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765736962095_hn6icl7de | Value=0.7800
+2025-12-14 18:33:33,295 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765736962095_hn6icl7de | Value=0.8313
+2025-12-14 18:33:33,295 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765736962095_hn6icl7de | Value=PATH_B
+2025-12-14 18:33:33,295 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765736962095_hn6icl7de | Timestamp=1765737213.295714
+2025-12-14 18:33:33,296 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765736962095_hn6icl7de | Value=1.5740
+2025-12-14 18:33:33,296 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765736962095_hn6icl7de | Endpoint=/chat | Value=53220.76ms
+2025-12-14 18:33:33,298 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765736962095_hn6icl7de
+2025-12-14 18:33:47,176 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:33:47,178 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [現況] 喉嚨痛、身體發熱、畏寒持續 + 新增小便清長量多 (新感), 喉部紅腫腫脹或白色脹落待確認...
+2025-12-14 18:33:47,179 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765736962095_hn6icl7de
+2025-12-14 18:34:48,053 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765737286109_m6ez5mcvs
+2025-12-14 18:34:48,053 - app.core.orchestrator - INFO - Lock acquired for session sess_1765737286109_m6ez5mcvs
+2025-12-14 18:34:56,644 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:34:56,646 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 18:34:57,745 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:34:57,972 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9074287414550781 (Query: 我感冒了，脈象很奇怪。...)
+2025-12-14 18:34:57,973 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 7, 'li': 0, 'han': 6, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 18:34:57,973 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9074)
+2025-12-14 18:35:09,505 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:35:09,506 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:35:09,507 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9074287414550781
+2025-12-14 18:35:10,060 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:35:30,424 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:35:30,426 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765737286109_m6ez5mcvs. Path: PATH_B
+2025-12-14 18:35:30,427 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765737286109_m6ez5mcvs | Value=0.7500
+2025-12-14 18:35:30,427 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765737286109_m6ez5mcvs | Value=0.8829
+2025-12-14 18:35:30,428 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765737286109_m6ez5mcvs | Value=PATH_B
+2025-12-14 18:35:30,428 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765737286109_m6ez5mcvs | Timestamp=1765737330.4286242
+2025-12-14 18:35:30,428 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765737286109_m6ez5mcvs | Value=1.2597
+2025-12-14 18:35:30,429 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765737286109_m6ez5mcvs | Endpoint=/chat | Value=42375.79ms
+2025-12-14 18:35:30,431 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765737286109_m6ez5mcvs
+2025-12-14 18:35:44,170 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:35:44,172 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期感冒 -> [現況]感冒伴隨脈象異常（素體未提及，新感為感冒及脈象異常）...
+2025-12-14 18:35:44,172 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765737286109_m6ez5mcvs
+2025-12-14 18:36:17,176 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765737286109_m6ez5mcvs
+2025-12-14 18:36:17,177 - app.core.orchestrator - INFO - Lock acquired for session sess_1765737286109_m6ez5mcvs
+2025-12-14 18:36:31,443 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:36:31,445 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 18:36:31,934 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:36:32,161 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8999079465866089 (Query: [起病]近期感冒 -> [現況]感冒伴隨脈象異常（素體未提及，新感為感冒及脈象異常） 醫生說我是浮脈...)
+2025-12-14 18:36:32,161 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 4, 'li': 0, 'han': 5, 're': 3, 'xu': 6, 'shi': 0}
+2025-12-14 18:36:32,162 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8999)
+2025-12-14 18:36:56,987 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:36:56,990 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:36:56,991 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8999079465866089
+2025-12-14 18:36:57,411 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:37:24,800 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:37:24,803 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765737286109_m6ez5mcvs. Path: PATH_B
+2025-12-14 18:37:24,803 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765737286109_m6ez5mcvs | Value=0.8500
+2025-12-14 18:37:24,803 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765737286109_m6ez5mcvs | Value=0.8561
+2025-12-14 18:37:24,804 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765737286109_m6ez5mcvs | Value=PATH_B
+2025-12-14 18:37:24,804 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765737286109_m6ez5mcvs | Timestamp=1765737444.8047683
+2025-12-14 18:37:24,805 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765737286109_m6ez5mcvs | Value=1.3894
+2025-12-14 18:37:24,805 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765737286109_m6ez5mcvs | Endpoint=/chat | Value=67628.69ms
+2025-12-14 18:37:24,807 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765737286109_m6ez5mcvs
+2025-12-14 18:37:36,962 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:37:36,964 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期感冒 -> [現況]感冒伴隨浮脈（素體未提及，新感為感冒及浮脈）...
+2025-12-14 18:37:36,965 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765737286109_m6ez5mcvs
+2025-12-14 18:38:06,291 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765737286109_m6ez5mcvs
+2025-12-14 18:38:06,291 - app.core.orchestrator - INFO - Lock acquired for session sess_1765737286109_m6ez5mcvs
+2025-12-14 18:38:25,269 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:38:25,270 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 18:38:26,372 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:38:26,596 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8991299867630005 (Query: [起病]近期感冒 -> [現況]感冒伴隨浮脈（素體未提及，新感為感冒及浮脈） 但我按得很深很深才摸到...)
+2025-12-14 18:38:26,597 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 5, 'li': 3, 'han': 4, 're': 0, 'xu': 7, 'shi': 5}
+2025-12-14 18:38:26,597 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8991)
+2025-12-14 18:38:53,788 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:38:53,791 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:38:53,792 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8991299867630005
+2025-12-14 18:38:54,904 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:39:20,389 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:39:20,393 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765737286109_m6ez5mcvs. Path: PATH_B
+2025-12-14 18:39:20,394 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765737286109_m6ez5mcvs | Value=0.9200
+2025-12-14 18:39:20,395 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765737286109_m6ez5mcvs | Value=0.8149
+2025-12-14 18:39:20,395 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765737286109_m6ez5mcvs | Value=PATH_B
+2025-12-14 18:39:20,395 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765737286109_m6ez5mcvs | Timestamp=1765737560.3958294
+2025-12-14 18:39:20,396 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765737286109_m6ez5mcvs | Value=1.4214
+2025-12-14 18:39:20,396 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765737286109_m6ez5mcvs | Endpoint=/chat | Value=74105.15ms
+2025-12-14 18:39:20,398 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765737286109_m6ez5mcvs
+2025-12-14 18:39:43,102 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:39:43,104 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期感冒 -> [演變]活動後氣短加重 -> [現況]感冒伴隨浮脈及沉脈（素體未提及，新感為...
+2025-12-14 18:39:43,104 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765737286109_m6ez5mcvs
+2025-12-14 18:40:20,676 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765737607178_30yw6yk9c
+2025-12-14 18:40:20,676 - app.core.orchestrator - INFO - Lock acquired for session sess_1765737607178_30yw6yk9c
+2025-12-14 18:40:29,085 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:40:29,088 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 18:40:30,212 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:40:30,447 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9074287414550781 (Query: 我感冒了，脈象很奇怪。...)
+2025-12-14 18:40:30,447 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 4, 'li': 0, 'han': 5, 're': 3, 'xu': 0, 'shi': 0}
+2025-12-14 18:40:30,448 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9074)
+2025-12-14 18:40:44,286 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:40:44,288 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:40:44,288 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9074287414550781
+2025-12-14 18:40:44,696 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:41:03,431 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:41:03,433 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765737607178_30yw6yk9c. Path: PATH_B
+2025-12-14 18:41:03,434 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765737607178_30yw6yk9c | Value=0.7500
+2025-12-14 18:41:03,434 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765737607178_30yw6yk9c | Value=0.8829
+2025-12-14 18:41:03,434 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765737607178_30yw6yk9c | Value=PATH_B
+2025-12-14 18:41:03,435 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765737607178_30yw6yk9c | Timestamp=1765737663.4353049
+2025-12-14 18:41:03,435 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765737607178_30yw6yk9c | Value=1.0488
+2025-12-14 18:41:03,436 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765737607178_30yw6yk9c | Endpoint=/chat | Value=42759.92ms
+2025-12-14 18:41:03,437 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765737607178_30yw6yk9c
+2025-12-14 18:41:12,439 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:41:12,441 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今次感冒 -> [現況]感冒持續，伴隨脈象異常 (新感: 感冒、脈象異常；素體: 無明確記錄...
+2025-12-14 18:41:12,442 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765737607178_30yw6yk9c
+2025-12-14 18:41:29,566 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765737607178_30yw6yk9c
+2025-12-14 18:41:29,566 - app.core.orchestrator - INFO - Lock acquired for session sess_1765737607178_30yw6yk9c
+2025-12-14 18:42:19,867 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:42:19,872 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: None
+2025-12-14 18:42:21,252 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:42:21,481 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9032669067382812 (Query: [起病]今次感冒 -> [現況]感冒持續，伴隨脈象異常 (新感: 感冒、脈象異常；素體: 無明確記錄...)
+2025-12-14 18:42:21,482 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {}
+2025-12-14 18:42:21,482 - app.services.visualization - INFO - [Viz] No eight principles data found, skipping chart.
+2025-12-14 18:42:21,482 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9033)
+2025-12-14 18:42:39,643 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:42:39,645 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:42:39,645 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9032669067382812
+2025-12-14 18:42:40,739 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:42:59,432 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:42:59,433 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765737607178_30yw6yk9c. Path: PATH_B
+2025-12-14 18:42:59,434 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765737607178_30yw6yk9c | Value=0.8500
+2025-12-14 18:42:59,434 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765737607178_30yw6yk9c | Value=0.8571
+2025-12-14 18:42:59,435 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765737607178_30yw6yk9c | Value=PATH_B
+2025-12-14 18:42:59,435 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765737607178_30yw6yk9c | Timestamp=1765737779.4355166
+2025-12-14 18:42:59,435 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765737607178_30yw6yk9c | Value=0.8570
+2025-12-14 18:42:59,436 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765737607178_30yw6yk9c | Endpoint=/chat | Value=89869.63ms
+2025-12-14 18:42:59,438 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765737607178_30yw6yk9c
+2025-12-14 18:43:10,320 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:43:10,322 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今次感冒 -> [現況]感冒持續，伴隨浮脈 (新感: 感冒、浮脈；素體: 無明確記錄)...
+2025-12-14 18:43:10,323 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765737607178_30yw6yk9c
+2025-12-14 18:43:29,670 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765737607178_30yw6yk9c
+2025-12-14 18:43:29,672 - app.core.orchestrator - INFO - Lock acquired for session sess_1765737607178_30yw6yk9c
+2025-12-14 18:44:02,857 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:44:02,859 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 18:44:03,962 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:44:04,190 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9067937135696411 (Query: [起病]今次感冒 -> [現況]感冒持續，伴隨浮脈 (新感: 感冒、浮脈；素體: 無明確記錄) 但我...)
+2025-12-14 18:44:04,191 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 5, 'li': 0, 'han': 6, 're': 0, 'xu': 7, 'shi': 0}
+2025-12-14 18:44:04,191 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9068)
+2025-12-14 18:44:18,805 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:44:18,808 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:44:18,808 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9067937135696411
+2025-12-14 18:44:19,933 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:44:45,692 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:44:45,694 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765737607178_30yw6yk9c. Path: PATH_B
+2025-12-14 18:44:45,695 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765737607178_30yw6yk9c | Value=0.8800
+2025-12-14 18:44:45,695 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765737607178_30yw6yk9c | Value=0.8251
+2025-12-14 18:44:45,696 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765737607178_30yw6yk9c | Value=PATH_B
+2025-12-14 18:44:45,696 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765737607178_30yw6yk9c | Timestamp=1765737885.6968303
+2025-12-14 18:44:45,697 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765737607178_30yw6yk9c | Value=0.7803
+2025-12-14 18:44:45,697 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765737607178_30yw6yk9c | Endpoint=/chat | Value=76025.96ms
+2025-12-14 18:44:45,699 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765737607178_30yw6yk9c
+2025-12-14 18:45:02,556 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:45:02,557 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今次感冒 -> [現況]感冒持續，浮脈與沉脈混合現象 (新感: 感冒、浮脈、沉脈; 素體: ...
+2025-12-14 18:45:02,558 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765737607178_30yw6yk9c
+2025-12-14 18:49:55,087 - main - INFO - Shutting down system...
+2025-12-14 18:51:54,696 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 18:51:54,709 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 18:51:54,725 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 18:51:54,899 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 18:51:54,962 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 18:51:54,964 - main - INFO - [Startup] Schema check passed.
+2025-12-14 18:51:54,965 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 18:52:08,730 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738320962_guccozp76
+2025-12-14 18:52:08,732 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738320962_guccozp76
+2025-12-14 18:52:21,311 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:52:21,313 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 18:52:22,433 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:52:22,664 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9074287414550781 (Query: 我感冒了，脈象很奇怪。...)
+2025-12-14 18:52:22,665 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 4, 'li': 0, 'han': 3, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 18:52:22,665 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9074)
+2025-12-14 18:52:35,118 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:52:35,119 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:52:35,119 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9074287414550781
+2025-12-14 18:52:36,220 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:52:57,041 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:52:57,043 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738320962_guccozp76. Path: PATH_B
+2025-12-14 18:52:57,044 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738320962_guccozp76 | Value=0.7500
+2025-12-14 18:52:57,044 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738320962_guccozp76 | Value=0.8829
+2025-12-14 18:52:57,045 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738320962_guccozp76 | Value=PATH_B
+2025-12-14 18:52:57,045 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738320962_guccozp76 | Timestamp=1765738377.0456507
+2025-12-14 18:52:57,046 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738320962_guccozp76 | Value=1.2597
+2025-12-14 18:52:57,049 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738320962_guccozp76 | Endpoint=/chat | Value=48318.50ms
+2025-12-14 18:52:57,051 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738320962_guccozp76
+2025-12-14 18:53:15,277 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:53:15,279 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日感冒 -> [現況]現有感冒症狀，脈象異常（素體：無；新感：感冒、脈象異常）...
+2025-12-14 18:53:15,279 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738320962_guccozp76
+2025-12-14 18:53:24,717 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738320962_guccozp76
+2025-12-14 18:53:24,717 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738320962_guccozp76
+2025-12-14 18:53:43,925 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:53:43,927 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 18:53:45,319 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:53:45,549 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8826131820678711 (Query: [起病]今日感冒 -> [現況]現有感冒症狀，脈象異常（素體：無；新感：感冒、脈象異常） 醫生說我是...)
+2025-12-14 18:53:45,549 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 7, 'li': 0, 'han': 6, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 18:53:45,550 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8826)
+2025-12-14 18:54:10,193 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:54:10,194 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738320962_guccozp76. Path: PATH_A
+2025-12-14 18:54:10,195 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738320962_guccozp76 | Value=0.0000
+2025-12-14 18:54:10,195 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738320962_guccozp76 | Value=0.8826
+2025-12-14 18:54:10,195 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738320962_guccozp76 | Value=PATH_A
+2025-12-14 18:54:10,196 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738320962_guccozp76 | Timestamp=1765738450.1962585
+2025-12-14 18:54:10,196 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738320962_guccozp76 | Value=0.0000
+2025-12-14 18:54:10,200 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738320962_guccozp76 | Endpoint=/chat | Value=45482.66ms
+2025-12-14 18:54:10,201 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738320962_guccozp76
+2025-12-14 18:54:29,748 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738320962_guccozp76
+2025-12-14 18:54:29,749 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738320962_guccozp76
+2025-12-14 18:54:31,996 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:54:31,998 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日感冒 -> [現況]現有感冒症狀，脈象異常（浮脈），醫生詢問自汗、乏力等症狀但未明確回答...
+2025-12-14 18:54:31,998 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738320962_guccozp76
+2025-12-14 18:54:46,456 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:54:46,459 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 18:54:47,619 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:54:47,857 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8679381608963013 (Query: [起病]今日感冒 -> [現況]現有感冒症狀，脈象異常（素體：無；新感：感冒、脈象異常） 但我按得很...)
+2025-12-14 18:54:47,858 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 2, 'yang': 3, 'biao': 8, 'li': 0, 'han': 7, 're': 0, 'xu': 4, 'shi': 6}
+2025-12-14 18:54:47,858 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8679)
+2025-12-14 18:55:05,191 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:55:05,194 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738320962_guccozp76. Path: PATH_A
+2025-12-14 18:55:05,194 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738320962_guccozp76 | Value=0.0000
+2025-12-14 18:55:05,195 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738320962_guccozp76 | Value=0.8679
+2025-12-14 18:55:05,195 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738320962_guccozp76 | Value=PATH_A
+2025-12-14 18:55:05,195 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738320962_guccozp76 | Timestamp=1765738505.1957333
+2025-12-14 18:55:05,196 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738320962_guccozp76 | Value=0.0000
+2025-12-14 18:55:05,202 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738320962_guccozp76 | Endpoint=/chat | Value=35453.14ms
+2025-12-14 18:55:05,205 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738320962_guccozp76
+2025-12-14 18:55:24,751 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:55:24,753 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日感冒 -> [演變]醫生診斷浮脈，系統分析後確定風寒表證 -> [現況]現有自汗、乏力、...
+2025-12-14 18:55:24,753 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738320962_guccozp76
+2025-12-14 18:56:07,135 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738565556_4qkum4u14
+2025-12-14 18:56:07,136 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738565556_4qkum4u14
+2025-12-14 18:56:15,292 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:56:15,293 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:56:15,703 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:56:16,075 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9561256170272827 (Query: 最近左邊肩膀一直很痛，可能是睡姿不好。...)
+2025-12-14 18:56:16,076 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 5, 'li': 0, 'han': 3, 're': 0, 'xu': 2, 'shi': 0}
+2025-12-14 18:56:16,077 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9561)
+2025-12-14 18:56:32,680 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:56:32,682 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:56:32,683 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9561256170272827
+2025-12-14 18:56:33,087 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:56:52,279 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:56:52,282 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738565556_4qkum4u14. Path: PATH_B
+2025-12-14 18:56:52,282 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738565556_4qkum4u14 | Value=0.7500
+2025-12-14 18:56:52,283 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738565556_4qkum4u14 | Value=0.9469
+2025-12-14 18:56:52,283 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738565556_4qkum4u14 | Value=PATH_B
+2025-12-14 18:56:52,284 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738565556_4qkum4u14 | Timestamp=1765738612.2840538
+2025-12-14 18:56:52,284 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738565556_4qkum4u14 | Value=1.2833
+2025-12-14 18:56:52,287 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738565556_4qkum4u14 | Endpoint=/chat | Value=45150.99ms
+2025-12-14 18:56:52,289 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738565556_4qkum4u14
+2025-12-14 18:56:58,758 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:56:58,760 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]最近左肩疼痛 -> [現況]左肩疼痛持續中 (新感)...
+2025-12-14 18:56:58,760 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738565556_4qkum4u14
+2025-12-14 18:57:06,244 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738565556_4qkum4u14
+2025-12-14 18:57:06,245 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738565556_4qkum4u14
+2025-12-14 18:57:19,944 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:57:19,945 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:57:20,567 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:57:20,809 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9049589037895203 (Query: [起病]最近左肩疼痛 -> [現況]左肩疼痛持續中 (新感) 胸口也有點悶悶的，像被壓住一樣。...)
+2025-12-14 18:57:20,810 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 2, 'yang': 3, 'biao': 6, 'li': 5, 'han': 4, 're': 1, 'xu': 3, 'shi': 4}
+2025-12-14 18:57:20,811 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9050)
+2025-12-14 18:57:37,796 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:57:37,798 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:57:37,798 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9049589037895203
+2025-12-14 18:57:38,197 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:58:03,719 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:58:03,721 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738565556_4qkum4u14. Path: PATH_B
+2025-12-14 18:58:03,721 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738565556_4qkum4u14 | Value=0.8200
+2025-12-14 18:58:03,722 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738565556_4qkum4u14 | Value=0.9307
+2025-12-14 18:58:03,722 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738565556_4qkum4u14 | Value=PATH_B
+2025-12-14 18:58:03,722 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738565556_4qkum4u14 | Timestamp=1765738683.7226872
+2025-12-14 18:58:03,722 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738565556_4qkum4u14 | Value=1.3437
+2025-12-14 18:58:03,725 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738565556_4qkum4u14 | Endpoint=/chat | Value=57479.81ms
+2025-12-14 18:58:03,726 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738565556_4qkum4u14
+2025-12-14 18:58:13,114 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738565556_4qkum4u14
+2025-12-14 18:58:13,115 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738565556_4qkum4u14
+2025-12-14 18:58:14,121 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:58:14,123 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]最近左肩疼痛 -> [現況]左肩疼痛持續中 + 胸口悶痛（新感）...
+2025-12-14 18:58:14,130 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738565556_4qkum4u14
+2025-12-14 18:58:26,240 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:58:26,241 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 18:58:27,377 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:58:27,612 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8729978799819946 (Query: [起病]最近左肩疼痛 -> [現況]左肩疼痛持續中 (新感) 現在開始冒冷汗了，覺得透不過氣。...)
+2025-12-14 18:58:27,612 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 1, 'li': 2, 'han': 1, 're': 0, 'xu': 4, 'shi': 0}
+2025-12-14 18:58:27,613 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8730)
+2025-12-14 18:58:49,781 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:58:49,784 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 18:58:49,786 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8729978799819946
+2025-12-14 18:58:50,220 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 18:59:12,992 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:59:12,995 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738565556_4qkum4u14. Path: PATH_B
+2025-12-14 18:59:12,995 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738565556_4qkum4u14 | Value=0.7800
+2025-12-14 18:59:12,996 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738565556_4qkum4u14 | Value=0.9152
+2025-12-14 18:59:12,996 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738565556_4qkum4u14 | Value=PATH_B
+2025-12-14 18:59:12,996 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738565556_4qkum4u14 | Timestamp=1765738752.9968274
+2025-12-14 18:59:12,997 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738565556_4qkum4u14 | Value=1.4530
+2025-12-14 18:59:12,999 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738565556_4qkum4u14 | Endpoint=/chat | Value=59884.58ms
+2025-12-14 18:59:13,001 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738565556_4qkum4u14
+2025-12-14 18:59:25,548 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 18:59:25,550 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]最近左肩疼痛 -> [演變]胸口悶壓感出現 -> [現況]冒冷汗、透不過氣感 (新感)...
+2025-12-14 18:59:25,550 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738565556_4qkum4u14
+2025-12-14 18:59:53,995 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738792313_cmcd1dnfl
+2025-12-14 18:59:53,996 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738792313_cmcd1dnfl
+2025-12-14 19:00:02,482 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:00:02,484 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:00:02,900 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:00:03,127 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.7236126065254211 (Query: 我是男生，今年 45 歲。...)
+2025-12-14 19:00:03,127 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 0, 'han': 0, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 19:00:03,128 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.7236126065254211
+2025-12-14 19:00:03,513 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:00:12,621 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:00:12,623 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738792313_cmcd1dnfl. Path: PATH_B
+2025-12-14 19:00:12,623 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738792313_cmcd1dnfl | Value=0.0000
+2025-12-14 19:00:12,624 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738792313_cmcd1dnfl | Value=0.7176
+2025-12-14 19:00:12,624 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738792313_cmcd1dnfl | Value=PATH_B
+2025-12-14 19:00:12,624 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738792313_cmcd1dnfl | Timestamp=1765738812.6247103
+2025-12-14 19:00:12,625 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738792313_cmcd1dnfl | Value=0.0000
+2025-12-14 19:00:12,626 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738792313_cmcd1dnfl | Endpoint=/chat | Value=18630.09ms
+2025-12-14 19:00:12,628 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738792313_cmcd1dnfl
+2025-12-14 19:00:18,836 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738792313_cmcd1dnfl
+2025-12-14 19:00:18,837 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738792313_cmcd1dnfl
+2025-12-14 19:00:20,549 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:00:20,551 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]無資料 -> [演變]無資料 -> [現況]無資料（男性，45歲）...
+2025-12-14 19:00:20,551 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738792313_cmcd1dnfl
+2025-12-14 19:00:29,048 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:00:29,050 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:00:29,468 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:00:29,695 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8576220870018005 (Query: 最近每個月肚子都會痛幾天，很有規律。...)
+2025-12-14 19:00:29,695 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 7, 'han': 0, 're': 0, 'xu': 3, 'shi': 6}
+2025-12-14 19:00:29,696 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8576)
+2025-12-14 19:00:40,649 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:00:40,650 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:00:40,650 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8576220870018005
+2025-12-14 19:00:41,060 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:01:01,771 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:01:01,773 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738792313_cmcd1dnfl. Path: PATH_B
+2025-12-14 19:01:01,774 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738792313_cmcd1dnfl | Value=0.7000
+2025-12-14 19:01:01,774 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738792313_cmcd1dnfl | Value=0.7335
+2025-12-14 19:01:01,774 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738792313_cmcd1dnfl | Value=PATH_B
+2025-12-14 19:01:01,775 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738792313_cmcd1dnfl | Timestamp=1765738861.7751646
+2025-12-14 19:01:01,775 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738792313_cmcd1dnfl | Value=1.5058
+2025-12-14 19:01:01,777 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738792313_cmcd1dnfl | Endpoint=/chat | Value=42940.36ms
+2025-12-14 19:01:01,778 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738792313_cmcd1dnfl
+2025-12-14 19:01:08,252 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738792313_cmcd1dnfl
+2025-12-14 19:01:08,253 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738792313_cmcd1dnfl
+2025-12-14 19:01:19,896 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:01:19,898 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:01:20,325 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:01:20,569 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.7198059558868408 (Query: [起病]無資料 -> [演變]無資料 -> [現況]無資料（男性，45歲） 是不是月經不調？...)
+2025-12-14 19:01:20,570 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 2, 'yang': 2, 'biao': 0, 'li': 0, 'han': 0, 're': 0, 'xu': 3, 'shi': 6}
+2025-12-14 19:01:20,570 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.7198059558868408
+2025-12-14 19:01:20,976 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:01:29,368 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:01:29,369 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期出現每月規律性腹痛（約每月發生幾天） -> [現況]現仍有周期性腹痛發作（新感）...
+2025-12-14 19:01:29,369 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738792313_cmcd1dnfl
+2025-12-14 19:01:37,268 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:01:37,269 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738792313_cmcd1dnfl. Path: PATH_B
+2025-12-14 19:01:37,270 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738792313_cmcd1dnfl | Value=0.8500
+2025-12-14 19:01:37,270 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738792313_cmcd1dnfl | Value=0.7277
+2025-12-14 19:01:37,270 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738792313_cmcd1dnfl | Value=PATH_B
+2025-12-14 19:01:37,271 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738792313_cmcd1dnfl | Timestamp=1765738897.2711365
+2025-12-14 19:01:37,271 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738792313_cmcd1dnfl | Value=1.3894
+2025-12-14 19:01:37,273 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738792313_cmcd1dnfl | Endpoint=/chat | Value=29019.79ms
+2025-12-14 19:01:37,274 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738792313_cmcd1dnfl
+2025-12-14 19:01:47,686 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:01:47,688 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]無資料 -> [演變]無資料 -> [現況]男性45歲，呈現每月規律性腹痛（素體特徵），且受...
+2025-12-14 19:01:47,688 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738792313_cmcd1dnfl
+2025-12-14 19:02:12,590 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738930384_h9sayocnc
+2025-12-14 19:02:12,591 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738930384_h9sayocnc
+2025-12-14 19:02:27,739 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:02:27,741 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:02:28,190 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:02:28,423 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8429210186004639 (Query: 我一直拉肚子，一天拉五次。...)
+2025-12-14 19:02:28,424 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 6, 'han': 5, 're': 0, 'xu': 4, 'shi': 0}
+2025-12-14 19:02:28,424 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8429)
+2025-12-14 19:02:41,338 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:02:41,340 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:02:41,341 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8429210186004639
+2025-12-14 19:02:41,753 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:03:00,375 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:03:00,377 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738930384_h9sayocnc. Path: PATH_B
+2025-12-14 19:03:00,378 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738930384_h9sayocnc | Value=0.8500
+2025-12-14 19:03:00,379 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738930384_h9sayocnc | Value=0.7968
+2025-12-14 19:03:00,379 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738930384_h9sayocnc | Value=PATH_B
+2025-12-14 19:03:00,379 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738930384_h9sayocnc | Timestamp=1765738980.3797376
+2025-12-14 19:03:00,380 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738930384_h9sayocnc | Value=1.3927
+2025-12-14 19:03:00,382 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738930384_h9sayocnc | Endpoint=/chat | Value=47791.16ms
+2025-12-14 19:03:00,384 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738930384_h9sayocnc
+2025-12-14 19:03:07,943 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:03:07,945 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [素體 Constitution] 平素大便長期不成形（每日5次）...
+2025-12-14 19:03:07,945 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738930384_h9sayocnc
+2025-12-14 19:03:08,891 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738930384_h9sayocnc
+2025-12-14 19:03:08,892 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738930384_h9sayocnc
+2025-12-14 19:03:18,967 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:03:18,969 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:03:19,398 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:03:19,641 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.7038690447807312 (Query: [素體 Constitution] 平素大便長期不成形（每日5次） 肚子不會痛，就是水瀉。...)
+2025-12-14 19:03:19,641 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 2, 'yang': 3, 'biao': 4, 'li': 7, 'han': 6, 're': 1, 'xu': 5, 'shi': 4}
+2025-12-14 19:03:19,642 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.7038690447807312
+2025-12-14 19:03:20,054 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:03:39,701 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:03:39,703 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738930384_h9sayocnc. Path: PATH_B
+2025-12-14 19:03:39,704 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738930384_h9sayocnc | Value=0.7500
+2025-12-14 19:03:39,705 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738930384_h9sayocnc | Value=0.8203
+2025-12-14 19:03:39,705 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738930384_h9sayocnc | Value=PATH_B
+2025-12-14 19:03:39,705 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738930384_h9sayocnc | Timestamp=1765739019.7058587
+2025-12-14 19:03:39,706 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738930384_h9sayocnc | Value=1.2597
+2025-12-14 19:03:39,708 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738930384_h9sayocnc | Endpoint=/chat | Value=30815.87ms
+2025-12-14 19:03:39,710 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738930384_h9sayocnc
+2025-12-14 19:03:47,439 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:03:47,441 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [素体 Constitution] 平素大便长期不成形（每日5次） -> [现状] 现呈水泻型排便，...
+2025-12-14 19:03:47,442 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738930384_h9sayocnc
+2025-12-14 19:03:47,945 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765738930384_h9sayocnc
+2025-12-14 19:03:47,946 - app.core.orchestrator - INFO - Lock acquired for session sess_1765738930384_h9sayocnc
+2025-12-14 19:04:05,379 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:04:05,381 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:04:05,793 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:04:06,021 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.7172913551330566 (Query: [素体 Constitution] 平素大便长期不成形（每日5次） -> [现状] 现呈水泻型排便，...)
+2025-12-14 19:04:06,022 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 3, 'yang': 2, 'biao': 0, 'li': 5, 'han': 6, 're': 1, 'xu': 4, 'shi': 0}
+2025-12-14 19:04:06,023 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.7172913551330566
+2025-12-14 19:04:06,418 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:04:29,425 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:04:29,428 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765738930384_h9sayocnc. Path: PATH_B
+2025-12-14 19:04:29,428 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765738930384_h9sayocnc | Value=0.8500
+2025-12-14 19:04:29,429 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765738930384_h9sayocnc | Value=0.7929
+2025-12-14 19:04:29,429 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765738930384_h9sayocnc | Value=PATH_B
+2025-12-14 19:04:29,429 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765738930384_h9sayocnc | Timestamp=1765739069.4299753
+2025-12-14 19:04:29,430 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765738930384_h9sayocnc | Value=1.3894
+2025-12-14 19:04:29,431 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765738930384_h9sayocnc | Endpoint=/chat | Value=41485.69ms
+2025-12-14 19:04:29,433 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765738930384_h9sayocnc
+2025-12-14 19:04:42,063 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:04:42,064 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [素体 Constitution] 平素大便长期不成形（每日5次） -> [新感 Acute Ons...
+2025-12-14 19:04:42,064 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765738930384_h9sayocnc
+2025-12-14 19:05:01,808 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:05:01,808 - app.core.orchestrator - INFO - Lock acquired for session sess_1765739100241_7af8qn9y0
+2025-12-14 19:05:11,509 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:05:11,511 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:05:11,916 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:05:12,141 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.848309338092804 (Query: 我失眠很久了。...)
+2025-12-14 19:05:12,142 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 6, 'yang': 0, 'biao': 0, 'li': 0, 'han': 0, 're': 0, 'xu': 7, 'shi': 0}
+2025-12-14 19:05:12,142 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8483)
+2025-12-14 19:05:26,246 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:05:26,248 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:05:26,248 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.848309338092804
+2025-12-14 19:05:26,671 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:05:45,085 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:05:45,087 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765739100241_7af8qn9y0. Path: PATH_B
+2025-12-14 19:05:45,088 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765739100241_7af8qn9y0 | Value=0.7500
+2025-12-14 19:05:45,088 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765739100241_7af8qn9y0 | Value=0.8466
+2025-12-14 19:05:45,088 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765739100241_7af8qn9y0 | Value=PATH_B
+2025-12-14 19:05:45,089 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765739100241_7af8qn9y0 | Timestamp=1765739145.0891922
+2025-12-14 19:05:45,089 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765739100241_7af8qn9y0 | Value=1.3992
+2025-12-14 19:05:45,091 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765739100241_7af8qn9y0 | Endpoint=/chat | Value=43283.04ms
+2025-12-14 19:05:45,093 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:05:52,125 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:05:52,126 - app.core.orchestrator - INFO - Lock acquired for session sess_1765739100241_7af8qn9y0
+2025-12-14 19:05:52,971 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:05:52,973 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [素體] 平素失眠...
+2025-12-14 19:05:52,973 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765739100241_7af8qn9y0
+2025-12-14 19:06:04,899 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:06:04,900 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:06:05,309 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:06:05,535 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8427718877792358 (Query: 大概有三年了吧。...)
+2025-12-14 19:06:05,536 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 0, 'han': 0, 're': 0, 'xu': 7, 'shi': 0}
+2025-12-14 19:06:05,536 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8428)
+2025-12-14 19:06:18,029 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:06:18,031 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:06:18,031 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8427718877792358
+2025-12-14 19:06:18,426 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:06:37,078 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:06:37,089 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765739100241_7af8qn9y0. Path: PATH_B
+2025-12-14 19:06:37,089 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765739100241_7af8qn9y0 | Value=0.8500
+2025-12-14 19:06:37,090 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765739100241_7af8qn9y0 | Value=0.8576
+2025-12-14 19:06:37,091 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765739100241_7af8qn9y0 | Value=PATH_B
+2025-12-14 19:06:37,091 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765739100241_7af8qn9y0 | Timestamp=1765739197.0914583
+2025-12-14 19:06:37,091 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765739100241_7af8qn9y0 | Value=1.2774
+2025-12-14 19:06:37,094 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765739100241_7af8qn9y0 | Endpoint=/chat | Value=44968.42ms
+2025-12-14 19:06:37,096 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:06:46,281 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:06:46,283 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]三年前失眠初現 -> [現況]持續失眠三年，無明確心悸/胸悶/盗汗表述 (素體: 長期失眠;...
+2025-12-14 19:06:46,283 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765739100241_7af8qn9y0
+2025-12-14 19:06:52,875 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:06:52,876 - app.core.orchestrator - INFO - Lock acquired for session sess_1765739100241_7af8qn9y0
+2025-12-14 19:07:04,732 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:07:04,734 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:07:05,152 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:07:05,375 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8255890011787415 (Query: [起病]三年前失眠初現 -> [現況]持續失眠三年，無明確心悸/胸悶/盗汗表述 (素體: 長期失眠;...)
+2025-12-14 19:07:05,375 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 3, 'yang': 2, 'biao': 0, 'li': 0, 'han': 0, 're': 1, 'xu': 7, 'shi': 1}
+2025-12-14 19:07:05,376 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8256)
+2025-12-14 19:07:20,495 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:07:20,497 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:07:20,498 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8255890011787415
+2025-12-14 19:07:20,948 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:07:45,706 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:07:45,708 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765739100241_7af8qn9y0. Path: PATH_B
+2025-12-14 19:07:45,709 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765739100241_7af8qn9y0 | Value=0.9200
+2025-12-14 19:07:45,709 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765739100241_7af8qn9y0 | Value=0.8448
+2025-12-14 19:07:45,709 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765739100241_7af8qn9y0 | Value=PATH_B
+2025-12-14 19:07:45,710 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765739100241_7af8qn9y0 | Timestamp=1765739265.7099912
+2025-12-14 19:07:45,710 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765739100241_7af8qn9y0 | Value=1.2701
+2025-12-14 19:07:45,713 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765739100241_7af8qn9y0 | Endpoint=/chat | Value=52836.58ms
+2025-12-14 19:07:45,714 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:07:55,850 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:07:55,852 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]三年前失眠初現 -> [現況]持續失眠三年，未主動報導心悸/胸悶/盗汗，且於當前詢問中未能確...
+2025-12-14 19:07:55,852 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765739100241_7af8qn9y0
+2025-12-14 19:08:41,563 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:08:41,564 - app.core.orchestrator - INFO - Lock acquired for session sess_1765739100241_7af8qn9y0
+2025-12-14 19:08:53,577 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:08:53,579 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:08:54,014 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:08:54,246 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8530784845352173 (Query: [起病]三年前失眠初現 -> [現況]持續失眠三年，未主動報導心悸/胸悶/盗汗，且於當前詢問中未能確...)
+2025-12-14 19:08:54,246 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 4, 'yang': 3, 'biao': 0, 'li': 0, 'han': 0, 're': 0, 'xu': 7, 'shi': 0}
+2025-12-14 19:08:54,247 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8531)
+2025-12-14 19:09:13,867 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:09:13,870 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:09:13,870 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8530784845352173
+2025-12-14 19:09:14,292 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:09:39,725 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:09:39,727 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765739100241_7af8qn9y0. Path: PATH_B
+2025-12-14 19:09:39,727 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765739100241_7af8qn9y0 | Value=0.9100
+2025-12-14 19:09:39,728 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765739100241_7af8qn9y0 | Value=0.8395
+2025-12-14 19:09:39,729 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765739100241_7af8qn9y0 | Value=PATH_B
+2025-12-14 19:09:39,729 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765739100241_7af8qn9y0 | Timestamp=1765739379.72956
+2025-12-14 19:09:39,729 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765739100241_7af8qn9y0 | Value=1.1278
+2025-12-14 19:09:39,732 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765739100241_7af8qn9y0 | Endpoint=/chat | Value=58168.03ms
+2025-12-14 19:09:39,734 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:09:56,841 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:09:56,845 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]三年前失眠初現 -> [現況]持續失眠三年，伴入睡困難（躺臥兩小時仍清醒）及睡中做夢，未主動...
+2025-12-14 19:09:56,845 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765739100241_7af8qn9y0
+2025-12-14 19:10:05,589 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:10:05,590 - app.core.orchestrator - INFO - Lock acquired for session sess_1765739100241_7af8qn9y0
+2025-12-14 19:10:18,626 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:10:18,628 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:10:19,074 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:10:19,301 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8459402918815613 (Query: [起病]三年前失眠初現 -> [現況]持續失眠三年，伴入睡困難（躺臥兩小時仍清醒）及睡中做夢，未主動...)
+2025-12-14 19:10:19,301 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 6, 'yang': 4, 'biao': 0, 'li': 0, 'han': 0, 're': 3, 'xu': 7, 'shi': 5}
+2025-12-14 19:10:19,302 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8459)
+2025-12-14 19:10:36,931 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:10:36,934 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765739100241_7af8qn9y0. Path: PATH_A
+2025-12-14 19:10:36,935 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765739100241_7af8qn9y0 | Value=0.0000
+2025-12-14 19:10:36,936 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765739100241_7af8qn9y0 | Value=0.8459
+2025-12-14 19:10:36,936 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765739100241_7af8qn9y0 | Value=PATH_A
+2025-12-14 19:10:36,937 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765739100241_7af8qn9y0 | Timestamp=1765739436.9370933
+2025-12-14 19:10:36,937 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765739100241_7af8qn9y0 | Value=0.0000
+2025-12-14 19:10:36,949 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765739100241_7af8qn9y0 | Endpoint=/chat | Value=31359.13ms
+2025-12-14 19:10:36,951 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:10:53,332 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:10:53,334 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]三年前失眠初現 -> [現況]持續失眠三年，伴入睡困難（躺臥兩小時仍清醒）及睡中做夢，最近新...
+2025-12-14 19:10:53,334 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765739100241_7af8qn9y0
+2025-12-14 19:10:55,238 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:10:55,239 - app.core.orchestrator - INFO - Lock acquired for session sess_1765739100241_7af8qn9y0
+2025-12-14 19:11:10,818 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:11:10,835 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:11:11,255 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:11:11,484 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8463335037231445 (Query: [起病]三年前失眠初現 -> [現況]持續失眠三年，伴入睡困難（躺臥兩小時仍清醒）及睡中做夢，最近新...)
+2025-12-14 19:11:11,485 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 8, 'yang': 0, 'biao': 0, 'li': 0, 'han': 0, 're': 7, 'xu': 8, 'shi': 0}
+2025-12-14 19:11:11,485 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8463)
+2025-12-14 19:11:28,026 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:11:28,027 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765739100241_7af8qn9y0. Path: PATH_A
+2025-12-14 19:11:28,028 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765739100241_7af8qn9y0 | Value=0.0000
+2025-12-14 19:11:28,028 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765739100241_7af8qn9y0 | Value=0.8463
+2025-12-14 19:11:28,028 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765739100241_7af8qn9y0 | Value=PATH_A
+2025-12-14 19:11:28,029 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765739100241_7af8qn9y0 | Timestamp=1765739488.0292404
+2025-12-14 19:11:28,029 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765739100241_7af8qn9y0 | Value=0.0000
+2025-12-14 19:11:28,033 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765739100241_7af8qn9y0 | Endpoint=/chat | Value=32794.64ms
+2025-12-14 19:11:28,034 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765739100241_7af8qn9y0
+2025-12-14 19:11:46,775 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:11:46,776 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]三年前失眠初現 -> [演變]持續失眠三年，伴入睡困難及睡中做夢 -> [現況]新增腰痠與記...
+2025-12-14 19:11:46,777 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765739100241_7af8qn9y0
+2025-12-14 19:12:35,043 - main - INFO - Shutting down system...
+2025-12-14 19:12:37,784 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 19:12:37,802 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 19:12:37,818 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 19:12:37,992 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 19:12:38,052 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 19:12:38,054 - main - INFO - [Startup] Schema check passed.
+2025-12-14 19:12:38,055 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 19:21:55,435 - main - INFO - Shutting down system...
+2025-12-14 19:21:57,658 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 19:21:57,670 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 19:21:57,681 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 19:21:57,850 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 19:21:57,907 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 19:21:57,910 - main - INFO - [Startup] Schema check passed.
+2025-12-14 19:21:57,911 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 19:22:58,498 - main - INFO - Shutting down system...
+2025-12-14 19:23:00,566 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 19:23:00,581 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 19:23:00,598 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 19:23:00,770 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 19:23:00,831 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 19:23:00,833 - main - INFO - [Startup] Schema check passed.
+2025-12-14 19:23:00,834 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 19:23:50,883 - main - INFO - Shutting down system...
+2025-12-14 19:23:53,542 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 19:23:53,558 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 19:23:53,575 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 19:23:53,760 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 19:23:53,818 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 19:23:53,821 - main - INFO - [Startup] Schema check passed.
+2025-12-14 19:23:53,823 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 19:30:39,083 - main - INFO - Shutting down system...
+2025-12-14 19:46:05,703 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 19:46:05,721 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 19:46:05,738 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 19:46:05,903 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 19:46:05,960 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 19:46:05,962 - main - INFO - [Startup] Schema check passed.
+2025-12-14 19:46:05,963 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 19:46:05,974 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765740893864_go7sa82d9
+2025-12-14 19:46:05,976 - app.core.orchestrator - INFO - Lock acquired for session sess_1765740893864_go7sa82d9
+2025-12-14 19:46:16,541 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:46:16,543 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:46:17,661 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:46:17,887 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9074287414550781 (Query: 我感冒了，脈象很奇怪。...)
+2025-12-14 19:46:17,887 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 6, 'li': 0, 'han': 5, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 19:46:17,888 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9074)
+2025-12-14 19:46:30,059 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:46:30,060 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:46:30,061 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9074287414550781
+2025-12-14 19:46:31,149 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:46:51,071 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:46:51,073 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765740893864_go7sa82d9. Path: PATH_B
+2025-12-14 19:46:51,073 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765740893864_go7sa82d9 | Value=0.6500
+2025-12-14 19:46:51,074 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765740893864_go7sa82d9 | Value=0.8178
+2025-12-14 19:46:51,074 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765740893864_go7sa82d9 | Value=PATH_B
+2025-12-14 19:46:51,075 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765740893864_go7sa82d9 | Timestamp=1765741611.0750456
+2025-12-14 19:46:51,075 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765740893864_go7sa82d9 | Value=1.3824
+2025-12-14 19:46:51,077 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765740893864_go7sa82d9 | Endpoint=/chat | Value=45103.06ms
+2025-12-14 19:46:51,078 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765740893864_go7sa82d9
+2025-12-14 19:47:03,421 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:47:03,422 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期感冒 -> [現況]感冒伴隨脈象異常（具體症狀待確認）...
+2025-12-14 19:47:03,423 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765740893864_go7sa82d9
+2025-12-14 19:47:24,389 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765741642411_0mtqqx1qi
+2025-12-14 19:47:24,389 - app.core.orchestrator - INFO - Lock acquired for session sess_1765741642411_0mtqqx1qi
+2025-12-14 19:47:32,364 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:47:32,366 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 19:47:33,455 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:47:33,694 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9074287414550781 (Query: 我感冒了，脈象很奇怪。...)
+2025-12-14 19:47:33,694 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 5, 'li': 0, 'han': 4, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 19:47:33,695 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9074)
+2025-12-14 19:47:45,518 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:47:45,520 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:47:45,520 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9074287414550781
+2025-12-14 19:47:46,641 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:48:07,068 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:48:07,070 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765741642411_0mtqqx1qi. Path: PATH_B
+2025-12-14 19:48:07,070 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765741642411_0mtqqx1qi | Value=0.7500
+2025-12-14 19:48:07,071 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765741642411_0mtqqx1qi | Value=0.8178
+2025-12-14 19:48:07,071 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765741642411_0mtqqx1qi | Value=PATH_B
+2025-12-14 19:48:07,071 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765741642411_0mtqqx1qi | Timestamp=1765741687.071771
+2025-12-14 19:48:07,072 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765741642411_0mtqqx1qi | Value=1.2597
+2025-12-14 19:48:07,074 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765741642411_0mtqqx1qi | Endpoint=/chat | Value=42684.46ms
+2025-12-14 19:48:07,075 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765741642411_0mtqqx1qi
+2025-12-14 19:48:18,734 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:48:18,735 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日感冒 -> [現況]感冒伴隨脈象異常 (素體:無明確長期特徵; 新感:感冒、脈象異常)...
+2025-12-14 19:48:18,736 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765741642411_0mtqqx1qi
+2025-12-14 19:48:26,859 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765741642411_0mtqqx1qi
+2025-12-14 19:48:26,860 - app.core.orchestrator - INFO - Lock acquired for session sess_1765741642411_0mtqqx1qi
+2025-12-14 19:48:40,914 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:48:40,916 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 19:48:42,002 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:48:42,229 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8761698007583618 (Query: [起病]今日感冒 -> [現況]感冒伴隨脈象異常 (素體:無明確長期特徵; 新感:感冒、脈象異常) ...)
+2025-12-14 19:48:42,229 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 7, 'li': 0, 'han': 5, 're': 5, 'xu': 0, 'shi': 6}
+2025-12-14 19:48:42,230 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8762)
+2025-12-14 19:48:56,536 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:48:56,537 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765741642411_0mtqqx1qi. Path: PATH_A
+2025-12-14 19:48:56,538 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765741642411_0mtqqx1qi | Value=0.0000
+2025-12-14 19:48:56,538 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765741642411_0mtqqx1qi | Value=0.8762
+2025-12-14 19:48:56,539 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765741642411_0mtqqx1qi | Value=PATH_A
+2025-12-14 19:48:56,539 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765741642411_0mtqqx1qi | Timestamp=1765741736.5394993
+2025-12-14 19:48:56,539 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765741642411_0mtqqx1qi | Value=0.0000
+2025-12-14 19:48:56,543 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765741642411_0mtqqx1qi | Endpoint=/chat | Value=29683.41ms
+2025-12-14 19:48:56,544 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765741642411_0mtqqx1qi
+2025-12-14 19:49:04,481 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765741642411_0mtqqx1qi
+2025-12-14 19:49:04,482 - app.core.orchestrator - INFO - Lock acquired for session sess_1765741642411_0mtqqx1qi
+2025-12-14 19:49:16,297 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:49:16,299 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 19:49:16,705 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:49:16,930 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8618621826171875 (Query: [起病]今日感冒 -> [現況]感冒伴隨脈象異常 (素體:無明確長期特徵; 新感:感冒、脈象異常) ...)
+2025-12-14 19:49:16,931 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 5, 'li': 0, 'han': 3, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 19:49:16,931 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8619)
+2025-12-14 19:49:18,449 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:49:18,451 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日感冒 -> [現況]感冒伴隨浮脈 (素體:無明確長期特徵; 新感:感冒、浮脈)...
+2025-12-14 19:49:18,452 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765741642411_0mtqqx1qi
+2025-12-14 19:49:34,373 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:49:34,375 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765741642411_0mtqqx1qi. Path: PATH_A
+2025-12-14 19:49:34,375 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765741642411_0mtqqx1qi | Value=0.0000
+2025-12-14 19:49:34,376 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765741642411_0mtqqx1qi | Value=0.8619
+2025-12-14 19:49:34,376 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765741642411_0mtqqx1qi | Value=PATH_A
+2025-12-14 19:49:34,377 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765741642411_0mtqqx1qi | Timestamp=1765741774.3769577
+2025-12-14 19:49:34,377 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765741642411_0mtqqx1qi | Value=0.0000
+2025-12-14 19:49:34,381 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765741642411_0mtqqx1qi | Endpoint=/chat | Value=29899.57ms
+2025-12-14 19:49:34,383 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765741642411_0mtqqx1qi
+2025-12-14 19:49:48,021 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:49:48,023 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]今日感冒 -> [演變]被診斷為浮脈，伴隨全身乏力、關節酸痛 -> [現況]感冒持續，浮脈明...
+2025-12-14 19:49:48,024 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765741642411_0mtqqx1qi
+2025-12-14 19:50:31,162 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765741829873_d4ckfo8fp
+2025-12-14 19:50:31,162 - app.core.orchestrator - INFO - Lock acquired for session sess_1765741829873_d4ckfo8fp
+2025-12-14 19:50:39,183 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:50:39,184 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:50:39,584 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:50:39,807 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9561256170272827 (Query: 最近左邊肩膀一直很痛，可能是睡姿不好。...)
+2025-12-14 19:50:39,808 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 5, 'li': 3, 'han': 0, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 19:50:39,808 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9561)
+2025-12-14 19:50:55,172 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:50:55,174 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:50:55,174 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9561256170272827
+2025-12-14 19:50:55,570 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:51:16,315 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:51:16,317 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765741829873_d4ckfo8fp. Path: PATH_B
+2025-12-14 19:51:16,317 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765741829873_d4ckfo8fp | Value=0.8500
+2025-12-14 19:51:16,318 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765741829873_d4ckfo8fp | Value=0.8722
+2025-12-14 19:51:16,318 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765741829873_d4ckfo8fp | Value=PATH_B
+2025-12-14 19:51:16,318 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765741829873_d4ckfo8fp | Timestamp=1765741876.3187299
+2025-12-14 19:51:16,319 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765741829873_d4ckfo8fp | Value=1.3936
+2025-12-14 19:51:16,321 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765741829873_d4ckfo8fp | Endpoint=/chat | Value=45158.90ms
+2025-12-14 19:51:16,322 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765741829873_d4ckfo8fp
+2025-12-14 19:51:25,270 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:51:25,272 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]最近左肩疼痛 -> [現況]持續疼痛，疑似睡姿不當導致 (新感: 左肩疼痛；素體: 無明顯長...
+2025-12-14 19:51:25,273 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765741829873_d4ckfo8fp
+2025-12-14 19:51:29,311 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765741829873_d4ckfo8fp
+2025-12-14 19:51:29,312 - app.core.orchestrator - INFO - Lock acquired for session sess_1765741829873_d4ckfo8fp
+2025-12-14 19:51:41,921 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:51:41,923 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:51:42,324 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:51:42,557 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9114822149276733 (Query: [起病]最近左肩疼痛 -> [現況]持續疼痛，疑似睡姿不當導致 (新感: 左肩疼痛；素體: 無明顯長...)
+2025-12-14 19:51:42,557 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 3, 'li': 0, 'han': 5, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 19:51:42,558 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9115)
+2025-12-14 19:51:59,079 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:51:59,080 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:51:59,081 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9114822149276733
+2025-12-14 19:51:59,469 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:52:19,164 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:52:19,166 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765741829873_d4ckfo8fp. Path: PATH_B
+2025-12-14 19:52:19,167 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765741829873_d4ckfo8fp | Value=0.7800
+2025-12-14 19:52:19,167 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765741829873_d4ckfo8fp | Value=0.7785
+2025-12-14 19:52:19,167 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765741829873_d4ckfo8fp | Value=PATH_B
+2025-12-14 19:52:19,168 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765741829873_d4ckfo8fp | Timestamp=1765741939.1683357
+2025-12-14 19:52:19,168 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765741829873_d4ckfo8fp | Value=1.5144
+2025-12-14 19:52:19,170 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765741829873_d4ckfo8fp | Endpoint=/chat | Value=49858.38ms
+2025-12-14 19:52:19,172 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765741829873_d4ckfo8fp
+2025-12-14 19:52:22,261 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765741829873_d4ckfo8fp
+2025-12-14 19:52:22,262 - app.core.orchestrator - INFO - Lock acquired for session sess_1765741829873_d4ckfo8fp
+2025-12-14 19:52:27,217 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:52:27,219 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]最近左肩疼痛 -> [現況]左肩疼痛持續，胸口悶感新增 (新感: 左肩疼痛、胸口悶; 素體:...
+2025-12-14 19:52:27,219 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765741829873_d4ckfo8fp
+2025-12-14 19:52:36,579 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:52:36,581 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:52:36,581 - app.core.orchestrator - WARNING - [Orchestrator] Emergency detected: 出現冷汗與呼吸困難，可能為心臟或呼吸急症徵兆，建議立即就醫
+2025-12-14 19:52:36,582 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765741829873_d4ckfo8fp | Endpoint=/chat | Value=14319.91ms
+2025-12-14 19:53:35,060 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765742013441_0fo4rv4qf
+2025-12-14 19:53:35,060 - app.core.orchestrator - INFO - Lock acquired for session sess_1765742013441_0fo4rv4qf
+2025-12-14 19:53:43,239 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:53:43,241 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:53:43,662 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:53:43,891 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.8429210186004639 (Query: 我一直拉肚子，一天拉五次。...)
+2025-12-14 19:53:43,892 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 0, 'han': 0, 're': 5, 'xu': 3, 'shi': 4}
+2025-12-14 19:53:43,892 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.8429)
+2025-12-14 19:53:57,547 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:53:57,549 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 19:53:57,550 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.8429210186004639
+2025-12-14 19:53:58,706 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:54:17,929 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:54:17,930 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765742013441_0fo4rv4qf. Path: PATH_B
+2025-12-14 19:54:17,931 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765742013441_0fo4rv4qf | Value=0.6500
+2025-12-14 19:54:17,931 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765742013441_0fo4rv4qf | Value=0.7251
+2025-12-14 19:54:17,932 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765742013441_0fo4rv4qf | Value=PATH_B
+2025-12-14 19:54:17,932 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765742013441_0fo4rv4qf | Timestamp=1765742057.9328175
+2025-12-14 19:54:17,933 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765742013441_0fo4rv4qf | Value=1.3824
+2025-12-14 19:54:17,935 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765742013441_0fo4rv4qf | Endpoint=/chat | Value=42874.56ms
+2025-12-14 19:54:17,936 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765742013441_0fo4rv4qf
+2025-12-14 19:54:24,968 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:54:24,969 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [素體 Constitution] 平素大便不成形（每日5次）...
+2025-12-14 19:54:24,969 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765742013441_0fo4rv4qf
+2025-12-14 19:54:27,954 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765742013441_0fo4rv4qf
+2025-12-14 19:54:27,955 - app.core.orchestrator - INFO - Lock acquired for session sess_1765742013441_0fo4rv4qf
+2025-12-14 19:54:39,844 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:54:39,845 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:54:40,918 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:54:41,140 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.6979122161865234 (Query: [素體 Constitution] 平素大便不成形（每日5次） 肚子不會痛，就是水瀉。...)
+2025-12-14 19:54:41,141 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 7, 'han': 6, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 19:54:41,141 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.6979122161865234
+2025-12-14 19:54:41,528 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:55:00,095 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:55:00,105 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765742013441_0fo4rv4qf. Path: PATH_B
+2025-12-14 19:55:00,106 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765742013441_0fo4rv4qf | Value=0.7500
+2025-12-14 19:55:00,106 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765742013441_0fo4rv4qf | Value=0.7055
+2025-12-14 19:55:00,107 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765742013441_0fo4rv4qf | Value=PATH_B
+2025-12-14 19:55:00,107 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765742013441_0fo4rv4qf | Timestamp=1765742100.1075625
+2025-12-14 19:55:00,107 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765742013441_0fo4rv4qf | Value=1.3992
+2025-12-14 19:55:00,111 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765742013441_0fo4rv4qf | Endpoint=/chat | Value=32156.32ms
+2025-12-14 19:55:00,114 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765742013441_0fo4rv4qf
+2025-12-14 19:55:04,502 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765742013441_0fo4rv4qf
+2025-12-14 19:55:04,503 - app.core.orchestrator - INFO - Lock acquired for session sess_1765742013441_0fo4rv4qf
+2025-12-14 19:55:08,480 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:55:08,482 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [素體 Constitution] 平素大便不成形（每日5次）[新感 Acute Onset] 無臭...
+2025-12-14 19:55:08,482 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765742013441_0fo4rv4qf
+2025-12-14 19:55:15,217 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:55:15,220 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue', 'pulse']
+2025-12-14 19:55:15,619 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:55:15,844 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.7397311329841614 (Query: [素體 Constitution] 平素大便不成形（每日5次） 昨天因為便秘，吃了很多瀉藥。...)
+2025-12-14 19:55:15,844 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 2, 'yang': 3, 'biao': 4, 'li': 6, 'han': 5, 're': 1, 'xu': 3, 'shi': 4}
+2025-12-14 19:55:15,845 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.7397311329841614
+2025-12-14 19:55:16,245 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 19:55:39,442 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:55:39,444 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765742013441_0fo4rv4qf. Path: PATH_B
+2025-12-14 19:55:39,444 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765742013441_0fo4rv4qf | Value=0.8500
+2025-12-14 19:55:39,445 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765742013441_0fo4rv4qf | Value=0.7002
+2025-12-14 19:55:39,445 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765742013441_0fo4rv4qf | Value=PATH_B
+2025-12-14 19:55:39,446 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765742013441_0fo4rv4qf | Timestamp=1765742139.4463768
+2025-12-14 19:55:39,447 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765742013441_0fo4rv4qf | Value=1.5764
+2025-12-14 19:55:39,449 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765742013441_0fo4rv4qf | Endpoint=/chat | Value=34946.38ms
+2025-12-14 19:55:39,451 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765742013441_0fo4rv4qf
+2025-12-14 19:56:03,345 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 19:56:03,346 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [素體 Constitution] 平素大便不成形（每日5次） -> [新感 Acute Onset...
+2025-12-14 19:56:03,347 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765742013441_0fo4rv4qf
+2025-12-14 20:01:14,731 - main - INFO - Shutting down system...
+2025-12-14 20:01:17,019 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 20:01:17,038 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 20:01:17,064 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 20:01:17,246 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 20:01:17,304 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 20:01:17,307 - main - INFO - [Startup] Schema check passed.
+2025-12-14 20:01:17,307 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 20:01:54,873 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765742491620_omotz75bf
+2025-12-14 20:01:54,874 - app.core.orchestrator - INFO - Lock acquired for session sess_1765742491620_omotz75bf
+2025-12-14 20:02:03,662 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:02:03,664 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 20:02:04,798 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 20:02:05,026 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9074287414550781 (Query: 我感冒了，脈象很奇怪。...)
+2025-12-14 20:02:05,027 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 2, 'yang': 3, 'biao': 5, 'li': 2, 'han': 4, 're': 1, 'xu': 1, 'shi': 1}
+2025-12-14 20:02:05,027 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9074)
+2025-12-14 20:02:19,257 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:02:19,259 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 20:02:19,260 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9074287414550781
+2025-12-14 20:02:20,341 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 20:02:37,515 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:02:37,517 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765742491620_omotz75bf. Path: PATH_B
+2025-12-14 20:02:37,518 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765742491620_omotz75bf | Value=0.7000
+2025-12-14 20:02:37,518 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765742491620_omotz75bf | Value=0.8178
+2025-12-14 20:02:37,518 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765742491620_omotz75bf | Value=PATH_B
+2025-12-14 20:02:37,519 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765742491620_omotz75bf | Timestamp=1765742557.5193322
+2025-12-14 20:02:37,519 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765742491620_omotz75bf | Value=1.2807
+2025-12-14 20:02:37,521 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765742491620_omotz75bf | Endpoint=/chat | Value=42648.28ms
+2025-12-14 20:02:37,522 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765742491620_omotz75bf
+2025-12-14 20:02:49,095 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:02:49,096 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期感冒 -> [現況]感冒伴隨脈象異常（具體症狀待確認）...
+2025-12-14 20:02:49,097 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765742491620_omotz75bf
+2025-12-14 20:02:53,816 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765742491620_omotz75bf
+2025-12-14 20:02:53,817 - app.core.orchestrator - INFO - Lock acquired for session sess_1765742491620_omotz75bf
+2025-12-14 20:03:04,964 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:03:04,965 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 20:03:06,060 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 20:03:06,296 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9229661226272583 (Query: [起病]近期感冒 -> [現況]感冒伴隨脈象異常（具體症狀待確認） 醫生說我是浮脈。...)
+2025-12-14 20:03:06,297 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 6, 'li': 0, 'han': 5, 're': 0, 'xu': 0, 'shi': 0}
+2025-12-14 20:03:06,298 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9230)
+2025-12-14 20:03:19,737 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:03:19,738 - app.core.orchestrator - WARNING - [Orchestrator] Path A rejected the case (Procrustean Gap). Falling back to Path B.
+2025-12-14 20:03:19,739 - app.core.orchestrator - INFO - Path B Selected. Max sim: 0.9229661226272583
+2025-12-14 20:03:20,875 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 20:03:40,934 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:03:40,936 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765742491620_omotz75bf. Path: PATH_B
+2025-12-14 20:03:40,937 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765742491620_omotz75bf | Value=0.7500
+2025-12-14 20:03:40,937 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765742491620_omotz75bf | Value=0.7189
+2025-12-14 20:03:40,937 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765742491620_omotz75bf | Value=PATH_B
+2025-12-14 20:03:40,938 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765742491620_omotz75bf | Timestamp=1765742620.9382882
+2025-12-14 20:03:40,938 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765742491620_omotz75bf | Value=1.1585
+2025-12-14 20:03:40,941 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765742491620_omotz75bf | Endpoint=/chat | Value=47124.12ms
+2025-12-14 20:03:40,942 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765742491620_omotz75bf
+2025-12-14 20:03:52,595 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:03:52,597 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期感冒 -> [演變]醫生診斷為浮脈 -> [現況]感冒伴隨浮脈，具體伴隨症狀待進一步確認...
+2025-12-14 20:03:52,598 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765742491620_omotz75bf
+2025-12-14 20:04:07,808 - app.api.endpoints - INFO - [API] Received chat request for Session: sess_1765742491620_omotz75bf
+2025-12-14 20:04:07,809 - app.core.orchestrator - INFO - Lock acquired for session sess_1765742491620_omotz75bf
+2025-12-14 20:04:21,004 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:04:21,006 - app.core.orchestrator - INFO - [Orchestrator] Translation complete. Missing info: ['tongue']
+2025-12-14 20:04:22,082 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-12-14 20:04:22,305 - app.core.orchestrator - INFO - [Orchestrator] Max similarity: 0.9086591601371765 (Query: [起病]近期感冒 -> [演變]醫生診斷為浮脈 -> [現況]感冒伴隨浮脈，具體伴隨症狀待進一步確認...)
+2025-12-14 20:04:22,306 - app.services.visualization - INFO - [Viz] Raw 8-Principles Data: {'yin': 0, 'yang': 0, 'biao': 0, 'li': 0, 'han': 3, 're': 2, 'xu': 0, 'shi': 0}
+2025-12-14 20:04:22,306 - app.core.orchestrator - INFO - Path A Selected (Similarity: 0.9087)
+2025-12-14 20:04:39,944 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:04:39,946 - app.core.orchestrator - INFO - Pipeline finished for session sess_1765742491620_omotz75bf. Path: PATH_A
+2025-12-14 20:04:39,946 - monitoring - INFO - [METRIC] Type=SemanticConfidence | Session=sess_1765742491620_omotz75bf | Value=0.0000
+2025-12-14 20:04:39,946 - monitoring - INFO - [METRIC] Type=PathSimilarity | Session=sess_1765742491620_omotz75bf | Value=0.9087
+2025-12-14 20:04:39,947 - monitoring - INFO - [METRIC] Type=PathSelected | Session=sess_1765742491620_omotz75bf | Value=PATH_A
+2025-12-14 20:04:39,947 - monitoring - INFO - [METRIC] Type=TurnProcessed | Session=sess_1765742491620_omotz75bf | Timestamp=1765742679.9476337
+2025-12-14 20:04:39,947 - monitoring - INFO - [METRIC] Type=InfoEntropy | Session=sess_1765742491620_omotz75bf | Value=0.0000
+2025-12-14 20:04:39,952 - monitoring - INFO - [METRIC] Type=Latency | Session=sess_1765742491620_omotz75bf | Endpoint=/chat | Value=32143.36ms
+2025-12-14 20:04:39,953 - app.agents.summarizer - INFO - [Summarizer] Starting background summarization for Session: sess_1765742491620_omotz75bf
+2025-12-14 20:05:00,995 - httpx - INFO - HTTP Request: POST https://integrate.api.nvidia.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-14 20:05:00,997 - app.agents.summarizer - INFO - [Summarizer] Summary updated: [起病]近期感冒 -> [演變]醫生診斷浮脈，但患者描述需深按才能觸及脈搏（與浮脈特徵存在矛盾） -...
+2025-12-14 20:05:00,997 - app.core.orchestrator - INFO - [Summarizer] Updated In-Memory Summary for sess_1765742491620_omotz75bf
+2025-12-14 20:31:07,616 - main - INFO - Shutting down system...
+2025-12-14 20:31:09,734 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 20:31:09,750 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 20:31:09,767 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 20:31:09,934 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 20:31:09,992 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 20:31:09,994 - main - INFO - [Startup] Schema check passed.
+2025-12-14 20:31:09,995 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 20:31:56,812 - main - INFO - Shutting down system...
+2025-12-14 20:32:00,776 - main - INFO - Starting Agentic SCBR-CDSS (Env: development)...
+2025-12-14 20:32:00,792 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-12-14 20:32:00,807 - httpx - INFO - HTTP Request: GET http://weaviate:8080/v1/meta "HTTP/1.1 200 OK"
+2025-12-14 20:32:00,970 - httpx - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-12-14 20:32:01,029 - app.database.weaviate_client - INFO - Connected to Weaviate at http://weaviate:8080
+2025-12-14 20:32:01,030 - main - INFO - [Startup] Schema check passed.
+2025-12-14 20:32:01,031 - main - INFO - [Startup] RUN_SYNC_ON_STARTUP is False. Skipping data synchronization.
+2025-12-14 20:40:27,882 - main - INFO - Shutting down system...

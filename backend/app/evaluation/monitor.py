@@ -3,6 +3,7 @@ import time
 import math
 from typing import Dict, Any, List
 from app.api.schemas import WorkflowState
+from app.evaluation.scbr_evaluator import SCBREvaluator
 
 logger = logging.getLogger("monitoring")
 
@@ -10,8 +11,12 @@ class MonitorService:
     """
     規格書 6.3: 線上監控 (Online Monitoring)
     負責記錄系統運作指標：回應時間、Token 使用量、使用者反饋。
+    整合 SCBREvaluator 進行 Spec 6.2 指標計算。
     """
     
+    def __init__(self):
+        self.evaluator = SCBREvaluator()
+
     @staticmethod
     def log_latency(session_id: str, endpoint: str, start_time: float):
         """
@@ -32,21 +37,16 @@ class MonitorService:
     def log_feedback_score(session_id: str, feedback_action: str):
         """
         記錄使用者滿意度 (CSAT Proxy)
-        ACCEPT = 5, MODIFY = 3, REJECT = 1
         """
-        score_map = {
-            "ACCEPT": 5,
-            "MODIFY": 3,
-            "REJECT": 1
-        }
+        score_map = {"ACCEPT": 5, "MODIFY": 3, "REJECT": 1}
         score = score_map.get(feedback_action, 0)
         logger.info(f"[METRIC] Type=Feedback | Session={session_id} | Action={feedback_action} | Score={score}")
 
-    @staticmethod
-    def log_detailed_metrics(state: WorkflowState):
+    def log_detailed_metrics(self, state: WorkflowState):
         """
         規格書 6.2: 紀錄詳細線上評估指標
         包含: Confidence, Path Similarity, Convergence Turns, Info Gain (Entropy)
+        並同步至 SCBREvaluator。
         """
         try:
             session_id = state.session_id
@@ -54,9 +54,13 @@ class MonitorService:
             # 1. Semantic Confidence (Top-1 Confidence)
             max_confidence = 0.0
             confidences = []
+            pred_diag = ""
+            
             if state.diagnosis_candidates:
                 max_confidence = state.diagnosis_candidates[0].confidence
+                pred_diag = state.diagnosis_candidates[0].disease_name
                 confidences = [d.confidence for d in state.diagnosis_candidates]
+            
             logger.info(f"[METRIC] Type=SemanticConfidence | Session={session_id} | Value={max_confidence:.4f}")
 
             # 2. Path Similarity (Max Similarity from Retrieval) -> Proxy for V-SCR
@@ -71,11 +75,10 @@ class MonitorService:
             # 3. Path Selected
             logger.info(f"[METRIC] Type=PathSelected | Session={session_id} | Value={state.path_selected}")
             
-            # 4. Convergence Turns (目前以對話歷史長度或 step_logs 估算)
+            # 4. Convergence Turns
             logger.info(f"[METRIC] Type=TurnProcessed | Session={session_id} | Timestamp={time.time()}")
 
-            # 5. Info Gain (Entropy) - Spec Metric 8
-            # Calculate Shannon Entropy of the diagnosis probability distribution
+            # 5. Info Gain (Entropy)
             entropy = 0.0
             if confidences:
                 total_conf = sum(confidences)
@@ -84,8 +87,39 @@ class MonitorService:
                     entropy = -sum(p * math.log2(p) for p in probs if p > 0)
             logger.info(f"[METRIC] Type=InfoEntropy | Session={session_id} | Value={entropy:.4f}")
 
+            # --- Sync to SCBREvaluator ---
+            # 嘗試從 standardized_features 獲取 ambiguous_terms_count
+            amb_count = 0
+            if state.standardized_features:
+                amb_count = len(state.standardized_features.get("ambiguous_terms", []))
+            
+            pred_type = "FALLBACK"
+            if state.final_response:
+                pred_type = state.final_response.response_type.value
+
+            turn_data = {
+                "case_id": session_id,
+                "turn_id": int(time.time()), # Proxy for turn_id
+                "input_text": state.user_input_raw,
+                "gt_diagnosis": None, # Online mode: No GT
+                "gt_attributes": None,
+                "is_emergency_gt": None,
+                "pred_response_type": pred_type,
+                "pred_diagnosis": pred_diag,
+                "pred_confidence": max_confidence,
+                "pred_attributes": {}, 
+                "ambiguous_terms_count": amb_count
+            }
+            self.evaluator.log_turn(turn_data)
+
         except Exception as e:
             logger.error(f"[Monitor] Failed to log detailed metrics: {str(e)}")
+
+    def get_online_metrics_report(self) -> Dict[str, float]:
+        """
+        獲取當前累積的線上評估報告
+        """
+        return self.evaluator.get_summary_report()
 
 # Global Instance
 monitor = MonitorService()

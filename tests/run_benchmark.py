@@ -4,30 +4,57 @@ import requests
 import uuid
 import sys
 import os
-from collections import defaultdict
+import numpy as np
 from dotenv import load_dotenv
 
-# Load env vars for API Key
+# Load env
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
-
-# Add project root to path to import metrics_utils
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'backend'))
 
-from app.evaluation.metrics_utils import (
-    calculate_accuracy, 
-    calculate_semantic_match_llm,
-    calculate_semantic_recall_precision_llm,
-    calculate_f1_score
-)
+# Import NvidiaClient and Settings
+from app.services.nvidia_client import NvidiaClient
+from app.core.config import get_settings
+
+from app.evaluation.scbr_evaluator import SCBREvaluator
 
 API_URL = "http://localhost:8000/api/v1/chat"
 DATASET_PATH = os.path.join(os.path.dirname(__file__), "test_dataset.json")
-NVIDIA_API_KEY = os.getenv("NVIDIA_LLM_API_KEY")
+
+# Initialize NvidiaClient for embedding
+settings = get_settings()
+nvidia_client = NvidiaClient()
+
+async def get_embedding(text):
+    """
+    獲取真實的 NVIDIA Embedding 向量 (1024 維)。
+    """
+    if not text: return None
+    try:
+        # Assuming get_embedding is an async method in NvidiaClient
+        # For synchronous context, run asyncio.run(nvidia_client.get_embedding(text))
+        # Or, modify NvidiaClient to have a sync get_embedding_sync if needed
+        # For now, let's use requests directly to avoid async in sync context
+        url = "https://integrate.api.nvidia.com/v1/embeddings"
+        headers = {
+            "Authorization": f"Bearer {settings.NVIDIA_EMBEDDING_API_KEY}",
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+        payload = {
+            "model": settings.EMBEDDING_MODEL_NAME,
+            "input": text
+        }
+        response = requests.post(url, headers=headers, json=payload, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+        return data['data'][0]['embedding']
+    except Exception as e:
+        print(f"Error getting embedding for '{text[:50]}...': {e}")
+        return None
 
 def run_benchmark():
-    print("Starting Comprehensive Benchmark (Spec 6.2 Metrics)...")
+    print("Starting SCBR Multi-Turn Benchmark (vFinal)...")
     
-    # 1. Load Dataset
     if not os.path.exists(DATASET_PATH):
         print(f"Error: Dataset not found at {DATASET_PATH}")
         return
@@ -35,115 +62,114 @@ def run_benchmark():
     with open(DATASET_PATH, 'r', encoding='utf-8') as f:
         cases = json.load(f)
     
-    print(f"Loaded {len(cases)} test cases.")
+    evaluator = SCBREvaluator()
     
-    # Aggregators
-    total_strict_acc = 0.0
-    total_semantic_acc = 0.0
-    total_recall = 0.0
-    total_precision = 0.0
-    total_f1 = 0.0
-    total_latency = 0.0
-    successful_cases = 0
-    
-    # Confusion Matrix Tracker (Expected -> [Predicted1, Predicted2...])
-    confusion_data = defaultdict(list)
-    
-    print("-" * 100)
-    print(f"{'Case ID':<10} | {'Diagnosis':<15} | {'Str.':<5} | {'Sem.':<5} | {'Rec':<5} | {'Pre':<5} | {'F1':<5} | {'Time'}")
-    print("-" * 100)
-
     for case in cases:
         case_id = case['id']
-        input_text = case['input_text']
-        expected_diag = case['expected_diagnosis']
+        session_id = f"bench_{uuid.uuid4().hex[:8]}"
+        print(f"\n--- Processing Case: {case_id} ---")
         
-        # Prepare Request
-        payload = {
-            "session_id": f"bench_{uuid.uuid4().hex[:8]}",
-            "patient_id": "benchmark_patient",
-            "message": input_text
-        }
+        # 獲取 GT 向量 (只做一次，為了 Metric 1)
+        gt_text = case.get('expected_diagnosis', "")
+        # Run the async get_embedding in a synchronous way for benchmark
+        import asyncio
+        gt_vector = asyncio.run(get_embedding(gt_text)) # Await the embedding
         
-        try:
-            start_time = time.time()
-            response = requests.post(API_URL, json=payload)
-            latency = (time.time() - start_time) * 1000 # ms
+        # 獲取 GT 屬性
+        gt_attributes = case.get('expected_attributes', {})
+
+        turns = case.get('turns', [])
+        
+        for turn_idx, turn in enumerate(turns):
+            turn_id = turn_idx + 1 # 從 1 開始
+            user_input = turn.get('input', "")
             
-            if response.status_code == 200:
-                data = response.json()
+            # Ground Truths (for each turn, or from case level)
+            # Make sure gt_diagnosis is defined for each turn or fallback to case level
+            gt_diagnosis = turn.get('expected_diagnosis', case.get('expected_diagnosis'))
+            is_emergency = turn.get('is_emergency', case.get('is_emergency', False))
+            
+            print(f"  Turn {turn_id}: Input='{user_input[:30]}...' -> ", end="", flush=True)
+            
+            payload = {
+                "session_id": session_id,
+                "patient_id": "benchmark_patient",
+                "message": user_input
+            }
+            
+            try:
+                resp = requests.post(API_URL, json=payload)
                 
-                # Extract Predictions
-                candidates = []
-                predicted_top1 = ""
-                
-                if data.get('diagnosis_list'):
-                    # Get top 3 candidates names
-                    candidates = [d['disease_name'] for d in data['diagnosis_list'][:3]]
-                    predicted_top1 = candidates[0]
-                
-                # 1. Accuracy Metrics
-                strict_acc = calculate_accuracy(predicted_top1, expected_diag)
-                
-                # Semantic Accuracy (LLM Judge) - Top 1
-                semantic_acc = strict_acc
-                if strict_acc < 1.0 and NVIDIA_API_KEY:
-                    print(f" [Eval] ", end="", flush=True)
-                    semantic_acc = calculate_semantic_match_llm(predicted_top1, expected_diag, NVIDIA_API_KEY)
-                
-                # 2. Recall / Precision / F1 (Based on Candidates)
-                recall, precision = calculate_semantic_recall_precision_llm(candidates, expected_diag, NVIDIA_API_KEY)
-                f1 = calculate_f1_score(precision, recall)
-                
-                # Update Totals
-                total_strict_acc += strict_acc
-                total_semantic_acc += semantic_acc
-                total_recall += recall
-                total_precision += precision
-                total_f1 += f1
-                total_latency += latency
-                successful_cases += 1
-                
-                # Confusion Data
-                confusion_data[expected_diag].append(predicted_top1)
-                
-                print(f"{case_id:<10} | {predicted_top1[:15]:<15} | {strict_acc:<5.1f} | {semantic_acc:<5.1f} | {recall:<5.1f} | {precision:<5.1f} | {f1:<5.2f} | {latency:<4.0f}")
-                
-            else:
-                print(f"{case_id:<10} | {'ERROR':<15} | 0.0   | 0.0   | 0.0   | 0.0   | 0.0   | {latency:<4.0f}")
+                if resp.status_code == 200:
+                    data = resp.json()
+                    
+                    # 1. 提取預測結果
+                    pred_type = data.get('response_type', 'FALLBACK')
+                    pred_diag = ""
+                    pred_conf = 0.0
+                    
+                    if data.get('diagnosis_list'):
+                        top1 = data['diagnosis_list'][0]
+                        pred_diag = top1.get('disease_name', "")
+                        pred_conf = top1.get('confidence', 0.0)
+                    
+                    # 2. 提取結構化屬性 (Crucial for Logic Checks)
+                    pred_attributes = {}
+                    # 從 Translator 的八綱分數推斷屬性 (standardized_features)
+                    if data.get('standardized_features'):
+                        eight_principles = data['standardized_features'].get('eight_principles_score', {})
+                        han = eight_principles.get('han', 0)
+                        re = eight_principles.get('re', 0)
+                        xu = eight_principles.get('xu', 0)
+                        shi = eight_principles.get('shi', 0)
+                        
+                        pred_attributes['nature'] = 'cold' if han > re else ('hot' if re > han else 'neutral')
+                        pred_attributes['deficiency'] = 'deficiency' if xu > shi else ('excess' if shi > xu else 'neutral')
+                    
+                    # 3. 提取模糊項計數
+                    amb_count = len(data.get('standardized_features', {}).get('ambiguous_terms', []))
+                    
+                    # 4. 獲取預測向量 (Metric 1)
+                    pred_vector = asyncio.run(get_embedding(pred_diag)) if pred_diag else None
 
-        except Exception as e:
-            print(f"Error processing {case_id}: {str(e)}")
+                    # Log 到 Evaluator
+                    turn_data = {
+                        "case_id": case_id,
+                        "turn_id": turn_id,
+                        "input_text": user_input,
+                        "gt_diagnosis": gt_diagnosis,
+                        "gt_attributes": gt_attributes,
+                        "gt_vector": gt_vector,
+                        "is_emergency_gt": is_emergency,
+                        
+                        "pred_response_type": pred_type,
+                        "pred_diagnosis": pred_diag,
+                        "pred_confidence": pred_conf,
+                        "pred_attributes": pred_attributes, 
+                        "pred_vector": pred_vector,
+                        "ambiguous_terms_count": amb_count,
+                        
+                        "is_rejected_action": "CASE_REJECTED" in data.get('evidence_trace', "") # 從 trace 判斷
+                    }
+                    evaluator.log_turn(turn_data)
+                    
+                    print(f"  Turn {turn_id}: [{pred_type}] {pred_diag} (Conf: {pred_conf:.2f})")
+                    
+                else:
+                    print(f"  Turn {turn_id}: Error {resp.status_code}")
 
-    print("-" * 100)
+            except Exception as e:
+                print(f"  Exception: {str(e)}")
+                
+    # Final Report
+    print("\n" + "="*60)
+    print("SCBR vFinal Evaluation Report (10 Metrics)")
+    print("="*60)
     
-    if successful_cases > 0:
-        avg_strict = total_strict_acc / successful_cases
-        avg_semantic = total_semantic_acc / successful_cases
-        avg_recall = total_recall / successful_cases
-        avg_precision = total_precision / successful_cases
-        avg_f1 = total_f1 / successful_cases
-        avg_lat = total_latency / successful_cases
-        
-        print(f"\n=== Benchmark Report (Spec 6.2) ===")
-        print(f"Total Cases: {len(cases)} (Successful: {successful_cases})")
-        print(f"[A. Accuracy]")
-        print(f"  Top-1 Semantic Acc: {avg_semantic:.2%}")
-        print(f"  Semantic Recall:    {avg_recall:.2%}")
-        print(f"  Semantic Precision: {avg_precision:.2%}")
-        print(f"  F1-Score:           {avg_f1:.2%}")
-        print(f"[B. Efficiency]")
-        print(f"  Avg Latency:        {avg_lat:.0f} ms")
-        
-        print(f"\n[A.5 Confusion Matrix Summary] (Expected -> Predicted Count)")
-        for exp, preds in confusion_data.items():
-            pred_counts = {}
-            for p in preds:
-                pred_counts[p] = pred_counts.get(p, 0) + 1
-            print(f"  Expected '{exp}': {pred_counts}")
-            
-    else:
-        print("No cases successfully processed.")
+    results = evaluator.get_summary_report()
+    for metric, value in results.items():
+        print(f"{metric:<30}: {value:.4f}")
+    print("="*60)
 
 if __name__ == "__main__":
     run_benchmark()

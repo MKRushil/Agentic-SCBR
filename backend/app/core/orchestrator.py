@@ -72,8 +72,8 @@ class Orchestrator:
         embedding_input = current_summary.get("updated_diagnosis_summary", "") + " " + user_input_current_turn
         embedding_input = embedding_input.strip()
         
-        # 2. 構建 LLM Context (完整歷史，供推理用)
-        full_conversation_context = " ".join([msg["content"] for msg in session_history])
+        # 2. 構建 LLM Context (完整歷史，供推理用) - 明確標記角色，防止混淆
+        full_conversation_context = "\n".join([f"{msg['role'].upper()}: {msg['content']}" for msg in session_history])
 
         # 初始化 Workflow State
         state = WorkflowState(
