@@ -1,33 +1,55 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { formatDate } from '@/utils/formatters'
+import { User, Bot } from 'lucide-vue-next' // 引入圖標
 
 const props = defineProps<{
   role: 'user' | 'assistant' | 'system'
   content: string
-  timestamp: Date
+  timestamp: Date // 新增 timestamp prop
 }>()
 
 const isUser = computed(() => props.role === 'user')
 const isSystem = computed(() => props.role === 'system')
 
-const bubbleClass = computed(() => {
-  if (isSystem.value) return 'bg-gray-100 text-gray-500 text-xs py-1 px-3 rounded-full mx-auto'
-  if (isUser.value) return 'bg-emerald-100 text-slate-800 rounded-br-none'
-  return 'bg-white border border-slate-200 text-slate-800 rounded-bl-none shadow-sm'
+// 計算訊息列的佈局方向 (使用者靠右，系統靠左)
+const messageRowClass = computed(() => ({
+  'flex-row-reverse': isUser.value,
+  'justify-start': !isUser.value
+}))
+
+// 計算氣泡樣式
+const bubbleClass = computed(() => ({
+  'bg-primary-600 text-white rounded-tr-sm': isUser.value, // 使用者訊息
+  'bg-white border border-slate-200 text-slate-700 rounded-tl-sm': !isUser.value // 系統/助手訊息
+}))
+
+// 計算頭像樣式
+const avatarClass = computed(() => ({
+  'bg-primary-600 text-white': isUser.value, // 使用者頭像
+  'bg-white border border-slate-200 text-primary-600': !isUser.value // 系統/助手頭像
+}))
+
+const formattedTime = computed(() => {
+  return props.timestamp.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' })
 })
 </script>
 
 <template>
-  <div :class="['flex mb-4', isUser ? 'justify-end' : isSystem ? 'justify-center' : 'justify-start']">
-    <div 
-      class="max-w-[80%] p-3 rounded-2xl relative"
-      :class="bubbleClass"
-    >
-      <p class="whitespace-pre-wrap text-sm leading-relaxed">{{ content }}</p>
-      <span v-if="!isSystem" class="text-[10px] text-slate-400 absolute bottom-1 right-2 opacity-70">
-        {{ formatDate(timestamp).split(' ')[1] }}
-      </span>
+  <div class="flex items-start gap-3" :class="messageRowClass">
+    <!-- 頭像 -->
+    <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm" :class="avatarClass">
+      <User v-if="isUser" class="w-5 h-5" />
+      <Bot v-else class="w-5 h-5" />
+    </div>
+
+    <!-- 訊息內容 -->
+    <div class="flex flex-col max-w-[70%]">
+      <div class="px-4 py-3 rounded-xl shadow-sm text-base" :class="bubbleClass">
+        <span v-html="content"></span>
+      </div>
+      <div class="text-xs text-slate-400 mt-1" :class="{ 'text-right': isUser }">
+        {{ isUser ? '您' : (isSystem ? '系統' : 'AI 助手') }} ・ {{ formattedTime }}
+      </div>
     </div>
   </div>
 </template>

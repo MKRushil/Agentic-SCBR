@@ -1,3 +1,5 @@
+import logging
+import json # Import json for parsing summary
 from app.agents.base import BaseAgent
 from app.core.orchestrator import WorkflowState
 from app.prompts.base import SYSTEM_PROMPT_CORE, XML_OUTPUT_INSTRUCTION
@@ -16,15 +18,27 @@ class ReasoningAgent(BaseAgent):
         self.weaviate_client = weaviate_client
 
     async def run(self, state: WorkflowState) -> WorkflowState:
-        # 1. 取得 Embedding (用於檢索規則)
+        # 1. 取得 Embedding (用於檢索規則) - 使用原始輸入，因為規則檢索是基於原始語意
         query_vector = await self.client.get_embedding(state.user_input_raw)
         
         # 2. 檢索診斷規則 (Retrieval)
         retrieved_rules = self.weaviate_client.search_diagnostic_rules(query_vector, limit=3)
         
-        # 3. Layer 3 Inference
-        # 使用者輸入作為特徵 (這裡假設未經過 Translator 標準化，直接用 Raw Input)
-        prompt = build_reasoning_prompt({"user_description": state.user_input_raw}, retrieved_rules)
+        # 3. 準備更豐富的特徵給 Prompt
+        features_for_prompt = {
+            "user_input_raw": state.user_input_raw,
+            "standardized_features": state.standardized_features, # Translator 的輸出
+            "diagnosis_summary": state.diagnosis_summary # Summarizer 的結構化輸出
+        }
+        
+        # 4. Layer 3 Inference
+        # 傳遞 previous_diagnosis_candidates 給 Prompt，實現診斷漏斗邏輯
+        prompt = build_reasoning_prompt(
+            features_for_prompt, 
+            retrieved_rules, 
+            state.previous_diagnosis_candidates
+        )
+        
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT_CORE + "\n" + REASONING_SYSTEM_PROMPT + "\n" + XML_OUTPUT_INSTRUCTION},
             {"role": "user", "content": prompt}
@@ -42,11 +56,23 @@ class ReasoningAgent(BaseAgent):
             follow_up_data = result_json.get("follow_up_question")
             follow_up = None
             if follow_up_data:
-                follow_up = FollowUpQuestion(**follow_up_data)
-            
+                # [Schema Fix] Map 'discriminating_question' to 'question_text' if needed
+                if not follow_up_data.get("question_text") and follow_up_data.get("discriminating_question"):
+                    follow_up_data["question_text"] = follow_up_data["discriminating_question"]
+                
+                try:
+                    follow_up = FollowUpQuestion(**follow_up_data)
+                except Exception as e:
+                    # Log validation error but don't crash
+                    import logging
+                    logging.getLogger(__name__).warning(f"FollowUpQuestion validation failed: {e}. Using fallback.")
+                    follow_up = FollowUpQuestion(required=False, question_text="請問還有其他症狀嗎？", options=[])
+
             # 5. 構建 UnifiedResponse
+            response_type = result_json.get("response_type", ResponseType.FALLBACK)
+            
             # 處理 formatted_report，特別是 FALLBACK 模式下的鑑別診斷
-            formatted_report_content = result.get("formatted_report")
+            formatted_report_content = result_json.get("formatted_report")
             if not formatted_report_content and response_type == ResponseType.FALLBACK and diagnosis_list:
                 formatted_report_content = "## 鑑別診斷報告 (可能證型)\n"
                 for diag in diagnosis_list:
@@ -55,12 +81,11 @@ class ReasoningAgent(BaseAgent):
                         formatted_report_content += f"  - *判斷依據/待確認:* {diag.condition}\n"
                 formatted_report_content += "\n---"
 
-
             response = UnifiedResponse(
                 response_type=response_type,
                 diagnosis_list=diagnosis_list,
                 follow_up_question=follow_up,
-                evidence_trace=result.get("evidence_trace", "無法取得推導過程"),
+                evidence_trace=result_json.get("evidence_trace", "無法取得推導過程"),
                 safety_warning=None, # 稍後由 Safety Engine 填入
                 visualization_data=None,
                 formatted_report=formatted_report_content

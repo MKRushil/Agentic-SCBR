@@ -2,7 +2,7 @@ import hashlib
 import logging
 from typing import List, Dict
 from app.core.config import get_settings
-# from app.database.weaviate_client import WeaviateClient # 避免循環 import，建議在方法內 import 或使用 DI
+from app.database.weaviate_client import WeaviateClient
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -34,10 +34,18 @@ class PatientManager:
         """
         從 Weaviate (Class: TCM_Session_Memory) 撈取歷史對話
         """
-        # TODO: 實作 Weaviate 查詢邏輯
-        # 這裡僅回傳 Mock
-        logger.info(f"[PatientManager] Fetching history for {patient_id_hash}")
-        return []
+        client = None
+        try:
+            client = WeaviateClient()
+            history = client.get_session_history(patient_id_hash)
+            logger.info(f"[PatientManager] Retrieved {len(history)} records for {patient_id_hash}")
+            return history
+        except Exception as e:
+            logger.error(f"[PatientManager] Failed to fetch history: {str(e)}")
+            return []
+        finally:
+            if client:
+                client.close()
         
     def save_session_turn(self, patient_id_hash: str, session_id: str, content: str, diagnosis_summary: str):
         """

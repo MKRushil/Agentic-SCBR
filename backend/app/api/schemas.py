@@ -27,6 +27,11 @@ class FollowUpQuestion(BaseModel):
     required: bool
     question_text: str
     options: List[str] = Field(default_factory=list)
+    # Spec 6.2 Enhancement: Maximum Information Gain fields
+    discriminating_question: Optional[str] = None
+    purpose: Optional[str] = None
+    current_top_hypothesis: Optional[str] = None
+    main_competitor: Optional[str] = None
 
 class UnifiedResponse(BaseModel):
     """
@@ -50,9 +55,16 @@ class FeedbackRequest(BaseModel):
     規格書 7.3 學習閉環請求
     """
     session_id: str
-    patient_id: str
+    patient_id: Optional[str] = "anonymous" # Allow optional/default
     action: FeedbackAction
     modified_content: Optional[str] = None # 若 action 為 MODIFY 則必填
+
+class PatientRequest(BaseModel):
+    raw_id: str
+
+class PatientResponse(BaseModel):
+    hashed_id: str
+    history_summary: List[Dict[str, Any]] = Field(default_factory=list)
 
 class ChatRequest(BaseModel):
     session_id: str
@@ -73,7 +85,8 @@ class WorkflowState(BaseModel):
     path_selected: Optional[PathSelected] = None
     retrieved_context: List[Any] = Field(default_factory=list)     # 檢索到的案例或規則內容
     diagnosis_candidates: List[DiagnosisItem] = Field(default_factory=list)  # 推理結果列表
-    diagnosis_summary: Optional[str] = None # Summarizer 產出的病況摘要
+    previous_diagnosis_candidates: Optional[List[DiagnosisItem]] = Field(default_factory=list) # 上一輪的診斷候選，用於收斂漏斗
+    diagnosis_summary: Optional[Dict[str, Any]] = None # Summarizer 產出的病況摘要，現在是結構化 JSON
     follow_up_question: Optional[FollowUpQuestion] = None    # 反問內容
     final_response: Optional[UnifiedResponse] = None        # 最終輸出給前端的 JSON
     

@@ -1,4 +1,5 @@
 import logging
+import json
 from app.agents.base import BaseAgent
 from app.core.orchestrator import WorkflowState
 from app.prompts.base import SYSTEM_PROMPT_CORE, XML_OUTPUT_INSTRUCTION
@@ -17,14 +18,17 @@ class SummarizerAgent(BaseAgent):
         logger.info(f"[Summarizer] Starting background summarization for Session: {state.session_id}")
         
         try:
-            # 組合 Prompt
-            # user_input_raw 已經包含了本回合的完整對話歷史 (由 Orchestrator 拼接)
-            # 但理想情況下，我們應該只傳入「新增的對話」+「舊摘要」
-            # 不過為了簡化，我們讓 LLM 重新摘要這段對話也無妨，或是假設 state.user_input_raw 是完整的 history
-            
+            # 準備舊摘要 (如果是 Dict 則轉字串)
+            current_summary_str = "尚無摘要"
+            if state.diagnosis_summary:
+                if isinstance(state.diagnosis_summary, dict):
+                    current_summary_str = json.dumps(state.diagnosis_summary, ensure_ascii=False)
+                else:
+                    current_summary_str = str(state.diagnosis_summary)
+
             prompt = build_summarizer_prompt(
                 history_content=state.user_input_raw,
-                current_summary=state.diagnosis_summary or "尚無摘要"
+                current_summary=current_summary_str
             )
 
             messages = [
@@ -38,11 +42,11 @@ class SummarizerAgent(BaseAgent):
             # 解析結果
             result = self.parse_xml_json(response_text)
             
-            # 更新狀態
-            new_summary = result.get("updated_diagnosis_summary", "")
-            state.diagnosis_summary = new_summary
+            # 更新狀態 - 直接儲存完整的結構化結果 (Dict)
+            state.diagnosis_summary = result
             
-            logger.info(f"[Summarizer] Summary updated: {new_summary[:50]}...")
+            summary_text = result.get("updated_diagnosis_summary", "")
+            logger.info(f"[Summarizer] Summary updated: {summary_text[:50]}...")
             
             return state
 

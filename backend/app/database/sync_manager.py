@@ -48,10 +48,8 @@ class SyncManager:
                         logger.error(f"[Sync] Invalid JSON format in {filename}, expected List.")
                         continue
 
-                # 2. Get Existing IDs from Weaviate (Mocking logic here)
-                # 真實情況需 query Weaviate 取得所有 ID
-                # existing_ids = self.weaviate_client.get_all_ids(class_name)
-                existing_ids = set() 
+                # 2. Get Existing IDs from Weaviate
+                existing_ids = self.weaviate_client.get_all_ids(class_name)
                 
                 # 3. Calculate Diff & Insert
                 new_items = []
@@ -118,17 +116,7 @@ class SyncManager:
                 vector = await self.nvidia_client.get_embedding(text_to_embed)
                 
                 # 寫入 Weaviate
-                # 使用通用的 client.insert 方法 (需確認 WeaviateClient 有此方法，這裡假設有或直接調用)
-                # 為了避免 AttributeError，我們先假設 WeaviateClient 有一個 generic_insert
-                # 但實際上您的 WeaviateClient 只有 insert_case 和 search_similar_cases
-                # 我需要在此處直接調用 client 的 collection 方法，或者之後擴充 WeaviateClient
-                
-                # 暫時直接使用 weaviate_client 內部的 client 屬性進行操作 (若為 public)
-                # 或者擴充 WeaviateClient。比較好的做法是擴充 WeaviateClient。
-                # 這裡我們先呼叫一個尚未存在的方法，隨後我去補上。
                 self.weaviate_client.insert_generic(class_name, properties, vector)
                 
-                logger.info(f"[Sync] Inserted {class_name} ID: {properties.get('case_id') or properties.get('term_id') or properties.get('rule_id')}")
-
             except Exception as e:
                 logger.error(f"[Sync] Failed to process item in {class_name}: {str(e)}")

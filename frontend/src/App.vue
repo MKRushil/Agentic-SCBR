@@ -104,9 +104,10 @@ const setTab = (tab: any) => {
       <main class="main-canvas">
           
         <!-- 1. Chat Panel -->
-        <!-- 在 Workbench 模式下永遠顯示；在 Dashboard 模式下，只有 tab='chat' 時顯示 -->
+        <!-- 在 Workbench 模式下永遠顯示；在 Dashboard 模式下，只有 tab='chat' 時顯示 (透過 active class) -->
         <section id="panel-chat" class="panel" 
           v-show="layoutMode === 'workbench' || (layoutMode === 'dashboard' && activeTab === 'chat')"
+          :class="{ 'active': activeTab === 'chat' }"
         >
           <div class="panel-header">
             <span><MessageSquare class="w-4 h-4 inline mr-2" /> 病史採集與對話</span>
@@ -123,18 +124,26 @@ const setTab = (tab: any) => {
           </div>
         </section>
 
-        <!-- Workbench 右側容器 (僅在 Workbench 模式顯示) -->
-        <div class="workbench-right-col" v-if="layoutMode === 'workbench'">
+        <!-- Workbench 右側容器 (Wrapper) 
+             在 Workbench 模式下作為右欄 Flex 容器；
+             在 Dashboard 模式下使用 display: contents 讓子 Panel 能夠全螢幕顯示 -->
+        <div class="workbench-right-col" :style="layoutMode === 'dashboard' ? 'display: contents' : ''">
             
-          <!-- Tabs -->
-          <div class="workbench-tabs">
+          <!-- Tabs (僅 Workbench 顯示) -->
+          <div class="workbench-tabs" v-if="layoutMode === 'workbench'">
             <div class="wb-tab" :class="{ active: activeTab === 'diagnosis' }" @click="setTab('diagnosis')">診斷建議</div>
             <div class="wb-tab" :class="{ active: activeTab === 'reasoning' }" @click="setTab('reasoning')">推導過程</div>
             <div class="wb-tab" :class="{ active: activeTab === 'report' }" @click="setTab('report')">診斷報告</div>
           </div>
 
           <!-- 2. Diagnosis Panel -->
-          <section id="panel-diagnosis" class="panel" v-show="activeTab === 'diagnosis'" style="display: flex;">
+          <section id="panel-diagnosis" class="panel" 
+            v-show="activeTab === 'diagnosis'"
+            :class="{ 'active': activeTab === 'diagnosis' }"
+          >
+             <div class="panel-header dashboard-only" v-if="layoutMode === 'dashboard'">
+                <span><Activity class="w-4 h-4 inline mr-2"/> 診斷建議 (Suggestions)</span>
+             </div>
              <div class="panel-content space-y-6">
                 <RadarChart />
                 
@@ -154,14 +163,26 @@ const setTab = (tab: any) => {
           </section>
 
           <!-- 3. Reasoning Panel -->
-          <section id="panel-reasoning" class="panel" v-show="activeTab === 'reasoning'" style="display: flex;">
+          <section id="panel-reasoning" class="panel" 
+            v-show="activeTab === 'reasoning'"
+            :class="{ 'active': activeTab === 'reasoning' }"
+          >
+            <div class="panel-header dashboard-only" v-if="layoutMode === 'dashboard'">
+              <span><Activity class="w-4 h-4 inline mr-2"/> 推導過程 (Trace)</span>
+            </div>
             <div class="panel-content">
               <EvidencePanel />
             </div>
           </section>
 
           <!-- 4. Report Panel -->
-          <section id="panel-report" class="panel" v-show="activeTab === 'report'" style="display: flex;">
+          <section id="panel-report" class="panel" 
+            v-show="activeTab === 'report'"
+            :class="{ 'active': activeTab === 'report' }"
+          >
+            <div class="panel-header dashboard-only" v-if="layoutMode === 'dashboard'">
+              <span><FileText class="w-4 h-4 inline mr-2"/> 最終報告 (Report)</span>
+            </div>
             <div class="panel-content bg-slate-200 flex justify-center p-8">
                <div class="bg-white shadow-lg p-12 w-[210mm] min-h-[297mm] text-slate-800 text-sm leading-relaxed prose prose-slate">
                   <div v-if="chatStore.formattedReport" v-html="chatStore.formattedReport.replace(/\n/g, '<br>')"></div>
@@ -173,16 +194,6 @@ const setTab = (tab: any) => {
           </section>
 
         </div>
-
-        <!-- Dashboard 模式下的其他 Panels (僅在 Dashboard 模式顯示) -->
-        <template v-if="layoutMode === 'dashboard'">
-            <!-- 這些 Panel 在 Dashboard 模式下是獨立的全螢幕 View -->
-            <section id="panel-diagnosis-dash" class="panel" v-show="activeTab === 'diagnosis'">
-                <div class="panel-header"><span>診斷建議</span></div>
-                <div class="panel-content"><RadarChart /><!-- ... --></div>
-            </section>
-            <!-- 簡化起見，先專注讓 Workbench 正常 -->
-        </template>
 
       </main>
     </div>

@@ -1,4 +1,5 @@
 import logging
+import json # Import json
 from app.agents.base import BaseAgent
 from app.core.orchestrator import WorkflowState
 from app.prompts.base import SYSTEM_PROMPT_CORE, XML_OUTPUT_INSTRUCTION
@@ -23,10 +24,28 @@ class MemoryAgent(BaseAgent):
         best_case = state.retrieved_context[0] # Top 1
         base_similarity = best_case.get('similarity', 0.0)
         
+        # 從 summary 中提取素體與新感特徵
+        constitution_features = []
+        acute_onset_features = []
+        
+        try:
+            summary_data = {}
+            if isinstance(state.diagnosis_summary, dict):
+                summary_data = state.diagnosis_summary
+            elif isinstance(state.diagnosis_summary, str):
+                summary_data = json.loads(state.diagnosis_summary)
+            
+            constitution_features = summary_data.get("constitution_features", [])
+            acute_onset_features = summary_data.get("acute_onset_features", [])
+        except Exception as e:
+            logger.warning(f"[MemoryAgent] Failed to parse diagnosis_summary: {e}")
+        
         # 2. 構建 Prompt
         prompt = build_gap_analysis_prompt(
             patient_input=state.user_input_raw,
-            ref_case=best_case
+            ref_case=best_case,
+            constitution_features=constitution_features,
+            acute_onset_features=acute_onset_features
         )
         
         messages = [

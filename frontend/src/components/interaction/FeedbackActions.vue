@@ -1,26 +1,50 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useChatStore } from '@/stores/chatStore'
+import { usePatientStore } from '@/stores/patientStore'
 import { scbrService } from '@/api/scbrService'
 import { ThumbsUp, Edit, ThumbsDown, Check } from 'lucide-vue-next'
 
 const chatStore = useChatStore()
+const patientStore = usePatientStore()
 const isSubmitted = ref(false)
 const feedbackStatus = ref('')
 
 const sendFeedback = async (action: 'ACCEPT' | 'MODIFY' | 'REJECT') => {
   if (isSubmitted.value) return
 
+  let modifiedContent = undefined
+
+  // 處理修改邏輯
+  if (action === 'MODIFY') {
+    // 簡單實作：使用 prompt 獲取修改意見
+    // 進階實作：應顯示 Modal，帶入當前診斷讓醫師編輯
+    const userInput = prompt('請輸入修正後的診斷建議與治則：', `診斷：${chatStore.currentDiagnosis[0]?.disease_name || ''}\n治則：`)
+    
+    if (userInput === null) return // 使用者取消
+    if (!userInput.trim()) {
+      alert('修改內容不能為空')
+      return
+    }
+    modifiedContent = userInput
+  }
+
   try {
     await scbrService.sendFeedback({
       session_id: chatStore.sessionId,
-      action: action
+      patient_id: patientStore.currentPatientId || 'anonymous', // 確保有值
+      action: action,
+      modified_content: modifiedContent
     })
     isSubmitted.value = true
-    feedbackStatus.value = action === 'ACCEPT' ? '已採納並寫入案例庫' : 
-                           action === 'REJECT' ? '已拒絕並標記' : '已進入修改模式'
+    
+    if (action === 'ACCEPT') feedbackStatus.value = '已採納並寫入案例庫 (Learning Loop)'
+    else if (action === 'MODIFY') feedbackStatus.value = '已提交修正並更新學習 (Learning Loop)'
+    else feedbackStatus.value = '已拒絕此建議'
+    
   } catch (e) {
-    alert('回饋發送失敗')
+    console.error(e)
+    alert('回饋發送失敗，請稍後再試')
   }
 }
 </script>
