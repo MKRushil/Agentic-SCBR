@@ -115,9 +115,16 @@ class MemoryAgent(BaseAgent):
             
         except Exception as e:
             logger.error(f"[MemoryAgent] Gap analysis failed: {str(e)} \nRaw: {response_text}")
-            # Fallback: 若分析失敗，直接回傳原案例 (降級處理)
-            # 這裡為了簡單，可以拋出異常讓 Orchestrator 處理，或是直接用原案例構建回應
-            # 選擇: 直接用原案例 (保留 MVP 邏輯)
-            pass 
+            
+            # Fallback for parsing error in MemoryAgent
+            state.final_response = UnifiedResponse(
+                response_type=ResponseType.FALLBACK,
+                diagnosis_list=[],
+                follow_up_question=FollowUpQuestion(required=True, question_text="系統在案例分析時發生錯誤，請提供更多細節。", options=[]),
+                evidence_trace=f"System Error in Memory Agent: {str(e)}",
+                formatted_report="",
+                safety_warning="案例分析異常",
+                visualization_data={}
+            )
             
         return state

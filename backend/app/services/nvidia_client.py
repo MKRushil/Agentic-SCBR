@@ -1,5 +1,6 @@
 import httpx
 import logging
+import numpy as np
 from typing import Dict, Any, List
 from app.core.config import get_settings
 
@@ -10,8 +11,7 @@ class NvidiaClient:
     """
     規格書 1.2: 資源調度策略與 API 封裝
     負責與 NVIDIA NIM 服務溝通。
-    注意：並發控制 (Concurrency Control) 由 Orchestrator 的 Global Lock 處理，
-    此處僅負責單次 HTTP 請求。
+    包含 Error 500 防禦機制 (Soft Landing) 與 Mock 降級。
     """
     def __init__(self):
         self.llm_api_key = settings.NVIDIA_LLM_API_KEY
@@ -28,7 +28,14 @@ class NvidiaClient:
         }
 
     async def get_embedding(self, text: str) -> List[float]:
-        """調用 nvidia/nv-embedqa-e5-v5"""
+        """
+        獲取向量 (含：空值攔截 + 錯誤軟著陸 + Mock 降級)
+        """
+        # 🛡️ 第一道防線：空值攔截 (Input Sanitization)
+        if not text or not str(text).strip():
+            logger.warning(f"[NvidiaClient] Embedding input is empty or None. Returning random vector.")
+            return list(np.random.rand(1024))
+
         url = f"{self.base_url}/embeddings"
         payload = {
             "input": [text],
@@ -39,22 +46,29 @@ class NvidiaClient:
         
         headers = self._get_headers(self.embedding_api_key)
         
-        async with httpx.AsyncClient(timeout=30.0) as client:
-            try:
+        # 🛡️ 第二道防線：API 錯誤軟著陸 (Soft Landing)
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client: # Embedding 快，30s 足夠
                 response = await client.post(url, json=payload, headers=headers)
                 response.raise_for_status()
                 data = response.json()
                 return data['data'][0]['embedding']
-            except Exception as e:
-                logger.error(f"Embedding API Failed: {str(e)}")
-                # 在真實環境中應有 Retry 機制或 fallback
-                raise e
+
+        except Exception as e:
+            # 🛡️ 第三道防線：Mock 降級 (Fallback)
+            logger.error(f"[NvidiaClient] Embedding API failed for: '{str(text)[:20]}...'. Reason: {str(e)}")
+            logger.warning(f"[NvidiaClient] System falling back to Mock Vector to prevent crash.")
+            
+            # 回傳隨機向量，讓流程能繼續走下去
+            return list(np.random.rand(1024))
 
     async def generate_completion(self, 
                                 messages: List[Dict[str, str]], 
                                 temperature: float = 0.2,
                                 max_tokens: int = 4096) -> str:
-        """調用 nvidia/llama-3.3-nemotron-super-49b-v1.5"""
+        """
+        調用 LLM 生成回應 (含 Timeout 優化)
+        """
         url = f"{self.base_url}/chat/completions"
         payload = {
             "model": self.model,
@@ -67,13 +81,13 @@ class NvidiaClient:
 
         headers = self._get_headers(self.llm_api_key)
 
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            try:
+        try:
+            async with httpx.AsyncClient(timeout=120.0) as client: # ⚠️ 延長至 120 秒
                 response = await client.post(url, json=payload, headers=headers)
                 response.raise_for_status()
                 data = response.json()
                 content = data['choices'][0]['message']['content']
                 return content
-            except Exception as e:
-                logger.error(f"LLM Generation Failed: {str(e)}")
-                raise e
+        except Exception as e:
+            logger.error(f"[NvidiaClient] LLM Generation Failed: {str(e)}")
+            raise e

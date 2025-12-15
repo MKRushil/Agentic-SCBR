@@ -21,7 +21,7 @@ REASONING_SYSTEM_PROMPT = """
 
 **第二層：方向引導權 (The Steering Layer - High Priority)**
 - **法則**: 3. 外源因果 (Exogenous Causality), 6. 病程演化 (Disease Evolution).
-- **執行**: 若存在明確的外力/藥物因果，或處於特定病程階段，**強制鎖定**診斷方向 (Override 內傷辨證)。
+- **執行**: 若存在明確的外力/藥物因果, 或處於特定病程階段，**強制鎖定**診斷方向 (Override 內傷辨證)。
 
 **第三層：優化裁決權 (The Optimization Layer - Normal Priority)**
 - **法則**: 4. 診斷一元論 (Monism), 5. 症狀完整性 (Completeness).
@@ -29,7 +29,7 @@ REASONING_SYSTEM_PROMPT = """
 
 ---
 
-#### 詳細規則定義 (Detailed Rules)
+#### 詳細規則定義 (Detailed Rules) 
 
 **1. [Layer 1] 全域急症與物理矛盾**
 - **判定矩陣**: 心肺/腦部/急腹症危候 (同前述定義)。
@@ -66,16 +66,74 @@ REASONING_SYSTEM_PROMPT = """
   - **判定**: 確立診斷大方向 (是內傷還是外因？)。
 
 #### Step 2: 第三層推理 (The Internal Logic)
+
 - **提案者**: 在 Step 1 確定的方向下，進行 **八綱** 與 **臟腑** 辨證。
+
 - **審查者**: 檢查解剖與生理邏輯 (性別/年齡互斥)。
 
+
+
 #### Step 3: 優化與收斂 (The Optimization)
-- **博弈過程**:
+
+- **博弈過程 (Dialectical Process)**:
+
   - **提案者**: "為了涵蓋所有症狀，我建議診斷 A + B。" (追求完整性)
+
   - **審查者**: "B 是 A 的衍生，且違反一元論。建議合併為 C。" (追求一元論)
-  - **反證檢查**: "C 診斷通常有脈數，但病人脈遲，如何解釋？"
-- **結論**: 最終定案。
+
+
+
+- **⚖️ 仲裁協定 (The Arbitration Protocol - Priority Override)**:
+
+  在此階段，若發生僵局，請執行以下 **最高優先級** 的裁決：
+
+
+
+  1. **臟腑關聯豁免 (Zang-Fu Exception)**: 
+
+     - **指令**: 若症狀符合「五行相生相剋」(如肝火犯肺、肺腎兩虛) 或 「表裡同病」(如脾胃濕熱)，**強制保留複合病機**。
+
+     - **優先級**: 高於 [診斷一元論]。
+
+
+
+  2. **舌脈衝突裁決 (Pulse-Tongue Conflict Resolution)**:
+
+     - **指令**: 當舌象與脈象屬性完全相反 (如舌寒脈熱) 且無法統一時：
+
+       - **急性病/外感/高熱**: 權重分配 **脈象 70% > 舌象 30%** (脈變快)。
+
+       - **慢性病/內傷/虛損**: 權重分配 **舌象 70% > 脈象 30%** (舌苔反映本質)。
+
+     - **行動**: 選擇權重高者作為定性依據，並在 `condition` 中註明 "捨脈從舌" 或 "捨舌從脈"。
+
+     - **優先級**: 高於 [物理矛盾檢核]。
+
+
+
+  3. **氣機游移豁免 (Qi Stagnation Exception)**:
+     - **指令**: 若症狀描述為「遊走性疼痛」、「無形之氣堵塞」或「位置不定」，診斷為「氣滯」或「鬱證」，**不可視為描述模糊或矛盾**。
+     - **優先級**: 高於 [模糊語意攔截]。
+
+- **結論**: 根據仲裁結果定案，輸出最終診斷。
+
+
+
+#### Step 4: 輸出決策 (Output Decision)
+
+- **強制收斂協定 (Forced Convergence Protocol)**:
+
+  - 若 **舌象(Tongue)** 與 **脈象(Pulse)** 資訊皆已具備 (不為 null)，**嚴禁** 輸出 "INQUIRY_ONLY"。
+
+  - 即使仍有次要症狀未明，必須依據當前證據權重，輸出 "DEFINITIVE" 診斷，並將不確定因素放入 `confidence` 的扣分理由中。
+
+  - 僅在「缺乏舌脈」且「無關鍵主證」時，才允許 "FALLBACK" 或 "INQUIRY_ONLY"。
+
+
+
 ---
+
+
 
 ### [Phase 3: 輸出 Output]
 
@@ -140,8 +198,7 @@ def build_reasoning_prompt(features: Dict[str, Any], retrieved_rules: List[Dict]
 
 
     return f"""
-    [SCBR 系統輸入]
-    
+    [SCBR 系統輸入]    
     1. 病患特徵 (Evidence Source): 
     - 原始輸入: {features.get('user_input_raw', '無')}
     - 標準化主訴: {standardized_feats.get('chief_complaint', '無')}

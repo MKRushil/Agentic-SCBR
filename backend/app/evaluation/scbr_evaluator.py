@@ -62,27 +62,62 @@ class SCBREvaluator:
             if p_attr.get('deficiency') and g_attr.get('deficiency'):
                 if p_attr['deficiency'] != g_attr['deficiency']:
                     penalty = 1.0
+            
+            # 檢核排汗 (Sweat)
+            if p_attr.get('sweat') and g_attr.get('sweat'):
+                if p_attr['sweat'] != g_attr['sweat']:
+                    penalty = 1.0
 
             final_score = max(0.0, vec_score * (1.0 - penalty))
             scores.append(final_score)
             
         return float(np.mean(scores)) if scores else 0.0
 
-    def calculate_effective_recall(self) -> float:
-        """指標 2: Effective Recall (排除 Inquiry 的召回率)"""
-        total_definitive = 0
-        correct_definitive = 0
+    def _get_cosine_sim(self, v1_list, v2_list) -> float:
+        try:
+            v1 = np.array(v1_list).reshape(1, -1)
+            v2 = np.array(v2_list).reshape(1, -1)
+            return float(cosine_similarity(v1, v2)[0][0])
+        except:
+            return 0.0
+
+    def calculate_effective_recall(self, similarity_threshold: float = 0.85) -> float:
+        """
+        指標 2: Effective Recall (語意版 - 關鍵修正)
+        過濾: 忽略 INQUIRY_ONLY
+        判定: 字串相同 OR 向量相似度 > 0.85 即視為命中 (TP)
+        """
+        tp = 0
+        denominator = 0
         
         for log in self.logs:
             if not log.get('gt_diagnosis'): continue # Online Mode without GT
             
-            # 只看已確診的回合
+            # 忽略 INQUIRY (視為延遲決策)
+            if log['pred_response_type'] == 'INQUIRY_ONLY':
+                continue
+            
+            # 分母: 只要不是 Inquiry 都算 (包含 Definitive 和 Fallback/Rejected)
+            denominator += 1
+            
+            # 分子: 必須是 DEFINITIVE 且 (字串相同 OR 語意相似)
             if log['pred_response_type'] == 'DEFINITIVE':
-                total_definitive += 1
-                if log['pred_diagnosis'] == log['gt_diagnosis']: # 或語意相似
-                    correct_definitive += 1
+                is_match = False
+                
+                # 1. 字串比對 (Fast Path)
+                if log['pred_diagnosis'] == log['gt_diagnosis']:
+                    is_match = True
+                
+                # 2. 向量比對 (Semantic Path) - 這是救回分數的關鍵！
+                elif log.get('pred_vector') and log.get('gt_vector'):
+                    sim = self._get_cosine_sim(log['pred_vector'], log['gt_vector'])
+                    if sim >= similarity_threshold:
+                        is_match = True
+                
+                if is_match:
+                    tp += 1
         
-        return correct_definitive / total_definitive if total_definitive > 0 else 0.0
+        return tp / denominator if denominator > 0 else 0.0
 
     def calculate_rejection_precision(self) -> float:
         """指標 3: Rejection Precision (拒絕精確率)"""
@@ -101,17 +136,26 @@ class SCBREvaluator:
                 p_attr = log.get('pred_attributes', {})
                 g_attr = log.get('gt_attributes', {})
                 
-                # 簡易判斷：如果寒熱屬性相反，則認為拒絕是正確的
+                # Check for "八綱衝突" or "物理矛盾" against GT
+                # If ANY of these attributes conflict, it's a valid reason for rejection.
+                conflict_found = False
                 if p_attr.get('nature') and g_attr.get('nature') and p_attr['nature'] != g_attr['nature']:
+                    conflict_found = True
+                if p_attr.get('deficiency') and g_attr.get('deficiency') and p_attr['deficiency'] != g_attr['deficiency']:
+                    conflict_found = True
+                if p_attr.get('sweat') and g_attr.get('sweat') and p_attr['sweat'] != g_attr['sweat']:
+                    conflict_found = True
+                
+                if conflict_found:
                     true_rejects += 1
                     
         return true_rejects / total_rejects if total_rejects > 0 else 1.0 # 預設無拒絕視為完美
 
     def calculate_logic_f1(self) -> float:
         """指標 4: Logic-Weighted F1"""
-        # 使用 Effective Recall 和 Hybrid Accuracy (作為 Precision 的近似)
+        # 使用 Effective Recall 和 Rejection Precision
         r = self.calculate_effective_recall()
-        p = self.calculate_hybrid_accuracy() 
+        p = self.calculate_rejection_precision() 
         
         if (p + r) == 0: return 0.0
         return 2 * (p * r) / (p + r)
@@ -221,25 +265,76 @@ class SCBREvaluator:
         return float(np.mean(scores)) if scores else 0.0
 
     def calculate_funnel_adherence(self) -> float:
-        """指標 10: Funnel Adherence Score"""
+        """指標 10: Funnel Adherence Score (修正版 - 檢查 Risk Level)"""
         illegal = 0
         total = 0
         
         for log in self.logs:
             total += 1
-            # 規則 1: 急症必須攔截 (僅在有 GT 時檢查)
-            if log.get('is_emergency_gt') is not None:
-                if log['is_emergency_gt'] and log['pred_response_type'] not in ['EMERGENCY_ABORT', 'FALLBACK', 'INQUIRY_ONLY']: # 允許 Inquiry
-                    illegal += 1
+            # 規則 1: 急症漏接 (GT是急症，但系統沒給出相應的反應)
+            # 允許反應: EMERGENCY_ABORT (最理想), FALLBACK, INQUIRY_ONLY (至少沒亂確診)
+            if log.get('is_emergency_gt'):
+                if log['pred_response_type'] not in ['EMERGENCY_ABORT', 'FALLBACK', 'INQUIRY_ONLY']:
+                     illegal += 1
             
-            # 規則 2: 模糊項過多不可確診
-            elif log['ambiguous_terms_count'] >= 2 and log['pred_response_type'] == 'DEFINITIVE':
+            # 規則 2: 盲目確診 (Blind Confidence)
+            # 定義: Translator 標記 risk 為 UNCERTAIN 或 RED，但系統卻給出 DEFINITIVE
+            elif log.get('pred_risk_level') in ['UNCERTAIN', 'RED'] and log['pred_response_type'] == 'DEFINITIVE':
                 illegal += 1
                 
         return 1.0 - (illegal / total) if total > 0 else 1.0
 
-    def get_summary_report(self) -> Dict[str, float]:
-        """輸出 10 大指標總表"""
+    def get_category_breakdown(self) -> Dict[str, float]:
+        """
+        輸出分科準確率報告 (Category Breakdown)
+        """
+        breakdown = {}
+        # 1. 抓出所有出現過的類別
+        all_categories = set(log.get('category', 'Uncategorized') for log in self.logs)
+        
+        for cat in all_categories:
+            # 2. 篩選該類別的 logs
+            cat_logs = [l for l in self.logs if l.get('category') == cat]
+            if not cat_logs: continue
+            
+            # 3. 計算該類別的 Hybrid Accuracy (指標 A1)
+            scores = []
+            for log in cat_logs:
+                if not log.get('gt_diagnosis'): continue # Online Mode without GT
+
+                # 1. 向量分數 (若無向量，退化為字串比對)
+                vec_score = 0.0
+                if 'pred_vector' in log and 'gt_vector' in log and log['pred_vector'] and log['gt_vector']:
+                    try:
+                        v1 = np.array(log['pred_vector']).reshape(1, -1)
+                        v2 = np.array(log['gt_vector']).reshape(1, -1)
+                        vec_score = cosine_similarity(v1, v2)[0][0]
+                    except:
+                        vec_score = 0.0
+                else:
+                    vec_score = 1.0 if log['pred_diagnosis'] == log['gt_diagnosis'] else 0.5
+
+                # 2. 邏輯懲罰 (Penalty)
+                penalty = 0.0
+                p_attr = log.get('pred_attributes', {})
+                g_attr = log.get('gt_attributes', {})
+                
+                if p_attr.get('nature') and g_attr.get('nature'):
+                    if p_attr['nature'] != g_attr['nature']:
+                        penalty = 1.0
+                
+                if p_attr.get('deficiency') and g_attr.get('deficiency'):
+                    if p_attr['deficiency'] != g_attr['deficiency']:
+                        penalty = 1.0
+
+                scores.append(max(0.0, vec_score * (1.0 - penalty)))
+            
+            breakdown[cat] = float(np.mean(scores)) if scores else 0.0
+            
+        return breakdown
+
+    def get_summary_report(self) -> Dict[str, Any]:
+        """輸出 10 大指標總表 + 分科報告"""
         return {
             "A1_Hybrid_Accuracy": self.calculate_hybrid_accuracy(),
             "A2_Effective_Recall": self.calculate_effective_recall(),
@@ -250,5 +345,6 @@ class SCBREvaluator:
             "B7_Avg_TTS": self.calculate_turns_to_stability(),
             "B8_Ambiguity_Res_Rate": self.calculate_ambiguity_resolution_rate(),
             "C9_Struct_Match_Score": self.calculate_structure_match_score(),
-            "C10_Funnel_Adherence": self.calculate_funnel_adherence()
+            "C10_Funnel_Adherence": self.calculate_funnel_adherence(),
+            "Category_Breakdown": self.get_category_breakdown()
         }

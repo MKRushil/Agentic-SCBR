@@ -4,7 +4,10 @@ import requests
 import uuid
 import sys
 import os
+import csv  # [修正 3] 補上 missing import
+import asyncio
 import numpy as np
+from datetime import datetime # [修正 3] 補上 missing import
 from dotenv import load_dotenv
 
 # Load env
@@ -20,9 +23,7 @@ from app.evaluation.scbr_evaluator import SCBREvaluator
 API_URL = "http://localhost:8000/api/v1/chat"
 DATASET_PATH = os.path.join(os.path.dirname(__file__), "test_dataset.json")
 
-# Initialize NvidiaClient for embedding
 settings = get_settings()
-nvidia_client = NvidiaClient()
 
 async def get_embedding(text):
     """
@@ -30,10 +31,6 @@ async def get_embedding(text):
     """
     if not text: return None
     try:
-        # Assuming get_embedding is an async method in NvidiaClient
-        # For synchronous context, run asyncio.run(nvidia_client.get_embedding(text))
-        # Or, modify NvidiaClient to have a sync get_embedding_sync if needed
-        # For now, let's use requests directly to avoid async in sync context
         url = "https://integrate.api.nvidia.com/v1/embeddings"
         headers = {
             "Authorization": f"Bearer {settings.NVIDIA_EMBEDDING_API_KEY}",
@@ -42,18 +39,21 @@ async def get_embedding(text):
         }
         payload = {
             "model": settings.EMBEDDING_MODEL_NAME,
-            "input": text
+            "input": [text],
+            "input_type": "query",
+            "encoding_format": "float"
         }
-        response = requests.post(url, headers=headers, json=payload, timeout=30)
+        # 使用 requests 同步調用 (在 async 包裝下)
+        response = requests.post(url, headers=headers, json=payload, timeout=60)
         response.raise_for_status()
         data = response.json()
         return data['data'][0]['embedding']
     except Exception as e:
-        print(f"Error getting embedding for '{text[:50]}...': {e}")
+        print(f"Error getting embedding for '{str(text)[:10]}...': {e}")
         return None
 
 def run_benchmark():
-    print("Starting SCBR Multi-Turn Benchmark (vFinal)...")
+    print("Starting SCBR Multi-Turn Benchmark (vFinal - Strict Mode)...")
     
     if not os.path.exists(DATASET_PATH):
         print(f"Error: Dataset not found at {DATASET_PATH}")
@@ -66,14 +66,13 @@ def run_benchmark():
     
     for case in cases:
         case_id = case['id']
+        category = case.get('category', 'Uncategorized')
         session_id = f"bench_{uuid.uuid4().hex[:8]}"
-        print(f"\n--- Processing Case: {case_id} ---")
+        print(f"\n--- Processing Case: {case_id} ({category}) ---")
         
-        # 獲取 GT 向量 (只做一次，為了 Metric 1)
+        # 獲取 GT 向量
         gt_text = case.get('expected_diagnosis', "")
-        # Run the async get_embedding in a synchronous way for benchmark
-        import asyncio
-        gt_vector = asyncio.run(get_embedding(gt_text)) # Await the embedding
+        gt_vector = asyncio.run(get_embedding(gt_text))
         
         # 獲取 GT 屬性
         gt_attributes = case.get('expected_attributes', {})
@@ -81,11 +80,10 @@ def run_benchmark():
         turns = case.get('turns', [])
         
         for turn_idx, turn in enumerate(turns):
-            turn_id = turn_idx + 1 # 從 1 開始
+            turn_id = turn_idx + 1
             user_input = turn.get('input', "")
             
-            # Ground Truths (for each turn, or from case level)
-            # Make sure gt_diagnosis is defined for each turn or fallback to case level
+            # Ground Truths
             gt_diagnosis = turn.get('expected_diagnosis', case.get('expected_diagnosis'))
             is_emergency = turn.get('is_emergency', case.get('is_emergency', False))
             
@@ -115,26 +113,41 @@ def run_benchmark():
                     
                     # 2. 提取結構化屬性 (Crucial for Logic Checks)
                     pred_attributes = {}
-                    # 從 Translator 的八綱分數推斷屬性 (standardized_features)
-                    if data.get('standardized_features'):
-                        eight_principles = data['standardized_features'].get('eight_principles_score', {})
-                        han = eight_principles.get('han', 0)
-                        re = eight_principles.get('re', 0)
-                        xu = eight_principles.get('xu', 0)
-                        shi = eight_principles.get('shi', 0)
-                        
-                        pred_attributes['nature'] = 'cold' if han > re else ('hot' if re > han else 'neutral')
-                        pred_attributes['deficiency'] = 'deficiency' if xu > shi else ('excess' if shi > xu else 'neutral')
+                    standardized = data.get('standardized_features', {})
                     
+                    # [修正 1] 提取排汗 (Sweat) - 為了 Metric 1 Penalty
+                    symptoms = standardized.get("symptoms", [])
+                    if any(k in s for s in symptoms for k in ["無汗", "不出汗"]):
+                        pred_attributes['sweat'] = 'no_sweat'
+                    elif any(k in s for s in symptoms for k in ["自汗", "盜汗", "大汗", "汗出"]):
+                        pred_attributes['sweat'] = 'sweat'
+
+                    # 提取寒熱虛實
+                    eight_principles = standardized.get('eight_principles_score', {})
+                    han = eight_principles.get('han', 0)
+                    re = eight_principles.get('re', 0)
+                    xu = eight_principles.get('xu', 0)
+                    shi = eight_principles.get('shi', 0)
+                    
+                    if han > re: pred_attributes['nature'] = 'cold'
+                    elif re > han: pred_attributes['nature'] = 'hot'
+                    
+                    if xu > shi: pred_attributes['deficiency'] = 'deficiency'
+                    elif shi > xu: pred_attributes['deficiency'] = 'excess'
+                    
+                    # [修正 2] 提取風險等級 (Risk Level) - 為了 Metric 10 Funnel Adherence
+                    pred_risk = data.get('risk_level', 'GREEN')
+
                     # 3. 提取模糊項計數
-                    amb_count = len(data.get('standardized_features', {}).get('ambiguous_terms', []))
+                    amb_count = len(standardized.get('ambiguous_terms', []))
                     
-                    # 4. 獲取預測向量 (Metric 1)
+                    # 4. 獲取預測向量
                     pred_vector = asyncio.run(get_embedding(pred_diag)) if pred_diag else None
 
                     # Log 到 Evaluator
                     turn_data = {
                         "case_id": case_id,
+                        "category": category,
                         "turn_id": turn_id,
                         "input_text": user_input,
                         "gt_diagnosis": gt_diagnosis,
@@ -147,28 +160,79 @@ def run_benchmark():
                         "pred_confidence": pred_conf,
                         "pred_attributes": pred_attributes, 
                         "pred_vector": pred_vector,
+                        "pred_risk_level": pred_risk, # [修正 2] 傳入 Evaluator
                         "ambiguous_terms_count": amb_count,
                         
-                        "is_rejected_action": "CASE_REJECTED" in data.get('evidence_trace', "") # 從 trace 判斷
+                        "is_rejected_action": "CASE_REJECTED" in data.get('evidence_trace', "")
                     }
                     evaluator.log_turn(turn_data)
                     
-                    print(f"  Turn {turn_id}: [{pred_type}] {pred_diag} (Conf: {pred_conf:.2f})")
+                    print(f"[{pred_type}] {pred_diag} (Conf: {pred_conf:.2f})")
                     
                 else:
-                    print(f"  Turn {turn_id}: Error {resp.status_code}")
+                    print(f"Error {resp.status_code}")
 
             except Exception as e:
-                print(f"  Exception: {str(e)}")
+                print(f"Exception: {str(e)}")
                 
     # Final Report
     print("\n" + "="*60)
     print("SCBR vFinal Evaluation Report (10 Metrics)")
     print("="*60)
     
-    results = evaluator.get_summary_report()
-    for metric, value in results.items():
-        print(f"{metric:<30}: {value:.4f}")
+    summary_metrics = evaluator.get_summary_report()
+
+    # 輸出設定
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_dir = os.path.join(os.path.dirname(__file__), "reports")
+    os.makedirs(output_dir, exist_ok=True)
+
+    # 1. 輸出 JSON
+    raw_file_path = os.path.join(output_dir, f"benchmark_raw_{timestamp}.json")
+    report_data = {
+        "meta": {"timestamp": timestamp, "total_cases": len(cases)},
+        "metrics": summary_metrics,
+        "logs": evaluator.logs
+    }
+    with open(raw_file_path, 'w', encoding='utf-8') as f:
+        json.dump(report_data, f, ensure_ascii=False, indent=2)
+    print(f"\n[Saved] Raw Data: {raw_file_path}")
+
+    # 2. 輸出 CSV
+    csv_file_path = os.path.join(output_dir, f"benchmark_metrics_{timestamp}.csv")
+    with open(csv_file_path, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(["Metric Type", "Metric Name", "Value"])
+        for key, val in summary_metrics.items():
+            if key == "Category_Breakdown": continue
+            m_type = "Accuracy" if key.startswith("A") else ("Efficiency" if key.startswith("B") else "Trajectory")
+            writer.writerow([m_type, key, f"{val:.4f}"])
+        
+        writer.writerow([])
+        writer.writerow(["Category", "Hybrid_Accuracy_Score"])
+        cat_breakdown = summary_metrics.get("Category_Breakdown", {})
+        for cat, score in cat_breakdown.items():
+            writer.writerow([cat, f"{score:.4f}"])
+    print(f"[Saved] Metrics CSV: {csv_file_path}")
+
+    # 3. 輸出 Markdown
+    md_file_path = os.path.join(output_dir, f"benchmark_report_{timestamp}.md")
+    with open(md_file_path, 'w', encoding='utf-8') as f:
+        f.write(f"# SCBR System Evaluation Report\n")
+        f.write(f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        
+        f.write("## 1. Overall Performance\n")
+        f.write("| Metric | Value |\n| :--- | :--- |\n")
+        for key, val in summary_metrics.items():
+            if key == "Category_Breakdown": continue
+            f.write(f"| {key} | **{val:.4f}** |\n")
+            
+        f.write("\n## 2. Category Breakdown\n")
+        f.write("| Category | Hybrid Accuracy |\n| :--- | :--- |\n")
+        for cat, score in cat_breakdown.items():
+            f.write(f"| {cat} | {score:.4f} |\n")
+
+    print(f"[Saved] Report MD: {md_file_path}")
     print("="*60)
 
 if __name__ == "__main__":

@@ -90,8 +90,33 @@ class MonitorService:
             # --- Sync to SCBREvaluator ---
             # 嘗試從 standardized_features 獲取 ambiguous_terms_count
             amb_count = 0
+            pred_attributes = {} # Initialize pred_attributes here
+            
             if state.standardized_features:
                 amb_count = len(state.standardized_features.get("ambiguous_terms", []))
+                
+                # Extract pred_attributes
+                standardized = state.standardized_features
+                symptoms = standardized.get("symptoms", [])
+                
+                # Check for sweat
+                if any(k in s for s in symptoms for k in ["無汗", "不出汗"]):
+                    pred_attributes['sweat'] = 'no_sweat'
+                elif any(k in s for s in symptoms for k in ["自汗", "盜汗", "大汗", "汗出"]):
+                    pred_attributes['sweat'] = 'sweat'
+
+                # Extract nature and deficiency from eight_principles_score
+                eight_principles = standardized.get('eight_principles_score', {})
+                han = eight_principles.get('han', 0)
+                re = eight_principles.get('re', 0)
+                xu = eight_principles.get('xu', 0)
+                shi = eight_principles.get('shi', 0)
+                
+                if han > re: pred_attributes['nature'] = 'cold'
+                elif re > han: pred_attributes['nature'] = 'hot'
+                
+                if xu > shi: pred_attributes['deficiency'] = 'deficiency'
+                elif shi > xu: pred_attributes['deficiency'] = 'excess'
             
             pred_type = "FALLBACK"
             if state.final_response:
@@ -107,7 +132,7 @@ class MonitorService:
                 "pred_response_type": pred_type,
                 "pred_diagnosis": pred_diag,
                 "pred_confidence": max_confidence,
-                "pred_attributes": {}, 
+                "pred_attributes": pred_attributes, # Use the populated pred_attributes
                 "ambiguous_terms_count": amb_count
             }
             self.evaluator.log_turn(turn_data)
