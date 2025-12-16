@@ -111,30 +111,16 @@ def run_benchmark():
                         pred_diag = top1.get('disease_name', "")
                         pred_conf = top1.get('confidence', 0.0)
                     
-                    # 2. 提取結構化屬性 (Crucial for Logic Checks)
-                    pred_attributes = {}
+                    # 2. 提取結構化屬性 (Directly from LLM)
                     standardized = data.get('standardized_features', {})
+                    pred_attributes = standardized.get('pred_attributes', {})
                     
-                    # [修正 1] 提取排汗 (Sweat) - 為了 Metric 1 Penalty
-                    symptoms = standardized.get("symptoms", [])
-                    if any(k in s for s in symptoms for k in ["無汗", "不出汗"]):
-                        pred_attributes['sweat'] = 'no_sweat'
-                    elif any(k in s for s in symptoms for k in ["自汗", "盜汗", "大汗", "汗出"]):
-                        pred_attributes['sweat'] = 'sweat'
+                    # [Fallback] 若 LLM 未輸出 (例如舊版)，保留空字典或進行簡單補救 (這裡選擇信任 LLM)
+                    if not pred_attributes:
+                        # Optional: Log warning
+                        # print(f"Warning: pred_attributes missing for {session_id}")
+                        pass
 
-                    # 提取寒熱虛實
-                    eight_principles = standardized.get('eight_principles_score', {})
-                    han = eight_principles.get('han', 0)
-                    re = eight_principles.get('re', 0)
-                    xu = eight_principles.get('xu', 0)
-                    shi = eight_principles.get('shi', 0)
-                    
-                    if han > re: pred_attributes['nature'] = 'cold'
-                    elif re > han: pred_attributes['nature'] = 'hot'
-                    
-                    if xu > shi: pred_attributes['deficiency'] = 'deficiency'
-                    elif shi > xu: pred_attributes['deficiency'] = 'excess'
-                    
                     # [修正 2] 提取風險等級 (Risk Level) - 為了 Metric 10 Funnel Adherence
                     pred_risk = data.get('risk_level', 'GREEN')
 
